@@ -2,15 +2,284 @@
 
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Magnefu - Personal site, portfolio and devlog">
+    <!--<link rel="icon" type="image/svg+xml" href="/favicon.svg" />-->
+
+    <title>magnefu</title>
+    <style>
+        :root {
+            --primary: #29ABE2; /* Blue from logo */
+            --dark: #222222;
+            --accent: #E73946; /* Red heart color */
+            --highlight: #FFA500; /* Orange/yellow rays */
+            --light: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .logo {
+            max-width: 150px;
+            margin-bottom: 1rem;
+        }
+        
+        nav {
+            background-color: var(--primary);
+            padding: 0.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .tool-link {
+            padding: 1rem;
+            background-color: #f0f8ff;
+            border-radius: 8px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        
+        .tool-link:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .calendar {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .portfolio-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="magnefu logo" class="logo">
+        <h1>magnefu</h1>
+        <p>Developer, Creator, Explorer</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#interests">Interests</a></li>
+            <li><a href="#calendar">Calendar</a></li>
+            <li><a href="#devlogs">Devlogs</a></li>
+            <li><a href="#tools">Tools</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="card">
+                <p>Welcome to my personal site! I'm Leon Thompson, a [Your Profession] based in [Your Location]. This is where I share my journey, work, and thoughts.</p>
+                <!-- Add more about yourself -->
+            </div>
+        </section>
+        
+        <section id="interests">
+            <h2>My Interests</h2>
+            <div class="card">
+                <h3>Programming</h3>
+                <p>Details about your programming interests...</p>
+            </div>
+            <div class="card">
+                <h3>Another Interest</h3>
+                <p>Details about another interest...</p>
+            </div>
+            <!-- Add more interest cards -->
+        </section>
+        
+        <section id="calendar">
+            <h2>Work Calendar & Progress</h2>
+            <div class="calendar">
+                <!-- Calendar or progress tracker would go here -->
+                <p>This is where I track my work progress and upcoming events.</p>
+            </div>
+        </section>
+        
+        <section id="devlogs">
+            <h2>Development Logs</h2>
+            <article class="card">
+                <h3>Project Name Update</h3>
+                <time datetime="2023-06-15">June 15, 2023</time>
+                <p>Details about your latest development work...</p>
+            </article>
+            <article class="card">
+                <h3>Another Project Update</h3>
+                <time datetime="2023-06-01">June 1, 2023</time>
+                <p>More development updates...</p>
+            </article>
+            <!-- More devlog entries -->
+        </section>
+        
+        <section id="tools">
+            <h2>Tools I Use</h2>
+            <div class="tool-links">
+                <a href="#" class="tool-link">VSCode</a>
+                <a href="#" class="tool-link">Figma</a>
+                <a href="#" class="tool-link">Git</a>
+                <a href="#" class="tool-link">GitHub</a>
+                <!-- Add more tools -->
+            </div>
+        </section>
+        
+        <section id="portfolio">
+            <h2>Portfolio</h2>
+            <div class="portfolio-items">
+                <div class="card">
+                    <h3>Project One</h3>
+                    <p>Description of your project...</p>
+                    <a href="#">View Project</a>
+                </div>
+                <div class="card">
+                    <h3>Project Two</h3>
+                    <p>Description of your project...</p>
+                    <a href="#">View Project</a>
+                </div>
+                <div class="card">
+                    <h3>Project Three</h3>
+                    <p>Description of your project...</p>
+                    <a href="#">View Project</a>
+                </div>
+                <!-- More portfolio items -->
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="card">
+                <p>Interested in working together or just want to say hi? Feel free to reach out!</p>
+                <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="social-links">
+            <a href="#" aria-label="GitHub">GitHub</a>
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            <a href="#" aria-label="Twitter">Twitter</a>
+        </div>
+        <p>&copy; 2023 magnefu. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Your JavaScript code here
+        });
+    </script>
+</body>
 </html>
