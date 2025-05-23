@@ -10,5 +10,8 @@
   },
   "dependencies": {
     "astro": "^5.7.13"
+  },
+  "devDependencies": {
+    "@webgpu/types": "^0.1.60"
   }
 }
