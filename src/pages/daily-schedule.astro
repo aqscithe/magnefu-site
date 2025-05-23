@@ -1,6 +1,7 @@
 ---
 import ThemeToggle from '../components/ThemeToggle.astro';
 import '../styles/theme.css';
+import '../styles/timeline.css';
 ---
 
 <!DOCTYPE html>
@@ -24,17 +25,17 @@ import '../styles/theme.css';
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px; /* Wider container */
             margin: 0 auto;
-            padding: 2rem;
+            padding: 2rem 1rem;
         }
         
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.2rem;
             border-bottom: 2px solid var(--primary);
         }
         
@@ -54,16 +55,49 @@ import '../styles/theme.css';
         
         .schedule-container {
             background-color: var(--card-bg);
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 2px 10px var(--card-shadow);
+            border-radius: 12px;
+            padding: 2.5rem 2.5rem 3.5rem; /* Increased bottom padding */
+            box-shadow: 0 2px 15px var(--card-shadow);
+            margin-bottom: 2rem; /* Add margin at the bottom */
+            overflow: visible; /* Ensure content isn't cut off */
         }
         
-        .placeholder-text {
+        .intro-text {
             text-align: center;
-            padding: 3rem;
-            color: var(--text);
-            opacity: 0.7;
+            margin-bottom: 10rem;
+        }
+        
+        .intro-text h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .intro-text p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .schedule-container {
+                padding: 1.5rem;
+            }
+            
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -80,9 +114,39 @@ import '../styles/theme.css';
         </header>
         
         <div class="schedule-container">
-            <div class="placeholder-text">
-                <h2>Schedule Feature Coming Soon</h2>
-                <p>This is where you'll be able to organize and manage your daily activities.</p>
+            <div class="intro-text">
+                <h2>My Daily Journey</h2>
+                <p>Follow the magnefu ninja as he moves through his daily schedule.</p>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-hours">
+                    <div class="timeline-hour">6:00 AM</div>
+                    <div class="timeline-hour">8:00 AM</div>
+                    <div class="timeline-hour">10:00 AM</div>
+                    <div class="timeline-hour">12:00 PM</div>
+                    <div class="timeline-hour">2:00 PM</div>
+                    <div class="timeline-hour">4:00 PM</div>
+                    <div class="timeline-hour">6:00 PM</div>
+                    <div class="timeline-hour">8:00 PM</div>
+                    <div class="timeline-hour">10:00 PM</div>
+                </div>
+                
+                <div class="timeline-track">
+                    <!-- Logo marker will be added by JavaScript -->
+                </div>
+                
+                <div class="timeline-tasks">
+                    <!-- Tasks will be added by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="task-details">
+                <!-- Task details will be populated by JavaScript -->
+            </div>
+            
+            <div class="timeline-controls">
+                <!-- Controls will be added by JavaScript -->
             </div>
         </div>
     </div>
@@ -91,10 +155,14 @@ import '../styles/theme.css';
     
     <script>
         import { initTheme } from '../scripts/theme-toggle';
+        import { initTimeline } from '../scripts/timeline';
         
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize the theme based on saved preference or system preference
             initTheme();
+            
+            // Initialize the timeline
+            initTimeline();
         });
     </script>
 </body>
