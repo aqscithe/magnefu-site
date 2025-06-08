@@ -1,44 +1,31 @@
 :root {
-  /* Light mode colors (default) */
+  /* Unified theme colors - optimized for readability */
   --primary: #29ABE2; /* Blue from logo */
-  --dark: #222222;
   --accent: #E73946; /* Red heart color */
   --highlight: #FFA500; /* Orange/yellow rays */
-  --light: #f5f5f5;
-  --text: var(--dark);
-  --background: var(--light);
-  --card-bg: white;
-  --card-shadow: rgba(0, 0, 0, 0.1);
-  --tool-bg: #f0f8ff;
-  --footer-bg: var(--dark);
-  --footer-text: white;
-  --border-color: #ddd;
-  --transition-time: 0.3s;
-  --nav-text: white;
-  --link-color: var(--primary);
-  --h2-color: var(--primary);
-  --h3-color: #333;
-}
-
-/* Dark mode colors */
-.dark-mode {
-  --dark: #f5f5f5;
-  --light: #222222;
-  --text: var(--dark);
-  --background: var(--light);
-  --card-bg: #333333;
-  --card-shadow: rgba(0, 0, 0, 0.3);
-  --tool-bg: #444444;
-  --footer-bg: #111111;
-  --footer-text: #f5f5f5;
-  --border-color: #555;
-  --nav-text: white;
-  --link-color: #5cc0f0; /* Lighter blue for better contrast on dark */
+  
+  /* Background and surface colors */
+  --background: #1a1a1a; /* Dark but not pure black */
+  --card-bg: #2a2a2a; /* Slightly lighter for cards */
+  --tool-bg: #333333; /* Tools background */
+  --footer-bg: #111111; /* Darker footer */
+  
+  /* Text colors */
+  --text: #f0f0f0; /* Light gray for better readability */
+  --text-secondary: #b0b0b0; /* Secondary text */
   --h2-color: var(--primary);
   --h3-color: #e0e0e0;
+  
+  /* Interactive elements */
+  --link-color: #5cc0f0; /* Lighter blue for better contrast */
+  --border-color: #444444;
+  --card-shadow: rgba(0, 0, 0, 0.4);
+  
+  /* Transitions */
+  --transition-time: 0.3s;
 }
 
-/* Apply the theme styles to specific elements */
+/* Apply the unified theme */
 body {
   background-color: var(--background);
   color: var(--text);
@@ -86,62 +73,20 @@ section {
   color: var(--text);
 }
 
-nav a {
-  color: var(--nav-text);
-}
-
 footer {
   background-color: var(--footer-bg);
-  color: var(--footer-text);
+  color: var(--text);
 }
 
 .social-links a {
-  color: var(--footer-text);
+  color: var(--text);
 }
 
-/* Apply smooth transitions between light and dark modes */
-body, section, .card, .tool-link, nav, header, footer {
+/* Smooth transitions for interactive elements */
+body, section, .card, .tool-link, header, footer {
   transition: 
     background-color var(--transition-time),
     color var(--transition-time),
     border-color var(--transition-time),
     box-shadow var(--transition-time);
-}
-
-/* Theme toggle button styles */
-.theme-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  transition: background-color 0.3s;
-}
-
-.theme-toggle:hover {
-  background-color: var(--accent);
-}
-
-.theme-toggle svg {
-  width: 24px;
-  height: 24px;
-}
-
-/* Hide the unused icon based on current theme */
-.dark-mode .sun-icon {
-  display: none;
-}
-
-:not(.dark-mode) .moon-icon {
-  display: none;
 } 

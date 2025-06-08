@@ -1,5 +1,4 @@
 ---
-import ThemeToggle from '../components/ThemeToggle.astro';
 import '../styles/theme.css';
 import '../styles/timeline.css';
 ---
@@ -151,15 +150,10 @@ import '../styles/timeline.css';
         </div>
     </div>
     
-    <ThemeToggle />
-    
     <script>
-        import { initTheme } from '../scripts/theme-toggle';
         import { initTimeline } from '../scripts/timeline';
         
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize the theme based on saved preference or system preference
-            initTheme();
+        document.addEventListener('DOMContentLoaded', function() {            
             
             // Initialize the timeline
             initTimeline();

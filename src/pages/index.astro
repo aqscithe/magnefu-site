@@ -1,5 +1,4 @@
 ---
-import ThemeToggle from '../components/ThemeToggle.astro';
 import '../styles/theme.css';
 import '../styles/home.css';
 ---
@@ -16,121 +15,312 @@ import '../styles/home.css';
 
 </head>
 <body>
-    <header>
-        <img src="/img/logo.png" alt="magnefu logo" class="logo">
-        <p>Developer, Creator, Explorer</p>
+    <header class="hero-header">
+        <div class="hero-background">
+            <div class="floating-code">
+                <span class="code-snippet">{'// TODO: Fix this later'}</span>
+                <span class="code-snippet">{'console.log("Why does this work?");'}</span>
+                <span class="code-snippet">{'// It works, don\'t touch it'}</span>
+            </div>
+        </div>
+        <div class="header-content">
+            <img src="/img/logo.png" alt="magnefu logo" class="logo">
+            <p class="header-tagline">Developer, Creator, Explorer</p>
+            
+            <h1 class="glitch-text">The Beautiful Chaos of Development</h1>
+            <p class="hero-subtitle typing-effect">Where bugs become features, caffeine becomes code, and every solution creates three new problems...</p>
+            <div class="problem-stats">
+                <div class="problem-stat">
+                    <span class="stat-number red-glow">∞</span>
+                    <span class="stat-label">Ways to solve the same problem</span>
+                </div>
+                <div class="problem-stat">
+                    <span class="stat-number red-glow">42</span>
+                    <span class="stat-label">The answer to everything (probably)</span>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Let's explore this chaos together</span>
+                <div class="scroll-arrow">↓</div>
+            </div>
+        </div>
     </header>
     
-    <nav>
-        <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#interests">Interests</a></li>
-            <li><a href="#calendar">Calendar</a></li>
-            <li><a href="#devlogs">Devlogs</a></li>
-            <li><a href="#tools">Tools</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#web-apps">Web Apps</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <nav class="modern-nav">
+        <div class="nav-container">
+            <div class="nav-logo-container">
+                <img src="/img/logo.png" alt="magnefu" class="nav-logo">
+            </div>
+            <div class="nav-items">
+                <a href="#impact-stories" class="nav-item">
+                    <span class="nav-number">01</span>
+                    <span class="nav-label">Projects</span>
+                </a>
+                <a href="#experience" class="nav-item">
+                    <span class="nav-number">02</span>
+                    <span class="nav-label">Story</span>
+                </a>
+                <a href="#contact" class="nav-item">
+                    <span class="nav-number">03</span>
+                    <span class="nav-label">Connect</span>
+                </a>
+            </div>
+            <a href="#tools" class="nav-cta">
+                <span class="cta-icon">🛠️</span>
+                <span class="cta-text">Free Tools</span>
+            </a>
+        </div>
     </nav>
     
     <main>
+        <!-- Act IV: Current Projects -->
+        <section id="impact-stories" class="journey-proof">
+            <h2>What I'm Building Right Now</h2>
+            <div class="impact-carousel">
+                <div class="impact-story active">
+                    <div class="story-visual">
+                        <div class="metric-display">
+                            <span class="big-number">🎮</span>
+                            <span class="metric-label">Current Project</span>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <h3>The Facility</h3>
+                        <p><strong>What it is:</strong> A game that's been consuming my brain cycles lately.</p>
+                        <p><strong>The Vision:</strong> Something that blends atmosphere, mechanics, and storytelling in interesting ways.</p>
+                        <p><strong>Current Status:</strong> Deep in the creative process, prototyping core mechanics and building the world.</p>
+                        <div class="story-tech">
+                            <span class="tech-tag pulse">Game Development</span>
+                            <span class="tech-tag pulse">Creative Coding</span>
+                            <span class="tech-tag pulse">Interactive Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-		
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="card">
-                <p>Welcome to my personal site! I'm Leon Thompson, a [Your Profession] based in [Your Location]. This is where I share my journey, work, and thoughts.</p>
-                <!-- Add more about yourself -->
-            </div>
-        </section>
-        
-        <section id="interests">
-            <h2>My Interests</h2>
-            <div class="card">
-                <h3>Programming</h3>
-                <p>Details about your programming interests...</p>
-            </div>
-            <div class="card">
-                <h3>Another Interest</h3>
-                <p>Details about another interest...</p>
-            </div>
-            <!-- Add more interest cards -->
-        </section>
-        
-        <section id="calendar">
-            <h2>Work Calendar & Progress</h2>
-            <div class="calendar">
-                <!-- Calendar or progress tracker would go here -->
-                <p>This is where I track my work progress and upcoming events.</p>
-            </div>
-        </section>
-        
-        <section id="devlogs">
+        <!-- Act V: Development Logs -->
+        <section id="devlogs" class="journey-devlogs">
             <h2>Development Logs</h2>
-            <article class="card">
-                <h3>Project Name Update</h3>
-                <time datetime="2023-06-15">June 15, 2023</time>
-                <p>Details about your latest development work...</p>
-            </article>
-            <article class="card">
-                <h3>Another Project Update</h3>
-                <time datetime="2023-06-01">June 1, 2023</time>
-                <p>More development updates...</p>
-            </article>
-            <!-- More devlog entries -->
-        </section>
-        
-        <section id="tools">
-            <h2>Tools I Use</h2>
-            <div class="tool-links">
-                <a href="#" class="tool-link">VSCode</a>
-                <a href="#" class="tool-link">Figma</a>
-                <a href="#" class="tool-link">Git</a>
-                <a href="#" class="tool-link">GitHub</a>
-                <!-- Add more tools -->
+            <p class="section-subtitle">Follow along as I build things and share the journey</p>
+            
+            <div class="devlogs-carousel">
+                <div class="devlog-container">
+                    <div class="devlog-card active">
+                        <div class="devlog-header">
+                            <div class="devlog-date">Dec 2024</div>
+                            <div class="devlog-category game">Game Dev</div>
+                        </div>
+                        <h3>Starting The Facility</h3>
+                        <p>Beginning work on a new game project. Early concept exploration and figuring out what this thing wants to be.</p>
+                        <div class="devlog-tags">
+                            <span class="tag">Concept</span>
+                            <span class="tag">Prototyping</span>
+                        </div>
+                        <a href="#" class="devlog-link">Read More →</a>
+                    </div>
+                    
+                    <div class="devlog-card">
+                        <div class="devlog-header">
+                            <div class="devlog-date">Nov 2024</div>
+                            <div class="devlog-category tools">Tools</div>
+                        </div>
+                        <h3>Daily Schedule Ninja Launch</h3>
+                        <p>Launched a simple time-blocking tool that helps developers manage context switching. Sometimes the best tools are the simplest ones.</p>
+                        <div class="devlog-tags">
+                            <span class="tag">Launch</span>
+                            <span class="tag">Productivity</span>
+                        </div>
+                        <a href="#" class="devlog-link">Read More →</a>
+                    </div>
+                    
+                    <div class="devlog-card">
+                        <div class="devlog-header">
+                            <div class="devlog-date">Oct 2024</div>
+                            <div class="devlog-category experiment">Experiment</div>
+                        </div>
+                        <h3>WebGL Shader Playground</h3>
+                        <p>Built a real-time shader editor for experimenting with visual effects. Because sometimes you need to make pixels dance.</p>
+                        <div class="devlog-tags">
+                            <span class="tag">WebGL</span>
+                            <span class="tag">Visual Effects</span>
+                        </div>
+                        <a href="#" class="devlog-link">Read More →</a>
+                    </div>
+                </div>
+                
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" aria-label="Previous devlog">‹</button>
+                    <div class="carousel-indicators">
+                        <span class="indicator active"></span>
+                        <span class="indicator"></span>
+                        <span class="indicator"></span>
+                    </div>
+                    <button class="carousel-btn next" aria-label="Next devlog">›</button>
+                </div>
             </div>
         </section>
-        
-        <section id="portfolio">
-            <h2>Portfolio</h2>
-            <div class="portfolio-items">
-                <div class="card">
-                    <h3>Project One</h3>
-                    <p>Description of your project...</p>
-                    <a href="#">View Project</a>
+
+        <!-- Act VI: Try The Tools -->
+        <section id="tools" class="journey-freebies">
+            <h2>Tools & Experiments</h2>
+            <p class="section-subtitle">Interactive projects floating in the digital void</p>
+            <div class="tool-cloud">
+                <a href="/daily-schedule" class="tool-bubble large available" data-tool="schedule">
+                    <div class="bubble-icon">📅</div>
+                    <div class="bubble-label">Daily Schedule Ninja</div>
+                </a>
+                
+                <div class="tool-bubble medium building" data-tool="snippets">
+                    <div class="bubble-icon">🔧</div>
+                    <div class="bubble-label">Code Snippet Vault</div>
                 </div>
-                <div class="card">
-                    <h3>Project Two</h3>
-                    <p>Description of your project...</p>
-                    <a href="#">View Project</a>
+                
+                <div class="tool-bubble small planning" data-tool="performance">
+                    <div class="bubble-icon">📊</div>
+                    <div class="bubble-label">Performance Detective</div>
                 </div>
-                <div class="card">
-                    <h3>Project Three</h3>
-                    <p>Description of your project...</p>
-                    <a href="#">View Project</a>
+                
+                <div class="tool-bubble medium experiment" data-tool="shaders">
+                    <div class="bubble-icon">🎨</div>
+                    <div class="bubble-label">WebGL Playground</div>
                 </div>
-                <!-- More portfolio items -->
+                
+                <div class="tool-bubble small idea" data-tool="automation">
+                    <div class="bubble-icon">🤖</div>
+                    <div class="bubble-label">Dev Automation Suite</div>
+                </div>
+                
+                <div class="tool-bubble large experiment" data-tool="neural">
+                    <div class="bubble-icon">🧠</div>
+                    <div class="bubble-label">Neural Net Visualizer</div>
+                </div>
+                
+                <div class="tool-bubble medium building" data-tool="api">
+                    <div class="bubble-icon">🌐</div>
+                    <div class="bubble-label">API Testing Toolkit</div>
+                </div>
+                
+                <div class="tool-bubble small available" data-tool="colors">
+                    <div class="bubble-icon">🎨</div>
+                    <div class="bubble-label">Color Palette Generator</div>
+                </div>
+            </div>
+            
+            <div class="tool-legend">
+                <div class="legend-item">
+                    <div class="status-dot available"></div>
+                    <span>Ready to use</span>
+                </div>
+                <div class="legend-item">
+                    <div class="status-dot building"></div>
+                    <span>In development</span>
+                </div>
+                <div class="legend-item">
+                    <div class="status-dot experiment"></div>
+                    <span>Experimental</span>
+                </div>
+                <div class="legend-item">
+                    <div class="status-dot idea"></div>
+                    <span>Just an idea</span>
+                </div>
             </div>
         </section>
-        
-        <section id="web-apps">
-            <h2>Web Apps</h2>
-            <div class="portfolio-items">
-                <div class="card">
-                    <h3>Daily Schedule</h3>
-                    <p>A tool to organize and manage your daily activities.</p>
-                    <a href="/daily-schedule">Open App</a>
+
+        <!-- Act VI: My Development Journey -->
+        <section id="experience" class="journey-story">
+            <div class="personal-story">
+                <div class="story-text">
+                    <h2>My Developer Journey (So Far)</h2>
+                    <div class="story-timeline">
+                        <div class="story-point">
+                            <div class="year">2019</div>
+                            <p>Spent a weekend debugging something that should have taken 10 minutes. Realized I needed better tools.</p>
+                        </div>
+                        <div class="story-point">
+                            <div class="year">2021</div>
+                            <p>Built my first useful automation script. The addiction to building helpful things began.</p>
+                        </div>
+                        <div class="story-point">
+                            <div class="year">2024</div>
+                            <p>Now I share everything I build. Because good tools should be free and accessible to everyone.</p>
+                        </div>
+                    </div>
                 </div>
-                <!-- More web apps can be added here -->
+                <div class="tech-arsenal">
+                    <h3>My Current Toolkit</h3>
+                    <div class="tech-wheel">
+                        <div class="tech-category frontend">
+                            <div class="category-label">Frontend Fun</div>
+                            <div class="tech-items">
+                                <span class="tech-item">React</span>
+                                <span class="tech-item">TypeScript</span>
+                                <span class="tech-item">Astro</span>
+                            </div>
+                        </div>
+                        <div class="tech-category backend">
+                            <div class="category-label">Backend Building</div>
+                            <div class="tech-items">
+                                <span class="tech-item">Node.js</span>
+                                <span class="tech-item">Python</span>
+                                <span class="tech-item">PostgreSQL</span>
+                            </div>
+                        </div>
+                        <div class="tech-category devops">
+                            <div class="category-label">DevOps Adventures</div>
+                            <div class="tech-items">
+                                <span class="tech-item">Docker</span>
+                                <span class="tech-item">AWS</span>
+                                <span class="tech-item">GitHub Actions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-        
-        <section id="contact">
-            <h2>Get In Touch</h2>
-            <div class="card">
-                <p>Interested in working together or just want to say hi? Feel free to reach out!</p>
-                <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+
+        <!-- Act VII: Connect & Follow -->
+        <section id="contact" class="journey-cta">
+            <div class="cta-content">
+                <h2>Want to Follow the Journey?</h2>
+                <p class="cta-subtitle">Connect with me to see what I'm building next, get updates on new tools, or just chat about development</p>
+                
+                <div class="contact-options">
+                    <div class="social-grid">
+                        <a href="#" class="contact-method minimal">
+                            <div class="contact-icon">🐙</div>
+                            <div>
+                                <h4>GitHub</h4>
+                                <p>See the code, star the repos</p>
+                            </div>
+                        </a>
+                        <a href="#" class="contact-method minimal">
+                            <div class="contact-icon">💼</div>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <p>Professional updates & connections</p>
+                            </div>
+                        </a>
+                        <a href="mailto:your.email@example.com" class="contact-method minimal">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>Direct line for collaboration ideas</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <span class="trust-icon">🚀</span>
+                        <span>Always building something new</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">📚</span>
+                        <span>Learning in public</span>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -141,21 +331,72 @@ import '../styles/home.css';
             <a href="#" aria-label="LinkedIn">LinkedIn</a>
             <a href="#" aria-label="Twitter">Twitter</a>
         </div>
-        <p>&copy; 2023 magnefu. All rights reserved.</p>
+        <p>&copy; 2025 magnefu. All rights reserved.</p>
     </footer>
 
-    <!-- Add the theme toggle component -->
-    <ThemeToggle />
-
     <script>
-        // JavaScript for interactive elements and theme initialization
-        import { initTheme } from '../scripts/theme-toggle';
-        
+        // Devlogs Carousel Functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize the theme based on saved preference or system preference
-            initTheme();
-            
-            // Your other JavaScript code here
+            const cards = document.querySelectorAll('.devlog-card');
+            const indicators = document.querySelectorAll('.indicator');
+            const prevBtn = document.querySelector('.carousel-btn.prev') as HTMLButtonElement;
+            const nextBtn = document.querySelector('.carousel-btn.next') as HTMLButtonElement;
+            let currentIndex = 0;
+
+            function updateCarousel(index) {
+                // Remove active class from all cards and indicators
+                cards.forEach(card => card.classList.remove('active'));
+                indicators.forEach(indicator => indicator.classList.remove('active'));
+                
+                // Add active class to current card and indicator
+                if (cards[index]) cards[index].classList.add('active');
+                if (indicators[index]) indicators[index].classList.add('active');
+                
+                // Update button states
+                if (prevBtn) prevBtn.disabled = index === 0;
+                if (nextBtn) nextBtn.disabled = index === cards.length - 1;
+            }
+
+            // Previous button
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateCarousel(currentIndex);
+                    }
+                });
+            }
+
+            // Next button
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    if (currentIndex < cards.length - 1) {
+                        currentIndex++;
+                        updateCarousel(currentIndex);
+                    }
+                });
+            }
+
+            // Indicators
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel(currentIndex);
+                });
+            });
+
+            // Initialize carousel
+            updateCarousel(currentIndex);
+
+            // Auto-advance carousel every 8 seconds
+            setInterval(() => {
+                if (currentIndex < cards.length - 1) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                updateCarousel(currentIndex);
+            }, 8000);
         });
     </script>
 </body>
