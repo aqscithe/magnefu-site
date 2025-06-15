@@ -52,274 +52,442 @@ import '../styles/home.css';
                 <img src="/img/logo.png" alt="magnefu" class="nav-logo">
             </div>
             <div class="nav-items">
-                <a href="#impact-stories" class="nav-item">
+                <a href="#website-work" class="nav-item">
                     <span class="nav-number">01</span>
-                    <span class="nav-label">Projects</span>
+                    <span class="nav-label">Websites</span>
                 </a>
-                <a href="#experience" class="nav-item">
+                <a href="#engine-work" class="nav-item">
                     <span class="nav-number">02</span>
-                    <span class="nav-label">Story</span>
+                    <span class="nav-label">Engine</span>
+                </a>
+                <a href="#game-work" class="nav-item">
+                    <span class="nav-number">03</span>
+                    <span class="nav-label">Games</span>
                 </a>
                 <a href="#contact" class="nav-item">
-                    <span class="nav-number">03</span>
+                    <span class="nav-number">04</span>
                     <span class="nav-label">Connect</span>
                 </a>
             </div>
-            <a href="#tools" class="nav-cta">
-                <span class="cta-icon">🛠️</span>
-                <span class="cta-text">Free Tools</span>
+            <a href="#devlogs" class="nav-cta">
+                <span class="cta-icon">📝</span>
+                <span class="cta-text">Dev Logs</span>
             </a>
         </div>
     </nav>
     
     <main>
-        <!-- Act IV: Current Projects -->
-        <section id="impact-stories" class="journey-proof">
-            <h2>What I'm Building Right Now</h2>
-            <div class="impact-carousel">
-                <div class="impact-story active">
-                    <div class="story-visual">
-                        <div class="metric-display">
-                            <span class="big-number">🎮</span>
-                            <span class="metric-label">Current Project</span>
+        <!-- Website Work Section -->
+        <section id="website-work" class="work-section">
+            <h2>Website Work</h2>
+            <p class="section-subtitle">Crafting digital experiences on the web</p>
+            
+            <div class="project-grid">
+                <div class="project-card featured">
+                    <div class="project-media">
+                        <div class="media-placeholder website">
+                            <span class="media-icon">🤝</span>
+                            <p>TCIA website preview</p>
                         </div>
                     </div>
-                    <div class="story-content">
-                        <h3>The Facility</h3>
-                        <p><strong>What it is:</strong> A game that's been consuming my brain cycles lately.</p>
-                        <p><strong>The Vision:</strong> Something that blends atmosphere, mechanics, and storytelling in interesting ways.</p>
-                        <p><strong>Current Status:</strong> Deep in the creative process, prototyping core mechanics and building the world.</p>
-                        <div class="story-tech">
-                            <span class="tech-tag pulse">Game Development</span>
-                            <span class="tech-tag pulse">Creative Coding</span>
-                            <span class="tech-tag pulse">Interactive Design</span>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Twin Cities Innovation Alliance</h3>
+                            <div class="project-status available">Live</div>
+                        </div>
+                        <p class="project-description">A professional website for the Twin Cities Innovation Alliance, connecting innovators and fostering collaboration in the Minneapolis-St. Paul area.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Squarespace</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://tciamn.org" target="_blank" class="project-link showcase">Visit Site</a>
+                            <a href="/tcia-story" class="project-link devlog">Development Story</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-media">
+                        <div class="media-placeholder website">
+                            <span class="media-icon">🧪</span>
+                            <p>Allerium Labs preview</p>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Allerium Labs</h3>
+                            <div class="project-status building">Building</div>
+                        </div>
+                        <p class="project-description">An innovative laboratory website showcasing cutting-edge research and development work. Currently in active development with modern web technologies.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">WebGPU</span>
+                            <span class="tech-tag">AWS Lambda</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://alleriumlabs.com" target="_blank" class="project-link showcase">Preview Site</a>
+                            <a href="#" class="project-link devlog">Build Progress</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-media">
+                        <div class="media-placeholder website">
+                            <span class="media-icon">🎨</span>
+                            <p>WebGPU demo placeholder</p>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>WebGPU Experiments</h3>
+                            <div class="project-status experiment">Experimental</div>
+                        </div>
+                        <p class="project-description">Collection of compute shader experiments and interactive visual effects built with WebGPU.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">WebGPU</span>
+                            <span class="tech-tag">WGSL</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link showcase">View Demos</a>
+                            <a href="#" class="project-link devlog">Learning Log</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Act V: Development Logs -->
-        <section id="devlogs" class="journey-devlogs">
+        <!-- Game Engine Work Section -->
+        <section id="engine-work" class="work-section">
+            <h2>Game Engine Work</h2>
+            <p class="section-subtitle">Building the foundation for interactive experiences</p>
+            
+            <div class="project-grid">
+                <div class="project-card featured">
+                    <div class="project-media">
+                        <div class="media-placeholder engine">
+                            <span class="media-icon">⚙️</span>
+                            <p>Magnefu Engine footage & GIFs coming soon</p>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Magnefu Engine</h3>
+                            <div class="project-status building">In Development</div>
+                        </div>
+                        <p class="project-description">A from-scratch game engine built to understand the fundamentals of game development and modern graphics programming. Features a modular architecture with cutting-edge rendering and physics systems.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">Vulkan</span>
+                            <span class="tech-tag">CMake</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link showcase">Engine Overview</a>
+                            <a href="#" class="project-link devlog">Development Log</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-media">
+                        <div class="media-placeholder engine">
+                            <span class="media-icon">🎨</span>
+                            <p>Render pipeline demos</p>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Render Pipeline</h3>
+                            <div class="project-status building">Building</div>
+                        </div>
+                        <p class="project-description">Modern rendering pipeline featuring PBR shading, deferred rendering, shadow mapping, and post-processing effects for high-quality visuals.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vulkan</span>
+                            <span class="tech-tag">GLSL</span>
+                            <span class="tech-tag">PBR</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link showcase">Rendering Demos</a>
+                            <a href="#" class="project-link devlog">Graphics Journey</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-media">
+                        <div class="media-placeholder engine">
+                            <span class="media-icon">🎮</span>
+                            <p>ECS architecture diagrams</p>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>ECS Architecture</h3>
+                            <div class="project-status building">Building</div>
+                        </div>
+                        <p class="project-description">Entity-Component-System architecture for flexible and performant game object management with cache-friendly data layouts and efficient iteration.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">Memory Pools</span>
+                            <span class="tech-tag">Data-Oriented Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link showcase">Architecture Deep Dive</a>
+                            <a href="#" class="project-link devlog">Design Decisions</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-media">
+                        <div class="media-placeholder engine">
+                            <span class="media-icon">✨</span>
+                            <p>Ray tracing demos</p>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Ray Tracing</h3>
+                            <div class="project-status planning">Planning</div>
+                        </div>
+                        <p class="project-description">Hardware-accelerated ray tracing implementation for realistic lighting, reflections, and global illumination effects using modern GPU capabilities.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vulkan RT</span>
+                            <span class="tech-tag">HLSL</span>
+                            <span class="tech-tag">GPU Acceleration</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link showcase">RT Showcase</a>
+                            <a href="#" class="project-link devlog">Ray Tracing Journey</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-media">
+                        <div class="media-placeholder engine">
+                            <span class="media-icon">🌍</span>
+                            <p>Physics simulation footage</p>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Physics System</h3>
+                            <div class="project-status planning">Planning</div>
+                        </div>
+                        <p class="project-description">Comprehensive physics simulation including rigid body dynamics, collision detection, and constraint solving for realistic object interactions.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">Collision Detection</span>
+                            <span class="tech-tag">Constraint Solving</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link showcase">Physics Demos</a>
+                            <a href="#" class="project-link devlog">Physics Development</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Project Work Section -->
+        <section id="game-work" class="work-section">
+            <h2>Game Project Work</h2>
+            <p class="section-subtitle">Bringing interactive worlds to life</p>
+            
+            <div class="project-grid">
+                <div class="project-card featured">
+                    <div class="project-media">
+                        <div class="media-placeholder game">
+                            <span class="media-icon">🏢</span>
+                            <p>Game footage & screenshots coming soon</p>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>The Facility</h3>
+                            <div class="project-status building">Active Development</div>
+                        </div>
+                        <p class="project-description">A atmospheric game that blends exploration, mechanics, and storytelling. Currently in early development with focus on core systems and world building.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Game Design</span>
+                            <span class="tech-tag">Atmosphere</span>
+                            <span class="tech-tag">Interactive Narrative</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link showcase">Game Showcase</a>
+                            <a href="#" class="project-link devlog">Development Blog</a>
+                            <a href="#" class="project-link demo">Play Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-media">
+                        <div class="media-placeholder game">
+                            <span class="media-icon">🎯</span>
+                            <p>Prototype gameplay GIFs</p>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Prototype Collection</h3>
+                            <div class="project-status experiment">Experimental</div>
+                        </div>
+                        <p class="project-description">Various game prototypes and mechanics experiments. Testing ideas, learning new techniques, and exploring different genres.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Rapid Prototyping</span>
+                            <span class="tech-tag">Game Mechanics</span>
+                            <span class="tech-tag">Playtesting</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link showcase">Prototype Gallery</a>
+                            <a href="#" class="project-link devlog">Experiment Log</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-media">
+                        <div class="media-placeholder game">
+                            <span class="media-icon">🎨</span>
+                            <p>Game jam submissions</p>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Game Jam Projects</h3>
+                            <div class="project-status idea">Future Plans</div>
+                        </div>
+                        <p class="project-description">Collection of game jam submissions and weekend projects. Quick iterations, creative constraints, and collaborative development.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Game Jams</span>
+                            <span class="tech-tag">Time Constraints</span>
+                            <span class="tech-tag">Creative Challenges</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link showcase">Jam Gallery</a>
+                            <a href="#" class="project-link devlog">Jam Stories</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Development Logs Cross-Section -->
+        <section id="devlogs" class="devlogs-section">
             <h2>Development Logs</h2>
-            <p class="section-subtitle">Follow along as I build things and share the journey</p>
+            <p class="section-subtitle">Follow the journey, learn from the process</p>
             
-            <div class="devlogs-carousel">
-                <div class="devlog-container">
-                    <div class="devlog-card active">
-                        <div class="devlog-header">
-                            <div class="devlog-date">Dec 2024</div>
-                            <div class="devlog-category game">Game Dev</div>
+            <div class="devlog-filter">
+                <button class="filter-btn active" data-filter="all">All Posts</button>
+                <button class="filter-btn" data-filter="website">Website</button>
+                <button class="filter-btn" data-filter="engine">Engine</button>
+                <button class="filter-btn" data-filter="game">Games</button>
+            </div>
+
+            <div class="devlog-grid">
+                <article class="devlog-post" data-category="game">
+                    <div class="devlog-image">
+                        <div class="image-placeholder">
+                            <span class="image-icon">🏢</span>
+                            <p>Concept art placeholder</p>
                         </div>
-                        <h3>Starting The Facility</h3>
-                        <p>Beginning work on a new game project. Early concept exploration and figuring out what this thing wants to be.</p>
-                        <div class="devlog-tags">
-                            <span class="tag">Concept</span>
-                            <span class="tag">Prototyping</span>
-                        </div>
-                        <a href="#" class="devlog-link">Read More →</a>
                     </div>
-                    
-                    <div class="devlog-card">
-                        <div class="devlog-header">
-                            <div class="devlog-date">Nov 2024</div>
-                            <div class="devlog-category tools">Tools</div>
+                    <div class="devlog-content">
+                        <div class="devlog-meta">
+                            <span class="devlog-date">Dec 2024</span>
+                            <span class="devlog-category game">Game Dev</span>
                         </div>
-                        <h3>Daily Schedule Ninja Launch</h3>
-                        <p>Launched a simple time-blocking tool that helps developers manage context switching. Sometimes the best tools are the simplest ones.</p>
-                        <div class="devlog-tags">
-                            <span class="tag">Launch</span>
-                            <span class="tag">Productivity</span>
-                        </div>
-                        <a href="#" class="devlog-link">Read More →</a>
+                        <h3>Starting The Facility - Concept & Vision</h3>
+                        <p>Beginning work on a new atmospheric game. Early exploration of themes, mechanics, and the overall vision for what this experience should be...</p>
+                        <a href="#" class="read-more">Read Full Post →</a>
                     </div>
-                    
-                    <div class="devlog-card">
-                        <div class="devlog-header">
-                            <div class="devlog-date">Oct 2024</div>
-                            <div class="devlog-category experiment">Experiment</div>
+                </article>
+
+                <article class="devlog-post" data-category="website">
+                    <div class="devlog-image">
+                        <div class="image-placeholder">
+                            <span class="image-icon">🎨</span>
+                            <p>Site design mockups</p>
                         </div>
-                        <h3>WebGL Shader Playground</h3>
-                        <p>Built a real-time shader editor for experimenting with visual effects. Because sometimes you need to make pixels dance.</p>
-                        <div class="devlog-tags">
-                            <span class="tag">WebGL</span>
-                            <span class="tag">Visual Effects</span>
+                    </div>
+                    <div class="devlog-content">
+                        <div class="devlog-meta">
+                            <span class="devlog-date">Dec 2024</span>
+                            <span class="devlog-category website">Web Dev</span>
                         </div>
-                        <a href="#" class="devlog-link">Read More →</a>
+                        <h3>Redesigning My Portfolio with Astro</h3>
+                        <p>Migrating from a static site to Astro, implementing dynamic themes, and creating engaging animations that tell a story...</p>
+                        <a href="#" class="read-more">Read Full Post →</a>
                     </div>
-                </div>
-                
-                <div class="carousel-controls">
-                    <button class="carousel-btn prev" aria-label="Previous devlog">‹</button>
-                    <div class="carousel-indicators">
-                        <span class="indicator active"></span>
-                        <span class="indicator"></span>
-                        <span class="indicator"></span>
+                </article>
+
+                <article class="devlog-post" data-category="engine">
+                    <div class="devlog-image">
+                        <div class="image-placeholder">
+                            <span class="image-icon">⚙️</span>
+                            <p>Engine architecture diagrams</p>
+                        </div>
                     </div>
-                    <button class="carousel-btn next" aria-label="Next devlog">›</button>
-                </div>
+                    <div class="devlog-content">
+                        <div class="devlog-meta">
+                            <span class="devlog-date">Nov 2024</span>
+                            <span class="devlog-category engine">Engine Dev</span>
+                        </div>
+                        <h3>Building a Renderer from Scratch</h3>
+                        <p>Deep dive into modern OpenGL techniques, implementing PBR shading, and the challenges of building a flexible rendering pipeline...</p>
+                        <a href="#" class="read-more">Read Full Post →</a>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <!-- Act VI: Try The Tools -->
-        <section id="tools" class="journey-freebies">
-            <h2>Tools & Experiments</h2>
-            <p class="section-subtitle">Interactive projects floating in the digital void</p>
-            <div class="tool-cloud">
-                <a href="/daily-schedule" class="tool-bubble large available" data-tool="schedule">
-                    <div class="bubble-icon">📅</div>
-                    <div class="bubble-label">Daily Schedule Ninja</div>
-                </a>
+        <!-- Connect Section -->
+        <section id="contact" class="connect-section">
+            <div class="connect-content">
+                <h2>Let's Connect</h2>
+                <p class="connect-subtitle">Follow the development journey, collaborate on projects, or just chat about game development and web tech</p>
                 
-                <div class="tool-bubble medium building" data-tool="snippets">
-                    <div class="bubble-icon">🔧</div>
-                    <div class="bubble-label">Code Snippet Vault</div>
-                </div>
-                
-                <div class="tool-bubble small planning" data-tool="performance">
-                    <div class="bubble-icon">📊</div>
-                    <div class="bubble-label">Performance Detective</div>
-                </div>
-                
-                <div class="tool-bubble medium experiment" data-tool="shaders">
-                    <div class="bubble-icon">🎨</div>
-                    <div class="bubble-label">WebGL Playground</div>
-                </div>
-                
-                <div class="tool-bubble small idea" data-tool="automation">
-                    <div class="bubble-icon">🤖</div>
-                    <div class="bubble-label">Dev Automation Suite</div>
-                </div>
-                
-                <div class="tool-bubble large experiment" data-tool="neural">
-                    <div class="bubble-icon">🧠</div>
-                    <div class="bubble-label">Neural Net Visualizer</div>
-                </div>
-                
-                <div class="tool-bubble medium building" data-tool="api">
-                    <div class="bubble-icon">🌐</div>
-                    <div class="bubble-label">API Testing Toolkit</div>
-                </div>
-                
-                <div class="tool-bubble small available" data-tool="colors">
-                    <div class="bubble-icon">🎨</div>
-                    <div class="bubble-label">Color Palette Generator</div>
-                </div>
-            </div>
-            
-            <div class="tool-legend">
-                <div class="legend-item">
-                    <div class="status-dot available"></div>
-                    <span>Ready to use</span>
-                </div>
-                <div class="legend-item">
-                    <div class="status-dot building"></div>
-                    <span>In development</span>
-                </div>
-                <div class="legend-item">
-                    <div class="status-dot experiment"></div>
-                    <span>Experimental</span>
-                </div>
-                <div class="legend-item">
-                    <div class="status-dot idea"></div>
-                    <span>Just an idea</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Act VI: My Development Journey -->
-        <section id="experience" class="journey-story">
-            <div class="personal-story">
-                <div class="story-text">
-                    <h2>My Developer Journey (So Far)</h2>
-                    <div class="story-timeline">
-                        <div class="story-point">
-                            <div class="year">2019</div>
-                            <p>Spent a weekend debugging something that should have taken 10 minutes. Realized I needed better tools.</p>
+                <div class="contact-grid">
+                    <a href="#" class="contact-card">
+                        <div class="contact-icon">🐙</div>
+                        <div class="contact-info">
+                            <h4>GitHub</h4>
+                            <p>Code repositories and contributions</p>
                         </div>
-                        <div class="story-point">
-                            <div class="year">2021</div>
-                            <p>Built my first useful automation script. The addiction to building helpful things began.</p>
+                    </a>
+                    <a href="#" class="contact-card">
+                        <div class="contact-icon">💼</div>
+                        <div class="contact-info">
+                            <h4>LinkedIn</h4>
+                            <p>Professional updates and connections</p>
                         </div>
-                        <div class="story-point">
-                            <div class="year">2024</div>
-                            <p>Now I share everything I build. Because good tools should be free and accessible to everyone.</p>
+                    </a>
+                    <a href="#" class="contact-card">
+                        <div class="contact-icon">🦋</div>
+                        <div class="contact-info">
+                            <h4>Bluesky</h4>
+                            <p>Development updates and thoughts</p>
                         </div>
-                    </div>
-                </div>
-                <div class="tech-arsenal">
-                    <h3>My Current Toolkit</h3>
-                    <div class="tech-wheel">
-                        <div class="tech-category frontend">
-                            <div class="category-label">Frontend Fun</div>
-                            <div class="tech-items">
-                                <span class="tech-item">React</span>
-                                <span class="tech-item">TypeScript</span>
-                                <span class="tech-item">Astro</span>
-                            </div>
+                    </a>
+                    <a href="#" class="contact-card">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-info">
+                            <h4>Discord</h4>
+                            <p>Real-time chat and community</p>
                         </div>
-                        <div class="tech-category backend">
-                            <div class="category-label">Backend Building</div>
-                            <div class="tech-items">
-                                <span class="tech-item">Node.js</span>
-                                <span class="tech-item">Python</span>
-                                <span class="tech-item">PostgreSQL</span>
-                            </div>
+                    </a>
+                    <a href="mailto:your.email@example.com" class="contact-card">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-info">
+                            <h4>Email</h4>
+                            <p>Direct line for collaboration ideas</p>
                         </div>
-                        <div class="tech-category devops">
-                            <div class="category-label">DevOps Adventures</div>
-                            <div class="tech-items">
-                                <span class="tech-item">Docker</span>
-                                <span class="tech-item">AWS</span>
-                                <span class="tech-item">GitHub Actions</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Act VII: Connect & Follow -->
-        <section id="contact" class="journey-cta">
-            <div class="cta-content">
-                <h2>Want to Follow the Journey?</h2>
-                <p class="cta-subtitle">Connect with me to see what I'm building next, get updates on new tools, or just chat about development</p>
-                
-                <div class="contact-options">
-                    <div class="social-grid">
-                        <a href="#" class="contact-method minimal">
-                            <div class="contact-icon">🐙</div>
-                            <div>
-                                <h4>GitHub</h4>
-                                <p>See the code, star the repos</p>
-                            </div>
-                        </a>
-                        <a href="#" class="contact-method minimal">
-                            <div class="contact-icon">💼</div>
-                            <div>
-                                <h4>LinkedIn</h4>
-                                <p>Professional updates & connections</p>
-                            </div>
-                        </a>
-                        <a href="mailto:your.email@example.com" class="contact-method minimal">
-                            <div class="contact-icon">📧</div>
-                            <div>
-                                <h4>Email</h4>
-                                <p>Direct line for collaboration ideas</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="trust-indicators">
-                    <div class="trust-item">
-                        <span class="trust-icon">🚀</span>
-                        <span>Always building something new</span>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">📚</span>
-                        <span>Learning in public</span>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -329,75 +497,60 @@ import '../styles/home.css';
         <div class="social-links">
             <a href="#" aria-label="GitHub">GitHub</a>
             <a href="#" aria-label="LinkedIn">LinkedIn</a>
-            <a href="#" aria-label="Twitter">Twitter</a>
+            <a href="#" aria-label="Bluesky">Bluesky</a>
+            <a href="#" aria-label="Discord">Discord</a>
         </div>
         <p>&copy; 2025 magnefu. All rights reserved.</p>
     </footer>
 
     <script>
-        // Devlogs Carousel Functionality
+        // Devlog filter functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.devlog-card');
-            const indicators = document.querySelectorAll('.indicator');
-            const prevBtn = document.querySelector('.carousel-btn.prev') as HTMLButtonElement;
-            const nextBtn = document.querySelector('.carousel-btn.next') as HTMLButtonElement;
-            let currentIndex = 0;
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const devlogPosts = document.querySelectorAll('.devlog-post');
 
-            function updateCarousel(index) {
-                // Remove active class from all cards and indicators
-                cards.forEach(card => card.classList.remove('active'));
-                indicators.forEach(indicator => indicator.classList.remove('active'));
-                
-                // Add active class to current card and indicator
-                if (cards[index]) cards[index].classList.add('active');
-                if (indicators[index]) indicators[index].classList.add('active');
-                
-                // Update button states
-                if (prevBtn) prevBtn.disabled = index === 0;
-                if (nextBtn) nextBtn.disabled = index === cards.length - 1;
-            }
-
-            // Previous button
-            if (prevBtn) {
-                prevBtn.addEventListener('click', () => {
-                    if (currentIndex > 0) {
-                        currentIndex--;
-                        updateCarousel(currentIndex);
-                    }
-                });
-            }
-
-            // Next button
-            if (nextBtn) {
-                nextBtn.addEventListener('click', () => {
-                    if (currentIndex < cards.length - 1) {
-                        currentIndex++;
-                        updateCarousel(currentIndex);
-                    }
-                });
-            }
-
-            // Indicators
-            indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', () => {
-                    currentIndex = index;
-                    updateCarousel(currentIndex);
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = (btn as HTMLElement).dataset.filter;
+                    
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Filter posts
+                    devlogPosts.forEach(post => {
+                        const htmlPost = post as HTMLElement;
+                        if (filter === 'all' || htmlPost.dataset.category === filter) {
+                            (htmlPost as HTMLElement).style.display = 'block';
+                            (htmlPost as HTMLElement).style.animation = 'fadeIn 0.5s';
+                        } else {
+                            (htmlPost as HTMLElement).style.display = 'none';
+                        }
+                    });
                 });
             });
+        });
 
-            // Initialize carousel
-            updateCarousel(currentIndex);
-
-            // Auto-advance carousel every 8 seconds
-            setInterval(() => {
-                if (currentIndex < cards.length - 1) {
-                    currentIndex++;
-                } else {
-                    currentIndex = 0;
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
-                updateCarousel(currentIndex);
-            }, 8000);
+            });
         });
     </script>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </body>
 </html>

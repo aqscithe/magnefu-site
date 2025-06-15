@@ -1,0 +1,280 @@
+---
+import '../styles/theme.css';
+import '../styles/project-story.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Development story of the Twin Cities Innovation Alliance website">
+    <title>TCIA Development Story - magnefu</title>
+</head>
+<body>
+    <nav class="story-nav">
+        <div class="nav-container">
+            <a href="/" class="back-link">
+                <span class="back-arrow">←</span>
+                <span>Back Home</span>
+            </a>
+            <div class="story-title">
+                <h1>TCIA Development Story</h1>
+                <p>Twin Cities Innovation Alliance</p>
+            </div>
+            <a href="https://tciamn.org" target="_blank" class="visit-site-btn">
+                <span>Visit Live Site</span>
+                <span class="external-icon">↗</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="story-main">
+        <!-- Project Gallery -->
+        <section class="project-gallery">
+            <div class="gallery-header">
+                <h2>Project Highlights</h2>
+                <p>Visual journey through the TCIA website development</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item featured" data-story="homepage">
+                    <div class="image-placeholder">
+                        <span class="placeholder-icon">🏠</span>
+                        <p>Homepage Design</p>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Homepage Hero</h3>
+                        <p>Clean, professional landing that immediately communicates TCIA's mission</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-story="navigation">
+                    <div class="image-placeholder">
+                        <span class="placeholder-icon">🧭</span>
+                        <p>Navigation System</p>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Intuitive Navigation</h3>
+                        <p>User-friendly menu structure for easy content discovery</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-story="events">
+                    <div class="image-placeholder">
+                        <span class="placeholder-icon">📅</span>
+                        <p>Events Section</p>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Events & Networking</h3>
+                        <p>Dynamic events calendar and registration system</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-story="members">
+                    <div class="image-placeholder">
+                        <span class="placeholder-icon">👥</span>
+                        <p>Member Directory</p>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Member Showcase</h3>
+                        <p>Professional directory highlighting alliance members</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-story="mobile">
+                    <div class="image-placeholder">
+                        <span class="placeholder-icon">📱</span>
+                        <p>Mobile Experience</p>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Mobile Responsive</h3>
+                        <p>Seamless experience across all devices</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-story="branding">
+                    <div class="image-placeholder">
+                        <span class="placeholder-icon">🎨</span>
+                        <p>Brand Integration</p>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Brand Consistency</h3>
+                        <p>Cohesive visual identity throughout the site</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Development Story -->
+        <section class="development-story">
+            <div class="story-container">
+                <div class="story-intro">
+                    <h2>The Development Journey</h2>
+                    <p class="story-lead">Building a digital home for Minneapolis-St. Paul's innovation community</p>
+                </div>
+
+                <div class="story-section" id="story-homepage">
+                    <div class="story-content">
+                        <div class="story-text">
+                            <h3>Starting with Purpose</h3>
+                            <p>The Twin Cities Innovation Alliance needed more than just a website—they needed a digital hub that could bring together entrepreneurs, innovators, and thought leaders from across the Minneapolis-St. Paul area.</p>
+                            <p>The challenge was creating something that felt both professional and approachable, sophisticated yet accessible to innovators at every stage of their journey.</p>
+                        </div>
+                        <div class="story-image-ref" data-gallery="homepage">
+                            <div class="image-preview">
+                                <span class="preview-icon">🏠</span>
+                                <p>Homepage Design</p>
+                            </div>
+                            <span class="connection-line"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-section" id="story-navigation">
+                    <div class="story-content reverse">
+                        <div class="story-image-ref" data-gallery="navigation">
+                            <div class="image-preview">
+                                <span class="preview-icon">🧭</span>
+                                <p>Navigation System</p>
+                            </div>
+                            <span class="connection-line"></span>
+                        </div>
+                        <div class="story-text">
+                            <h3>Designing for Discovery</h3>
+                            <p>With diverse content ranging from events to member profiles, the navigation needed to be intuitive. I focused on creating clear pathways that would help visitors quickly find what they're looking for.</p>
+                            <p>The menu structure was designed to reflect how users actually think about the organization—starting with "What is TCIA?" and flowing naturally to "How do I get involved?"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-section" id="story-events">
+                    <div class="story-content">
+                        <div class="story-text">
+                            <h3>Bringing Events to Life</h3>
+                            <p>Events are the heartbeat of TCIA, so the events section needed to be more than just a calendar. It needed to convey the energy and value of these gatherings.</p>
+                            <p>I integrated dynamic event listings with registration capabilities, making it easy for members to discover and join upcoming networking opportunities and educational sessions.</p>
+                        </div>
+                        <div class="story-image-ref" data-gallery="events">
+                            <div class="image-preview">
+                                <span class="preview-icon">📅</span>
+                                <p>Events Section</p>
+                            </div>
+                            <span class="connection-line"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-section" id="story-members">
+                    <div class="story-content reverse">
+                        <div class="story-image-ref" data-gallery="members">
+                            <div class="image-preview">
+                                <span class="preview-icon">👥</span>
+                                <p>Member Directory</p>
+                            </div>
+                            <span class="connection-line"></span>
+                        </div>
+                        <div class="story-text">
+                            <h3>Showcasing the Community</h3>
+                            <p>The member directory became a showcase of the incredible talent within the alliance. Each profile tells a story of innovation and entrepreneurship in the Twin Cities.</p>
+                            <p>The design balances professional presentation with personality, helping members connect with each other and potential collaborators.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-section" id="story-technical">
+                    <div class="story-content">
+                        <div class="story-text">
+                            <h3>Technical Foundation</h3>
+                            <p>Built on Squarespace for content management flexibility, with custom HTML, CSS, and JavaScript to enhance the user experience beyond the platform's standard capabilities.</p>
+                            <p>The technical approach prioritized maintainability and ease of updates, ensuring the TCIA team could keep content fresh without technical barriers.</p>
+                            <div class="tech-stack">
+                                <span class="tech-item">Squarespace</span>
+                                <span class="tech-item">Custom HTML/CSS</span>
+                                <span class="tech-item">JavaScript</span>
+                                <span class="tech-item">Responsive Design</span>
+                            </div>
+                        </div>
+                        <div class="story-image-ref" data-gallery="mobile">
+                            <div class="image-preview">
+                                <span class="preview-icon">📱</span>
+                                <p>Mobile Experience</p>
+                            </div>
+                            <span class="connection-line"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-conclusion">
+                    <h3>The Result</h3>
+                    <p>A digital platform that successfully represents the Twin Cities Innovation Alliance's mission and provides real value to its community. The site serves as both an information hub and a networking catalyst, helping to strengthen the innovation ecosystem in Minneapolis-St. Paul.</p>
+                    <div class="conclusion-actions">
+                        <a href="https://tciamn.org" target="_blank" class="cta-button primary">
+                            <span>Explore the Live Site</span>
+                            <span class="button-icon">↗</span>
+                        </a>
+                        <a href="/" class="cta-button secondary">
+                            <span>← Back Home</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Gallery and story interconnection
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const storyRefs = document.querySelectorAll('.story-image-ref');
+
+            // Highlight corresponding story section when gallery item is hovered
+            galleryItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    const storyId = (item as HTMLElement).dataset.story;
+                    const storySection = document.getElementById(`story-${storyId}`);
+                    if (storySection) {
+                        storySection.classList.add('highlighted');
+                    }
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    const storyId = (item as HTMLElement).dataset.story;
+                    const storySection = document.getElementById(`story-${storyId}`);
+                    if (storySection) {
+                        storySection.classList.remove('highlighted');
+                    }
+                });
+
+                // Click to scroll to story section
+                item.addEventListener('click', () => {
+                    const storyId = (item as HTMLElement).dataset.story;
+                    const storySection = document.getElementById(`story-${storyId}`);
+                    if (storySection) {
+                        storySection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+            });
+
+            // Highlight corresponding gallery item when story ref is hovered
+            storyRefs.forEach(ref => {
+                ref.addEventListener('mouseenter', () => {
+                    const galleryId = (ref as HTMLElement).dataset.gallery;
+                    const galleryItem = document.querySelector(`[data-story="${galleryId}"]`);
+                    if (galleryItem) {
+                        galleryItem.classList.add('highlighted');
+                    }
+                });
+
+                ref.addEventListener('mouseleave', () => {
+                    const galleryId = (ref as HTMLElement).dataset.gallery;
+                    const galleryItem = document.querySelector(`[data-story="${galleryId}"]`);
+                    if (galleryItem) {
+                        galleryItem.classList.remove('highlighted');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
