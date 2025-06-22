@@ -1,0 +1,444 @@
+---
+import '../styles/theme.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trimesh Drone Solutions LLC - Professional drone services and solutions">
+    <title>Trimesh Drone Solutions LLC - Demo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="trimesh-hero">
+        <div class="hero-background">
+            <div class="geometric-pattern"></div>
+        </div>
+        <div class="hero-content">
+            <img src="/drone-site/TriMesh_Logo_alpha.png" alt="Trimesh Drone Solutions LLC" class="trimesh-logo">
+            <h1 class="main-title">TRIMESH</h1>
+            <p class="subtitle">DRONE SOLUTIONS</p>
+            <h2 class="hero-tagline">Professional UAV Services & Advanced Aerial Solutions</h2>
+            <p class="hero-description">Precision, reliability, and innovation in every flight. From surveying to inspection, we deliver cutting-edge drone technology for your business needs.</p>
+            
+            <div class="cta-section">
+                <button class="cta-primary">GET QUOTE</button>
+                <button class="cta-secondary">VIEW SERVICES</button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="trimesh-nav">
+        <div class="nav-container">
+            <img src="/drone-site/TriMesh_Logo.png" alt="Trimesh" class="nav-logo">
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="nav-cta">Request Quote</button>
+        </div>
+    </nav>
+
+    <main>
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive drone solutions for modern business challenges</p>
+                
+                <div class="services-grid">
+                    <!-- Services content will be added later -->
+                    <div class="service-placeholder">
+                        <h3>Aerial Surveying</h3>
+                        <p>Precision mapping and data collection</p>
+                    </div>
+                    <div class="service-placeholder">
+                        <h3>Infrastructure Inspection</h3>
+                        <p>Safe and detailed structural analysis</p>
+                    </div>
+                    <div class="service-placeholder">
+                        <h3>Agricultural Monitoring</h3>
+                        <p>Crop health and field optimization</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">About Trimesh</h2>
+                <p class="section-subtitle">Leading the future of aerial technology</p>
+                <!-- About content will be added later -->
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Ready to take your project to new heights?</p>
+                <!-- Contact content will be added later -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="trimesh-footer">
+        <div class="container">
+            <p>&copy; 2025 Trimesh Drone Solutions LLC. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+<style>
+    /* Trimesh Brand Colors */
+    :root {
+        --industrial-steel: #6E7C7C;
+        --safety-orange: #F76902;
+        --technical-blue: #1F4E79;
+        --matte-black: #121212;
+        --drone-white: #F5F5F5;
+        
+        /* Font Stack */
+        --font-main-header: 'Oswald', sans-serif;        /* Bold, impactful headers */
+        --font-site-headers: 'Inter', sans-serif;        /* Clean, modern headers */
+        --font-paragraph: 'Inter', sans-serif;           /* Readable body text */
+        --font-cta: 'Inter', sans-serif;                 /* Clean CTAs */
+        --font-mono: 'JetBrains Mono', monospace;        /* Technical elements */
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: var(--font-paragraph);
+        background-color: var(--drone-white);
+        color: var(--matte-black);
+        line-height: 1.6;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Hero Section */
+    .trimesh-hero {
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--technical-blue) 0%, var(--industrial-steel) 100%);
+        color: var(--drone-white);
+        overflow: hidden;
+    }
+
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.1;
+    }
+
+    .geometric-pattern {
+        width: 100%;
+        height: 100%;
+        background-image: 
+            repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 20px,
+                var(--safety-orange) 20px,
+                var(--safety-orange) 21px
+            ),
+            repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 20px,
+                var(--safety-orange) 20px,
+                var(--safety-orange) 21px
+            );
+    }
+
+    .hero-content {
+        text-align: center;
+        z-index: 2;
+        max-width: 800px;
+        padding: 0 20px;
+    }
+
+    .trimesh-logo {
+        width: 120px;
+        height: auto;
+        margin-bottom: 20px;
+        filter: brightness(0) invert(1);
+    }
+
+    .main-title {
+        font-family: var(--font-main-header);
+        font-size: clamp(3rem, 8vw, 6rem);
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        margin-bottom: 5px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .subtitle {
+        font-family: var(--font-main-header);
+        font-size: clamp(1rem, 2.5vw, 1.5rem);
+        font-weight: 400;
+        letter-spacing: 0.2em;
+        color: var(--safety-orange);
+        margin-bottom: 30px;
+    }
+
+    .hero-tagline {
+        font-family: var(--font-site-headers);
+        font-size: clamp(1.2rem, 3vw, 2rem);
+        font-weight: 500;
+        margin-bottom: 20px;
+        line-height: 1.3;
+    }
+
+    .hero-description {
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        font-weight: 300;
+        margin-bottom: 40px;
+        opacity: 0.9;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cta-section {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .cta-primary, .cta-secondary {
+        font-family: var(--font-cta);
+        font-weight: 600;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+    }
+
+    .cta-primary {
+        background-color: var(--safety-orange);
+        color: var(--drone-white);
+        box-shadow: 0 4px 15px rgba(247, 105, 2, 0.3);
+    }
+
+    .cta-primary:hover {
+        background-color: #e55a02;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(247, 105, 2, 0.4);
+    }
+
+    .cta-secondary {
+        background-color: transparent;
+        color: var(--drone-white);
+        border: 2px solid var(--drone-white);
+    }
+
+    .cta-secondary:hover {
+        background-color: var(--drone-white);
+        color: var(--technical-blue);
+        transform: translateY(-2px);
+    }
+
+    /* Navigation */
+    .trimesh-nav {
+        position: sticky;
+        top: 0;
+        background-color: var(--drone-white);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        z-index: 100;
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav-logo {
+        height: 40px;
+        width: auto;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .nav-links a {
+        font-family: var(--font-site-headers);
+        color: var(--matte-black);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: var(--safety-orange);
+    }
+
+    .nav-cta {
+        font-family: var(--font-cta);
+        background-color: var(--technical-blue);
+        color: var(--drone-white);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .nav-cta:hover {
+        background-color: var(--safety-orange);
+        transform: translateY(-1px);
+    }
+
+    /* Sections */
+    .services-section, .about-section, .contact-section {
+        padding: 80px 0;
+    }
+
+    .services-section {
+        background-color: var(--drone-white);
+    }
+
+    .about-section {
+        background-color: #fafafa;
+    }
+
+    .contact-section {
+        background-color: var(--technical-blue);
+        color: var(--drone-white);
+    }
+
+    .section-title {
+        font-family: var(--font-site-headers);
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 15px;
+        color: inherit;
+    }
+
+    .section-subtitle {
+        font-size: clamp(1rem, 2.5vw, 1.3rem);
+        text-align: center;
+        margin-bottom: 50px;
+        opacity: 0.8;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+    }
+
+    .service-placeholder {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        text-align: center;
+        border-left: 4px solid var(--safety-orange);
+        transition: transform 0.3s ease;
+    }
+
+    .service-placeholder:hover {
+        transform: translateY(-5px);
+    }
+
+    .service-placeholder h3 {
+        font-family: var(--font-site-headers);
+        color: var(--technical-blue);
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    /* Footer */
+    .trimesh-footer {
+        background-color: var(--matte-black);
+        color: var(--drone-white);
+        padding: 30px 0;
+        text-align: center;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+        
+        .nav-container {
+            justify-content: space-between;
+        }
+        
+        .cta-section {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .cta-primary, .cta-secondary {
+            width: 100%;
+            max-width: 250px;
+        }
+        
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .trimesh-logo {
+            width: 80px;
+        }
+        
+        .hero-content {
+            padding: 0 15px;
+        }
+        
+        .container {
+            padding: 0 15px;
+        }
+        
+        .service-placeholder {
+            padding: 20px;
+        }
+    }
+</style> 

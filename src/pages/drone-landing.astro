@@ -1,0 +1,438 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional drone services for industry and entertainment. Choose between Trimesh Drone Solutions LLC for industrial applications or Austin Skyline Media for creative aerial content.">
+    <meta name="keywords" content="drone services, aerial photography, UAV solutions, Austin Texas, professional drones">
+    <meta property="og:title" content="Drone Solutions - Professional UAV Services">
+    <meta property="og:description" content="Professional drone services for industry and entertainment in Austin, Texas.">
+    <meta property="og:type" content="website">
+    <title>Drone Solutions - Trimesh & Austin Skyline Media</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="split-container">
+        <!-- Trimesh Side -->
+        <div class="split-side trimesh-side" id="trimesh-side" role="button" tabindex="0" aria-label="Enter Trimesh Drone Solutions - Professional UAV Services and Industrial Applications">
+            <div class="background-overlay trimesh-bg"></div>
+            <div class="side-content">
+                <img src="/drone-site/TriMesh_Logo_alpha.png" alt="Trimesh Drone Solutions LLC Logo" class="company-logo">
+                <div class="hover-indicator">
+                    <span>Click to Enter</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Austin Skyline Media Side -->
+        <div class="split-side skyline-side" id="skyline-side" role="button" tabindex="0" aria-label="Enter Austin Skyline Media - Creative Aerial Content and Entertainment Services">
+            <div class="background-overlay skyline-bg"></div>
+            <div class="side-content">
+                <img src="/drone-site/skyline_logo_alpha.png" alt="Austin Skyline Media Logo" class="company-logo">
+                <div class="hover-indicator">
+                    <span>Click to Enter</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Divider Line -->
+    <div class="divider-line"></div>
+
+    <script>
+        // Preload images for better performance
+        function preloadImages() {
+            const images = [
+                '/drone-site/TriMesh_Logo.png',
+                '/drone-site/skyline_logo.png',
+                '/drone-site/TriMesh_Logo_alpha.png',
+                '/drone-site/skyline_logo_alpha.png'
+            ];
+            
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            preloadImages();
+            
+            const trimeshSide = document.getElementById('trimesh-side');
+            const skylineSide = document.getElementById('skyline-side');
+
+            if (!trimeshSide || !skylineSide) return;
+
+            // Click handlers
+            trimeshSide.addEventListener('click', function() {
+                window.location.href = '/trimesh-demo';
+            });
+
+            skylineSide.addEventListener('click', function() {
+                // For now, just alert - later we'll create the Austin Skyline page
+                alert('Austin Skyline Media page coming soon!');
+                // window.location.href = '/austin-skyline';
+            });
+
+            // Add keyboard navigation support
+            function handleKeyPress(event, targetUrl) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    if (targetUrl) {
+                        window.location.href = targetUrl;
+                    } else {
+                        alert('Austin Skyline Media page coming soon!');
+                    }
+                }
+            }
+
+            trimeshSide.addEventListener('keydown', (e) => handleKeyPress(e, '/trimesh-demo'));
+            skylineSide.addEventListener('keydown', (e) => handleKeyPress(e, null));
+
+            // Enhanced hover effects
+            trimeshSide.addEventListener('mouseenter', function() {
+                trimeshSide.classList.add('active');
+                skylineSide.classList.add('inactive');
+            });
+
+            trimeshSide.addEventListener('mouseleave', function() {
+                trimeshSide.classList.remove('active');
+                skylineSide.classList.remove('inactive');
+            });
+
+            skylineSide.addEventListener('mouseenter', function() {
+                skylineSide.classList.add('active');
+                trimeshSide.classList.add('inactive');
+            });
+
+            skylineSide.addEventListener('mouseleave', function() {
+                skylineSide.classList.remove('active');
+                trimeshSide.classList.remove('inactive');
+            });
+        });
+    </script>
+</body>
+</html>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        height: 100vh;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .split-container {
+        display: flex;
+        height: 100vh;
+        width: 100%;
+    }
+
+    .split-side {
+        flex: 1;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.5s ease;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    .background-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: all 0.5s ease;
+    }
+
+    .trimesh-side {
+        /* Use the Trimesh logo image as background in natural colors */
+        background: url('/drone-site/TriMesh_Logo.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: #F5F5F5;
+        position: relative;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .skyline-side {
+        /* Use the Austin Skyline logo image as background in natural colors */
+        background: url('/drone-site/skyline_logo.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: #F5F5F5;
+        position: relative;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .side-content {
+        text-align: center;
+        z-index: 2;
+        max-width: 400px;
+        padding: 0 20px;
+        transition: all 0.3s ease;
+    }
+
+    .company-logo {
+        width: 280px;
+        height: auto;
+        margin-bottom: 0;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+
+
+
+    .hover-indicator {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        font-weight: 700;
+        font-size: 1.5rem;
+        letter-spacing: 0.1em;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        text-transform: uppercase;
+        margin-top: 40px;
+        position: relative;
+    }
+
+    .hover-indicator span {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 8px;
+    }
+
+    .hover-indicator span::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 2px;
+    }
+
+    /* Trimesh side underline - Technical Blue to Safety Orange */
+    .trimesh-side .hover-indicator span::after {
+        background: linear-gradient(90deg, #1F4E79 0%, #F76902 100%);
+    }
+
+    /* Austin Skyline side underline - Sky blue gradient */
+    .skyline-side .hover-indicator span::after {
+        background: linear-gradient(90deg, #87ceeb 0%, #4682b4 50%, #4169e1 100%);
+    }
+
+    /* Show underline on hover */
+    .split-side:hover .hover-indicator span::after,
+    .split-side:focus .hover-indicator span::after {
+        width: 100%;
+    }
+
+    /* Hover Effects */
+    .split-side:hover .hover-indicator {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Show small logos on hover */
+    .split-side:hover .company-logo {
+        opacity: 1;
+        transform: translateY(0) scale(1.05);
+        filter: drop-shadow(0 0 20px rgba(255,255,255,0.8));
+    }
+
+    /* Hide background logos on hover */
+    .trimesh-side:hover {
+        background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)),
+                    linear-gradient(135deg, #1F4E79 0%, #121212 100%);
+    }
+
+    .skyline-side:hover {
+        background: linear-gradient(135deg, 
+                        rgba(135, 206, 235, 0.7) 0%,     /* Sky blue */
+                        rgba(70, 130, 180, 0.8) 30%,     /* Steel blue */
+                        rgba(100, 149, 237, 0.7) 60%,    /* Cornflower blue */
+                        rgba(65, 105, 225, 0.8) 100%),   /* Royal blue */
+                    linear-gradient(135deg, #87ceeb 0%, #4682b4 50%, #4169e1 100%);
+    }
+
+    .split-side.inactive {
+        filter: brightness(0.4);
+        transition: filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Focus states for accessibility */
+    .split-side:focus {
+        outline: 3px solid rgba(255, 255, 255, 0.8);
+        outline-offset: -3px;
+    }
+
+    .split-side:focus .company-logo {
+        opacity: 1;
+        transform: translateY(0) scale(1.02);
+        filter: drop-shadow(0 0 15px rgba(255,255,255,0.6));
+    }
+
+    .split-side:focus .hover-indicator {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Enhanced cursor feedback */
+    .split-side {
+        cursor: pointer;
+    }
+
+    .split-side:hover {
+        cursor: pointer;
+    }
+
+    /* Divider Line */
+    .divider-line {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(to bottom, 
+            transparent 0%, 
+            rgba(255,255,255,0.3) 20%, 
+            rgba(255,255,255,0.6) 50%, 
+            rgba(255,255,255,0.3) 80%, 
+            transparent 100%);
+        z-index: 10;
+        transform: translateX(-50%);
+        overflow: hidden;
+    }
+
+    .divider-line::before {
+        content: '';
+        position: absolute;
+        top: -20%;
+        left: 0;
+        right: 0;
+        height: 40%;
+        background: linear-gradient(to bottom,
+            transparent 0%,
+            rgba(255,255,255,0.8) 50%,
+            transparent 100%);
+        box-shadow: 0 0 15px rgba(255,255,255,0.6);
+        animation: travelingGlow 4s ease-in-out infinite;
+    }
+
+    @keyframes travelingGlow {
+        0% { 
+            top: -20%;
+            opacity: 0;
+        }
+        10% {
+            opacity: 1;
+        }
+        50% {
+            top: 40%;
+            opacity: 1;
+        }
+        90% {
+            opacity: 1;
+        }
+        100% { 
+            top: 100%;
+            opacity: 0;
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .split-container {
+            flex-direction: column;
+        }
+
+        .split-side {
+            flex: 1;
+            min-height: 50vh;
+        }
+
+        .divider-line {
+            left: 0;
+            right: 0;
+            top: 50%;
+            bottom: auto;
+            width: auto;
+            height: 2px;
+            background: linear-gradient(to right, 
+                transparent 0%, 
+                rgba(255,255,255,0.3) 20%, 
+                rgba(255,255,255,0.6) 50%, 
+                rgba(255,255,255,0.3) 80%, 
+                transparent 100%);
+            transform: translateY(-50%);
+        }
+
+        .company-logo {
+            width: 220px;
+        }
+
+        .split-side.inactive {
+            filter: brightness(0.4);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .side-content {
+            padding: 0 15px;
+        }
+
+        .company-logo {
+            width: 180px;
+            margin-bottom: 20px;
+        }
+    }
+
+    /* Animation for page load */
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .split-side {
+        animation: slideIn 0.8s ease-out;
+    }
+
+    .trimesh-side {
+        animation-delay: 0.1s;
+    }
+
+    .skyline-side {
+        animation-delay: 0.2s;
+    }
+</style> 
