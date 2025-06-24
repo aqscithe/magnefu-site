@@ -1,5 +1,5 @@
 ---
-import '../styles/theme.css';
+// Trimesh-specific page - no shared theme needed
 ---
 
 <!DOCTYPE html>
@@ -14,6 +14,9 @@ import '../styles/theme.css';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Trimesh Styles -->
+    <link rel="stylesheet" href="/src/styles/trimesh.css">
 </head>
 <body>
     <header class="trimesh-hero">
@@ -36,37 +39,459 @@ import '../styles/theme.css';
 
     <nav class="trimesh-nav">
         <div class="nav-container">
-            <img src="/drone-site/TriMesh_Logo.png" alt="Trimesh" class="nav-logo">
-            <div class="nav-links">
-                <a href="#services">Services</a>
-                <a href="#about">About</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="#contact">Contact</a>
+            <div class="nav-brand">
+                <img src="/drone-site/TriMesh_Logo_alpha.png" alt="Trimesh Drone Solutions" class="nav-logo">
+                <div class="brand-text">
+                    <span class="brand-name">TRIMESH</span>
+                    <span class="brand-tagline">Drone Solutions</span>
+                </div>
             </div>
-            <button class="nav-cta">Request Quote</button>
+            
+            <div class="nav-links">
+                <a href="#showcase" class="nav-link">
+                    <div class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 10L11 14L17 20L21 4L3 11L10 14L15 10Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <span>See in Action</span>
+                </a>
+                <a href="#services" class="nav-link">
+                    <div class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L22 7L12 12L2 7L12 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span>Our Services</span>
+                </a>
+                <a href="#capabilities" class="nav-link">
+                    <div class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <span>Why Choose Us</span>
+                </a>
+                <a href="#about" class="nav-link">
+                    <div class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 21V19C20 16.7909 18.2091 15 16 15H8C5.79086 15 4 16.7909 4 19V21" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span>About</span>
+                </a>
+            </div>
+            
+            <div class="nav-cta-section">
+                <div class="contact-info">
+                    <span class="phone-number">📞 (512) 555-DRONE</span>
+                </div>
+                <button class="nav-cta-primary">Request Demo</button>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav">
+            <div class="mobile-nav-links">
+                <a href="#showcase" class="mobile-nav-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 10L11 14L17 20L21 4L3 11L10 14L15 10Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                    <span>See Drones in Action</span>
+                </a>
+                <a href="#services" class="mobile-nav-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L22 7L12 12L2 7L12 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
+                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span>Professional Services</span>
+                </a>
+                <a href="#capabilities" class="mobile-nav-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                    <span>Why Choose Trimesh</span>
+                </a>
+                <a href="#about" class="mobile-nav-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 21V19C20 16.7909 18.2091 15 16 15H8C5.79086 15 4 16.7909 4 19V21" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span>About Trimesh</span>
+                </a>
+                <div class="mobile-cta-section">
+                    <span class="mobile-phone">📞 (512) 555-DRONE</span>
+                    <button class="mobile-cta">Request Demo</button>
+                </div>
+            </div>
         </div>
     </nav>
 
     <main>
+        <!-- Video Showcase Section -->
+        <section id="showcase" class="video-showcase">
+            <div class="container">
+                <h2 class="section-title">See Our Drones in Action</h2>
+                <p class="section-subtitle">Real projects, real results. Watch how we deliver precision and efficiency from above.</p>
+                
+                <div class="video-grid">
+                    <div class="video-card featured">
+                        <div class="video-placeholder">
+                            <div class="play-button">
+                                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Construction Site Survey" class="video-thumbnail">
+                        </div>
+                        <div class="video-info">
+                            <h3>Construction Site Survey</h3>
+                            <p>Complete site mapping and progress monitoring for a major commercial development project.</p>
+                            <span class="video-duration">3:24</span>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-placeholder">
+                            <div class="play-button">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Land Surveying" class="video-thumbnail">
+                        </div>
+                        <div class="video-info">
+                            <h3>Precision Land Surveying</h3>
+                            <p>High-accuracy topographical mapping using advanced LiDAR technology.</p>
+                            <span class="video-duration">2:15</span>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-placeholder">
+                            <div class="play-button">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Search and Rescue" class="video-thumbnail">
+                        </div>
+                        <div class="video-info">
+                            <h3>Search & Rescue Operations</h3>
+                            <p>Rapid deployment and thermal imaging for emergency response scenarios.</p>
+                            <span class="video-duration">4:02</span>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card">
+                        <div class="video-placeholder">
+                            <div class="play-button">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Building Inspection" class="video-thumbnail">
+                        </div>
+                        <div class="video-info">
+                            <h3>High-Rise Inspection</h3>
+                            <p>Safe and detailed facade inspection without scaffolding or costly equipment.</p>
+                            <span class="video-duration">1:48</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aerial Showcase Section -->
+        <section class="aerial-showcase">
+            <div class="container">
+                <h2 class="section-title">Capturing Every Angle</h2>
+                <p class="section-subtitle">Professional aerial photography and videography showcasing our drones in diverse working environments.</p>
+                
+                <div class="aerial-gallery">
+                    <div class="aerial-image large">
+                        <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Drone surveying construction site">
+                        <div class="image-overlay">
+                            <h3>Construction Monitoring</h3>
+                            <p>Real-time progress tracking and site analysis</p>
+                        </div>
+                    </div>
+                    <div class="aerial-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Drone in mountainous terrain">
+                        <div class="image-overlay">
+                            <h3>Search & Rescue</h3>
+                            <p>Rapid deployment in challenging terrain</p>
+                        </div>
+                    </div>
+                    <div class="aerial-image">
+                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aerial view of agricultural land">
+                        <div class="image-overlay">
+                            <h3>Land Surveying</h3>
+                            <p>Precision mapping and topographical analysis</p>
+                        </div>
+                    </div>
+                    <div class="aerial-image">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Urban building inspection">
+                        <div class="image-overlay">
+                            <h3>Infrastructure Inspection</h3>
+                            <p>Safe and thorough structural analysis</p>
+                        </div>
+                    </div>
+                    <div class="aerial-image">
+                        <img src="https://images.unsplash.com/photo-1464207687429-7505649dae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Drone cleaning windows">
+                        <div class="image-overlay">
+                            <h3>Window Washing</h3>
+                            <p>Efficient cleaning of high-rise buildings</p>
+                        </div>
+                    </div>
+                    <div class="aerial-image">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aerial forest survey">
+                        <div class="image-overlay">
+                            <h3>Environmental Monitoring</h3>
+                            <p>Comprehensive environmental assessments</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="services" class="services-section">
             <div class="container">
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-subtitle">Comprehensive drone solutions for modern business challenges</p>
+                <h2 class="section-title">Professional Drone Services</h2>
+                <p class="section-subtitle">Comprehensive UAV solutions tailored to your industry needs</p>
                 
-                <div class="services-grid">
-                    <!-- Services content will be added later -->
-                    <div class="service-placeholder">
-                        <h3>Aerial Surveying</h3>
-                        <p>Precision mapping and data collection</p>
+                <div class="services-menu">
+                    <div class="service-category">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 3H21L20 12H4L3 3Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <path d="M12 8V16" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M8 12H16" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3>Construction & Development</h3>
+                        </div>
+                        <ul class="service-list">
+                            <li>Site surveying and mapping</li>
+                            <li>Progress monitoring and documentation</li>
+                            <li>Volumetric calculations</li>
+                            <li>Safety inspections</li>
+                            <li>3D modeling and BIM integration</li>
+                        </ul>
                     </div>
-                    <div class="service-placeholder">
-                        <h3>Infrastructure Inspection</h3>
-                        <p>Safe and detailed structural analysis</p>
+
+                    <div class="service-category">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <h3>Infrastructure Inspection</h3>
+                        </div>
+                        <ul class="service-list">
+                            <li>Bridge and structure analysis</li>
+                            <li>Power line inspections</li>
+                            <li>Cell tower assessments</li>
+                            <li>Building facade evaluations</li>
+                            <li>Thermal imaging diagnostics</li>
+                        </ul>
                     </div>
-                    <div class="service-placeholder">
-                        <h3>Agricultural Monitoring</h3>
-                        <p>Crop health and field optimization</p>
+
+                    <div class="service-category">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2L22 7L12 12L2 7L12 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3>Land Surveying</h3>
+                        </div>
+                        <ul class="service-list">
+                            <li>Topographical mapping</li>
+                            <li>Boundary surveys</li>
+                            <li>Contour mapping</li>
+                            <li>Elevation modeling</li>
+                            <li>GPS coordinate collection</li>
+                        </ul>
                     </div>
+
+                    <div class="service-category">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <h3>Search & Rescue</h3>
+                        </div>
+                        <ul class="service-list">
+                            <li>Emergency response deployment</li>
+                            <li>Thermal imaging search operations</li>
+                            <li>Missing person location</li>
+                            <li>Disaster area assessment</li>
+                            <li>Real-time video transmission</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-category">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 18V15H5L12 8L19 15H17V18H7Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <path d="M9 20H15" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3>Specialized Services</h3>
+                        </div>
+                        <ul class="service-list">
+                            <li>High-rise window washing</li>
+                            <li>Agricultural monitoring</li>
+                            <li>Environmental assessments</li>
+                            <li>Real estate photography</li>
+                            <li>Event documentation</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-category">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 3H6A3 3 0 003 6V18A3 3 0 006 21H18A3 3 0 0021 18V9L15 3Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                    <path d="M15 3V9H21" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <h3>Data & Analytics</h3>
+                        </div>
+                        <ul class="service-list">
+                            <li>Custom data processing</li>
+                            <li>GIS mapping and analysis</li>
+                            <li>Report generation</li>
+                            <li>Cloud data management</li>
+                            <li>API integrations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Projects Section -->
+        <section id="community" class="community-section">
+            <div class="container">
+                <h2 class="section-title">Community Impact</h2>
+                <p class="section-subtitle">Supporting our local community through innovative drone applications and volunteer services</p>
+                
+                <div class="community-grid">
+                    <div class="community-card featured">
+                        <div class="community-image">
+                            <img src="https://images.unsplash.com/photo-1586348943529-beaae6c28db9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Search and rescue training" class="card-image">
+                            <div class="community-badge">ONGOING</div>
+                        </div>
+                        <div class="community-content">
+                            <h3>Emergency Response Training</h3>
+                            <p>Partnering with local first responders to provide drone search and rescue training, enhancing community emergency preparedness and response capabilities.</p>
+                            <div class="community-stats">
+                                <span class="stat">
+                                    <strong>12</strong> First responders trained
+                                </span>
+                                <span class="stat">
+                                    <strong>6</strong> Agencies partnered
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="community-card">
+                        <div class="community-image">
+                            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Environmental monitoring" class="card-image">
+                            <div class="community-badge volunteer">VOLUNTEER</div>
+                        </div>
+                        <div class="community-content">
+                            <h3>Wildlife Conservation</h3>
+                            <p>Pro-bono aerial surveys for local conservation groups, monitoring wildlife populations and habitat health.</p>
+                            <div class="community-impact">
+                                <span>📍 Barton Springs Preserve</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="community-card">
+                        <div class="community-image">
+                            <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="School STEM program" class="card-image">
+                            <div class="community-badge education">EDUCATION</div>
+                        </div>
+                        <div class="community-content">
+                            <h3>STEM Education Program</h3>
+                            <p>Interactive drone demonstrations at local schools, inspiring the next generation of engineers and pilots.</p>
+                            <div class="community-impact">
+                                <span>🎓 500+ Students reached</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="community-card">
+                        <div class="community-image">
+                            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Missing person search" class="card-image">
+                            <div class="community-badge emergency">EMERGENCY</div>
+                        </div>
+                        <div class="community-content">
+                            <h3>Missing Person Assistance</h3>
+                            <p>Rapid deployment for missing person cases, providing thermal imaging and search pattern coverage.</p>
+                            <div class="community-impact">
+                                <span>⏱️ 24/7 Emergency response</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="community-card">
+                        <div class="community-image">
+                            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Community event documentation" class="card-image">
+                            <div class="community-badge event">EVENTS</div>
+                        </div>
+                        <div class="community-content">
+                            <h3>Community Events</h3>
+                            <p>Free aerial photography and videography for local festivals, charity runs, and community gatherings.</p>
+                            <div class="community-impact">
+                                <span>🎉 Austin City Limits • SXSW</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="community-card">
+                        <div class="community-image">
+                            <img src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Disaster assessment" class="card-image">
+                            <div class="community-badge disaster">DISASTER RELIEF</div>
+                        </div>
+                        <div class="community-content">
+                            <h3>Disaster Assessment</h3>
+                            <p>Immediate post-storm damage assessment to help insurance claims and emergency services prioritize response.</p>
+                            <div class="community-impact">
+                                <span>🌪️ Winter Storm Uri 2021</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="community-cta">
+                    <h3>Get Involved</h3>
+                    <p>Know of a community project that could benefit from drone technology? We'd love to help.</p>
+                    <button class="community-btn">Nominate a Project</button>
                 </div>
             </div>
         </section>
@@ -83,7 +508,66 @@ import '../styles/theme.css';
             <div class="container">
                 <h2 class="section-title">Get In Touch</h2>
                 <p class="section-subtitle">Ready to take your project to new heights?</p>
+                
                 <!-- Contact content will be added later -->
+                
+                <!-- Social Media -->
+                <div class="contact-social">
+                    <h3 class="social-heading">Connect With Trimesh</h3>
+                    <p class="social-description">Follow our latest drone innovations and project updates</p>
+                    
+                    <div class="social-grid">
+                        <a href="#" class="social-card bluesky" aria-label="Follow us on Bluesky">
+                            <div class="social-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2.247c-2.32 0-5.947 1.935-7.39 6.32-.368 1.119-.61 2.748-.61 4.643 0 .796.055 1.536.148 2.21 1.155 8.421 6.29 8.58 7.862 8.58s6.707-.159 7.862-8.58c.093-.674.148-1.414.148-2.21 0-1.895-.242-3.524-.61-4.643C17.947 4.182 14.32 2.247 12 2.247z" fill="currentColor"/>
+                                    <circle cx="8.5" cy="10.5" r="1.5" fill="white"/>
+                                    <circle cx="15.5" cy="10.5" r="1.5" fill="white"/>
+                                    <path d="M12 18c-2 0-3.5-1-3.5-2.5S10 13 12 13s3.5 1 3.5 2.5S14 18 12 18z" fill="white"/>
+                                </svg>
+                            </div>
+                            <div class="social-content">
+                                <h4>Bluesky</h4>
+                                <p>Daily updates & behind-the-scenes</p>
+                            </div>
+                        </a>
+
+                        <a href="#" class="social-card twitter" aria-label="Follow us on X (Twitter)">
+                            <div class="social-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="social-content">
+                                <h4>X (Twitter)</h4>
+                                <p>Industry news & quick updates</p>
+                            </div>
+                        </a>
+
+                        <a href="#" class="social-card youtube" aria-label="Subscribe to our YouTube channel">
+                            <div class="social-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="social-content">
+                                <h4>YouTube</h4>
+                                <p>Full drone operation videos</p>
+                            </div>
+                        </a>
+
+                        <a href="#" class="social-card discord" aria-label="Join our Discord community">
+                            <div class="social-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.0189 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1568 2.4189Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="social-content">
+                            <h4>Discord</h4>
+                            <p>Community & live support</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
@@ -93,352 +577,68 @@ import '../styles/theme.css';
             <p>&copy; 2025 Trimesh Drone Solutions LLC. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileNav = document.querySelector('.mobile-nav');
+            
+            if (mobileMenuToggle && mobileNav) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    mobileNav.classList.toggle('active');
+                });
+                
+                // Close mobile menu when clicking on links
+                const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        if (mobileMenuToggle && mobileNav) {
+                            mobileMenuToggle.classList.remove('active');
+                            mobileNav.classList.remove('active');
+                        }
+                    });
+                });
+            }
+            
+            // Smooth scrolling for navigation links
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            const offsetTop = targetElement.offsetTop - 80; // Account for sticky nav
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Add scroll effect to navigation
+            const nav = document.querySelector('.trimesh-nav');
+            
+            if (nav instanceof HTMLElement) {
+                window.addEventListener('scroll', function() {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    
+                    if (scrollTop > 100) {
+                        nav.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(248,249,250,0.98) 100%)';
+                        nav.style.boxShadow = '0 6px 30px rgba(0,0,0,0.12)';
+                    } else {
+                        nav.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,249,250,0.95) 100%)';
+                        nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
-</html>
-
-<style>
-    /* Trimesh Brand Colors */
-    :root {
-        --industrial-steel: #6E7C7C;
-        --safety-orange: #F76902;
-        --technical-blue: #1F4E79;
-        --matte-black: #121212;
-        --drone-white: #F5F5F5;
-        
-        /* Font Stack */
-        --font-main-header: 'Oswald', sans-serif;        /* Bold, impactful headers */
-        --font-site-headers: 'Inter', sans-serif;        /* Clean, modern headers */
-        --font-paragraph: 'Inter', sans-serif;           /* Readable body text */
-        --font-cta: 'Inter', sans-serif;                 /* Clean CTAs */
-        --font-mono: 'JetBrains Mono', monospace;        /* Technical elements */
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: var(--font-paragraph);
-        background-color: var(--drone-white);
-        color: var(--matte-black);
-        line-height: 1.6;
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    /* Hero Section */
-    .trimesh-hero {
-        min-height: 100vh;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, var(--technical-blue) 0%, var(--industrial-steel) 100%);
-        color: var(--drone-white);
-        overflow: hidden;
-    }
-
-    .hero-background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        opacity: 0.1;
-    }
-
-    .geometric-pattern {
-        width: 100%;
-        height: 100%;
-        background-image: 
-            repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 20px,
-                var(--safety-orange) 20px,
-                var(--safety-orange) 21px
-            ),
-            repeating-linear-gradient(
-                -45deg,
-                transparent,
-                transparent 20px,
-                var(--safety-orange) 20px,
-                var(--safety-orange) 21px
-            );
-    }
-
-    .hero-content {
-        text-align: center;
-        z-index: 2;
-        max-width: 800px;
-        padding: 0 20px;
-    }
-
-    .trimesh-logo {
-        width: 120px;
-        height: auto;
-        margin-bottom: 20px;
-        filter: brightness(0) invert(1);
-    }
-
-    .main-title {
-        font-family: var(--font-main-header);
-        font-size: clamp(3rem, 8vw, 6rem);
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        margin-bottom: 5px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .subtitle {
-        font-family: var(--font-main-header);
-        font-size: clamp(1rem, 2.5vw, 1.5rem);
-        font-weight: 400;
-        letter-spacing: 0.2em;
-        color: var(--safety-orange);
-        margin-bottom: 30px;
-    }
-
-    .hero-tagline {
-        font-family: var(--font-site-headers);
-        font-size: clamp(1.2rem, 3vw, 2rem);
-        font-weight: 500;
-        margin-bottom: 20px;
-        line-height: 1.3;
-    }
-
-    .hero-description {
-        font-size: clamp(1rem, 2vw, 1.2rem);
-        font-weight: 300;
-        margin-bottom: 40px;
-        opacity: 0.9;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .cta-section {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .cta-primary, .cta-secondary {
-        font-family: var(--font-cta);
-        font-weight: 600;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1rem;
-        letter-spacing: 0.05em;
-        transition: all 0.3s ease;
-        text-transform: uppercase;
-    }
-
-    .cta-primary {
-        background-color: var(--safety-orange);
-        color: var(--drone-white);
-        box-shadow: 0 4px 15px rgba(247, 105, 2, 0.3);
-    }
-
-    .cta-primary:hover {
-        background-color: #e55a02;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(247, 105, 2, 0.4);
-    }
-
-    .cta-secondary {
-        background-color: transparent;
-        color: var(--drone-white);
-        border: 2px solid var(--drone-white);
-    }
-
-    .cta-secondary:hover {
-        background-color: var(--drone-white);
-        color: var(--technical-blue);
-        transform: translateY(-2px);
-    }
-
-    /* Navigation */
-    .trimesh-nav {
-        position: sticky;
-        top: 0;
-        background-color: var(--drone-white);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        z-index: 100;
-    }
-
-    .nav-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 15px 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .nav-logo {
-        height: 40px;
-        width: auto;
-    }
-
-    .nav-links {
-        display: flex;
-        gap: 30px;
-        align-items: center;
-    }
-
-    .nav-links a {
-        font-family: var(--font-site-headers);
-        color: var(--matte-black);
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-        color: var(--safety-orange);
-    }
-
-    .nav-cta {
-        font-family: var(--font-cta);
-        background-color: var(--technical-blue);
-        color: var(--drone-white);
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .nav-cta:hover {
-        background-color: var(--safety-orange);
-        transform: translateY(-1px);
-    }
-
-    /* Sections */
-    .services-section, .about-section, .contact-section {
-        padding: 80px 0;
-    }
-
-    .services-section {
-        background-color: var(--drone-white);
-    }
-
-    .about-section {
-        background-color: #fafafa;
-    }
-
-    .contact-section {
-        background-color: var(--technical-blue);
-        color: var(--drone-white);
-    }
-
-    .section-title {
-        font-family: var(--font-site-headers);
-        font-size: clamp(2rem, 5vw, 3rem);
-        font-weight: 600;
-        text-align: center;
-        margin-bottom: 15px;
-        color: inherit;
-    }
-
-    .section-subtitle {
-        font-size: clamp(1rem, 2.5vw, 1.3rem);
-        text-align: center;
-        margin-bottom: 50px;
-        opacity: 0.8;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-top: 50px;
-    }
-
-    .service-placeholder {
-        background-color: white;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        text-align: center;
-        border-left: 4px solid var(--safety-orange);
-        transition: transform 0.3s ease;
-    }
-
-    .service-placeholder:hover {
-        transform: translateY(-5px);
-    }
-
-    .service-placeholder h3 {
-        font-family: var(--font-site-headers);
-        color: var(--technical-blue);
-        margin-bottom: 15px;
-        font-size: 1.3rem;
-        font-weight: 600;
-    }
-
-    /* Footer */
-    .trimesh-footer {
-        background-color: var(--matte-black);
-        color: var(--drone-white);
-        padding: 30px 0;
-        text-align: center;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .nav-links {
-            display: none;
-        }
-        
-        .nav-container {
-            justify-content: space-between;
-        }
-        
-        .cta-section {
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .cta-primary, .cta-secondary {
-            width: 100%;
-            max-width: 250px;
-        }
-        
-        .services-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .trimesh-logo {
-            width: 80px;
-        }
-        
-        .hero-content {
-            padding: 0 15px;
-        }
-        
-        .container {
-            padding: 0 15px;
-        }
-        
-        .service-placeholder {
-            padding: 20px;
-        }
-    }
-</style> 
+</html> 
