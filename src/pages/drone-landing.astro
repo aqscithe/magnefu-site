@@ -96,6 +96,55 @@
             trimeshSide.addEventListener('keydown', (e) => handleKeyPress(e, '/trimesh-demo'));
             skylineSide.addEventListener('keydown', (e) => handleKeyPress(e, null));
 
+            // Mobile-specific touch enhancements
+            function isMobile() {
+                return window.innerWidth <= 768;
+            }
+
+            function addTouchFeedback(element) {
+                element.addEventListener('touchstart', function(e) {
+                    e.preventDefault(); // Prevent default to avoid double-tap zoom
+                    this.classList.add('touching');
+                }, { passive: false });
+
+                element.addEventListener('touchend', function(e) {
+                    e.preventDefault();
+                    this.classList.remove('touching');
+                    
+                    // Add a small delay to ensure visual feedback is seen
+                    setTimeout(() => {
+                        this.click();
+                    }, 100);
+                }, { passive: false });
+
+                element.addEventListener('touchcancel', function() {
+                    this.classList.remove('touching');
+                });
+            }
+
+            // Add touch feedback for mobile devices
+            if (isMobile()) {
+                addTouchFeedback(trimeshSide);
+                addTouchFeedback(skylineSide);
+                
+                // Remove hover effects on mobile since they don't work properly
+                trimeshSide.classList.add('mobile-mode');
+                skylineSide.classList.add('mobile-mode');
+            }
+
+            // Handle orientation changes
+            window.addEventListener('orientationchange', function() {
+                setTimeout(() => {
+                    if (isMobile()) {
+                        trimeshSide.classList.add('mobile-mode');
+                        skylineSide.classList.add('mobile-mode');
+                    } else {
+                        trimeshSide.classList.remove('mobile-mode');
+                        skylineSide.classList.remove('mobile-mode');
+                    }
+                }, 100);
+            });
+
             // Enhanced hover effects
             trimeshSide.addEventListener('mouseenter', function() {
                 trimeshSide.classList.add('active');
@@ -365,21 +414,152 @@
         }
     }
 
+    /* Mobile interaction hints */
+    @media (max-width: 768px) {
+        /* Add a subtle overlay hint for mobile users */
+        .split-side::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(0,0,0,0.1) 0%, 
+                rgba(0,0,0,0.05) 50%, 
+                rgba(0,0,0,0.1) 100%);
+            z-index: 1;
+            pointer-events: none;
+            animation: mobileHint 3s ease-in-out infinite;
+        }
+
+        @keyframes mobileHint {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.1; }
+        }
+
+        /* Show company logos and call-to-action by default on mobile */
+        .company-logo {
+            opacity: 0.8;
+            transform: translateY(0) scale(0.9);
+        }
+
+        .hover-indicator {
+            opacity: 0.7;
+            transform: translateY(0);
+        }
+
+        .hover-indicator span::after {
+            width: 80%;
+        }
+
+        /* Add mobile-specific instruction text */
+        .split-side::after {
+            content: 'TAP TO ENTER';
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 0.1em;
+            z-index: 3;
+            animation: tapHint 2s ease-in-out infinite;
+        }
+
+        @keyframes tapHint {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* Enhanced touch feedback */
+        .split-side:active {
+            transform: scale(0.98);
+            transition: transform 0.1s ease;
+        }
+
+        .split-side:active .company-logo {
+            opacity: 1;
+            transform: translateY(0) scale(1.0);
+        }
+
+        .split-side:active .hover-indicator {
+            opacity: 1;
+        }
+
+        .split-side:active .hover-indicator span::after {
+            width: 100%;
+        }
+
+        /* Touch feedback specifically for mobile */
+        .split-side.touching {
+            transform: scale(0.96);
+            transition: transform 0.15s ease;
+        }
+
+        .split-side.touching .company-logo {
+            opacity: 1;
+            transform: translateY(0) scale(1.1);
+            filter: drop-shadow(0 0 25px rgba(255,255,255,0.9));
+        }
+
+        .split-side.touching .hover-indicator {
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+
+        .split-side.touching .hover-indicator span::after {
+            width: 100%;
+        }
+
+        /* Disable hover effects in mobile mode to prevent conflicts */
+        .split-side.mobile-mode:hover {
+            background: inherit;
+        }
+
+        .split-side.mobile-mode:hover .company-logo {
+            opacity: 0.8;
+            transform: translateY(0) scale(0.9);
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+        }
+
+        .split-side.mobile-mode:hover .hover-indicator {
+            opacity: 0.7;
+            transform: translateY(0);
+        }
+
+        .split-side.mobile-mode:hover .hover-indicator span::after {
+            width: 80%;
+        }
+
+        /* Prevent iOS zoom on double tap */
+        .split-side {
+            touch-action: manipulation;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
         .split-container {
             flex-direction: column;
+            position: relative;
         }
 
         .split-side {
             flex: 1;
             min-height: 50vh;
+            position: relative;
         }
 
         .divider-line {
             left: 0;
             right: 0;
-            top: 50%;
+            top: auto;
             bottom: auto;
             width: auto;
             height: 2px;
@@ -389,7 +569,36 @@
                 rgba(255,255,255,0.6) 50%, 
                 rgba(255,255,255,0.3) 80%, 
                 transparent 100%);
+            /* Use flexbox positioning instead of viewport-based positioning */
+            position: absolute;
+            top: 50%;
             transform: translateY(-50%);
+            /* Ensure it's calculated from the actual container height */
+            box-sizing: border-box;
+        }
+
+        /* Alternative: Use a pseudo-element approach for more reliable centering */
+        .split-container::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            height: 2px;
+            background: linear-gradient(to right, 
+                transparent 0%, 
+                rgba(255,255,255,0.3) 20%, 
+                rgba(255,255,255,0.6) 50%, 
+                rgba(255,255,255,0.3) 80%, 
+                transparent 100%);
+            transform: translateY(-50%);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        /* Hide the original divider on mobile */
+        .divider-line {
+            display: none;
         }
 
         .company-logo {
