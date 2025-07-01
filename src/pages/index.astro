@@ -8,574 +8,278 @@ import '../styles/home.css';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Magnefu - Personal site, portfolio and devlog">
-    <!--<link rel="icon" type="image/svg+xml" href="/favicon.svg" />-->
-
+    <meta name="description" content="Magnefu - Developer, Creator, Explorer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>magnefu</title>
-
 </head>
 <body>
-    <header class="hero-header">
-        <div class="hero-background">
-            <div class="floating-code">
-                <span class="code-snippet">{'// TODO: Fix this later'}</span>
-                <span class="code-snippet">{'console.log("Why does this work?");'}</span>
-                <span class="code-snippet">{'// It works, don\'t touch it'}</span>
-            </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="bg-dots"></div>
         </div>
-        <div class="header-content">
-            <img src="/img/logo_alt.png" alt="magnefu logo" class="logo">
-            <p class="header-tagline">Developer, Creator, Explorer</p>
-            
-            <h1 class="glitch-text">The Beautiful Chaos of Development</h1>
-            <p class="hero-subtitle typing-effect">Where bugs become features, caffeine becomes code, and every solution creates three new problems...</p>
-            <div class="problem-stats">
-                <div class="problem-stat">
-                    <span class="stat-number red-glow">∞</span>
-                    <span class="stat-label">Ways to solve the same problem</span>
-                </div>
-                <div class="problem-stat">
-                    <span class="stat-number red-glow">42</span>
-                    <span class="stat-label">The answer to everything (probably)</span>
+        <div class="hero-content">
+            <div class="logo-container">
+                <img src="/img/logo_alt.png" alt="magnefu logo" class="main-logo">
+                <div class="logo-rings">
+                    <div class="ring ring-1"></div>
+                    <div class="ring ring-2"></div>
+                    <div class="ring ring-3"></div>
                 </div>
             </div>
-            <div class="scroll-indicator">
-                <span>Let's explore this chaos together</span>
-                <div class="scroll-arrow">↓</div>
-            </div>
-        </div>
-    </header>
-    
-    <nav class="modern-nav">
-        <div class="nav-container">
-            <div class="nav-logo-container">
-                <img src="/img/logo.png" alt="magnefu" class="nav-logo">
-            </div>
-            <div class="nav-items">
-                <a href="#website-work" class="nav-item">
-                    <span class="nav-number">01</span>
-                    <span class="nav-label">Websites</span>
-                </a>
-                <a href="#engine-work" class="nav-item">
-                    <span class="nav-number">02</span>
-                    <span class="nav-label">Engine</span>
-                </a>
-                <a href="#game-work" class="nav-item">
-                    <span class="nav-number">03</span>
-                    <span class="nav-label">Games</span>
-                </a>
-                <a href="#contact" class="nav-item">
-                    <span class="nav-number">04</span>
-                    <span class="nav-label">Connect</span>
-                </a>
-            </div>
-            <a href="#devlogs" class="nav-cta">
-                <span class="cta-icon">📝</span>
-                <span class="cta-text">Dev Logs</span>
+            <h1 class="hero-title">Developer, Creator, Explorer</h1>
+            <p class="hero-subtitle">Building innovative digital experiences through code, creativity, and curiosity</p>
+            <a href="#work" class="cta-button">
+                <span>Explore My Work</span>
+                <span>↓</span>
             </a>
         </div>
-    </nav>
-    
-    <main>
-        <!-- Website Work Section -->
-        <section id="website-work" class="work-section">
-            <h2>Website Work</h2>
-            <p class="section-subtitle">Crafting digital experiences on the web</p>
-            
-            <div class="project-grid">
-                <div class="project-card featured">
-                    <div class="project-media">
-                        <div class="media-placeholder website">
-                            <span class="media-icon">🤝</span>
-                            <p>TCIA website preview</p>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Twin Cities Innovation Alliance</h3>
-                            <div class="project-status available">Live</div>
-                        </div>
-                        <p class="project-description">A professional website for the Twin Cities Innovation Alliance, connecting innovators and fostering collaboration in the Minneapolis-St. Paul area.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Squarespace</span>
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://tciamn.org" target="_blank" class="project-link showcase">Visit Site</a>
-                            <a href="/tcia-story" class="project-link devlog">Development Story</a>
-                        </div>
-                    </div>
-                </div>
+    </section>
 
-                <div class="project-card">
-                    <div class="project-media">
-                        <div class="media-placeholder website">
-                            <span class="media-icon">🧪</span>
-                            <p>Allerium Labs preview</p>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Allerium Labs</h3>
-                            <div class="project-status building">Building</div>
-                        </div>
-                        <p class="project-description">An innovative laboratory website showcasing cutting-edge research and development work. Currently in active development with modern web technologies.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">WebGPU</span>
-                            <span class="tech-tag">AWS Lambda</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://alleriumlabs.com" target="_blank" class="project-link showcase">Preview Site</a>
-                            <a href="#" class="project-link devlog">Build Progress</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-media">
-                        <div class="media-placeholder website">
-                            <span class="media-icon">🚁</span>
-                            <p>Drone solutions preview</p>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Drone Solutions Demo</h3>
-                            <div class="project-status building">Building</div>
-                        </div>
-                        <p class="project-description">Demo website for </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Astro</span>
-                            <span class="tech-tag">Responsive Design</span>
-                            <span class="tech-tag">Split Layout</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="/drone-landing" class="project-link showcase">View Demo</a>
-                            <a href="#" class="project-link devlog">Development Story</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-media">
-                        <div class="media-placeholder website">
-                            <span class="media-icon">🎨</span>
-                            <p>WebGPU demo placeholder</p>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>WebGPU Experiments</h3>
-                            <div class="project-status experiment">Experimental</div>
-                        </div>
-                        <p class="project-description">Collection of compute shader experiments and interactive visual effects built with WebGPU.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">WebGPU</span>
-                            <span class="tech-tag">WGSL</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link showcase">View Demos</a>
-                            <a href="#" class="project-link devlog">Learning Log</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Game Engine Work Section -->
-        <section id="engine-work" class="work-section">
-            <h2>Game Engine Work</h2>
-            <p class="section-subtitle">Building the foundation for interactive experiences</p>
-            
-            <div class="project-grid">
-                <div class="project-card featured">
-                    <div class="project-media">
-                        <div class="media-placeholder engine">
-                            <span class="media-icon">⚙️</span>
-                            <p>Magnefu Engine footage & GIFs coming soon</p>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Magnefu Engine</h3>
-                            <div class="project-status building">In Development</div>
-                        </div>
-                        <p class="project-description">A from-scratch game engine built to understand the fundamentals of game development and modern graphics programming. Features a modular architecture with cutting-edge rendering and physics systems.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">C++</span>
-                            <span class="tech-tag">Vulkan</span>
-                            <span class="tech-tag">CMake</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link showcase">Engine Overview</a>
-                            <a href="#" class="project-link devlog">Development Log</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-media">
-                        <div class="media-placeholder engine">
-                            <span class="media-icon">🎨</span>
-                            <p>Render pipeline demos</p>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Render Pipeline</h3>
-                            <div class="project-status building">Building</div>
-                        </div>
-                        <p class="project-description">Modern rendering pipeline featuring PBR shading, deferred rendering, shadow mapping, and post-processing effects for high-quality visuals.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Vulkan</span>
-                            <span class="tech-tag">GLSL</span>
-                            <span class="tech-tag">PBR</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link showcase">Rendering Demos</a>
-                            <a href="#" class="project-link devlog">Graphics Journey</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-media">
-                        <div class="media-placeholder engine">
-                            <span class="media-icon">🎮</span>
-                            <p>ECS architecture diagrams</p>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>ECS Architecture</h3>
-                            <div class="project-status building">Building</div>
-                        </div>
-                        <p class="project-description">Entity-Component-System architecture for flexible and performant game object management with cache-friendly data layouts and efficient iteration.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">C++</span>
-                            <span class="tech-tag">Memory Pools</span>
-                            <span class="tech-tag">Data-Oriented Design</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link showcase">Architecture Deep Dive</a>
-                            <a href="#" class="project-link devlog">Design Decisions</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-media">
-                        <div class="media-placeholder engine">
-                            <span class="media-icon">✨</span>
-                            <p>Ray tracing demos</p>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Ray Tracing</h3>
-                            <div class="project-status planning">Planning</div>
-                        </div>
-                        <p class="project-description">Hardware-accelerated ray tracing implementation for realistic lighting, reflections, and global illumination effects using modern GPU capabilities.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Vulkan RT</span>
-                            <span class="tech-tag">HLSL</span>
-                            <span class="tech-tag">GPU Acceleration</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link showcase">RT Showcase</a>
-                            <a href="#" class="project-link devlog">Ray Tracing Journey</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-media">
-                        <div class="media-placeholder engine">
-                            <span class="media-icon">🌍</span>
-                            <p>Physics simulation footage</p>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Physics System</h3>
-                            <div class="project-status planning">Planning</div>
-                        </div>
-                        <p class="project-description">Comprehensive physics simulation including rigid body dynamics, collision detection, and constraint solving for realistic object interactions.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">C++</span>
-                            <span class="tech-tag">Collision Detection</span>
-                            <span class="tech-tag">Constraint Solving</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link showcase">Physics Demos</a>
-                            <a href="#" class="project-link devlog">Physics Development</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Game Project Work Section -->
-        <section id="game-work" class="work-section">
-            <h2>Game Project Work</h2>
-            <p class="section-subtitle">Bringing interactive worlds to life</p>
-            
-            <div class="project-grid">
-                <div class="project-card featured">
-                    <div class="project-media">
-                        <div class="media-placeholder game">
-                            <span class="media-icon">🏢</span>
-                            <p>Game footage & screenshots coming soon</p>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>The Facility</h3>
-                            <div class="project-status building">Active Development</div>
-                        </div>
-                        <p class="project-description">A atmospheric game that blends exploration, mechanics, and storytelling. Currently in early development with focus on core systems and world building.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Game Design</span>
-                            <span class="tech-tag">Atmosphere</span>
-                            <span class="tech-tag">Interactive Narrative</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link showcase">Game Showcase</a>
-                            <a href="#" class="project-link devlog">Development Blog</a>
-                            <a href="#" class="project-link demo">Play Demo</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-media">
-                        <div class="media-placeholder game">
-                            <span class="media-icon">🎯</span>
-                            <p>Prototype gameplay GIFs</p>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Prototype Collection</h3>
-                            <div class="project-status experiment">Experimental</div>
-                        </div>
-                        <p class="project-description">Various game prototypes and mechanics experiments. Testing ideas, learning new techniques, and exploring different genres.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Rapid Prototyping</span>
-                            <span class="tech-tag">Game Mechanics</span>
-                            <span class="tech-tag">Playtesting</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link showcase">Prototype Gallery</a>
-                            <a href="#" class="project-link devlog">Experiment Log</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-media">
-                        <div class="media-placeholder game">
-                            <span class="media-icon">🎨</span>
-                            <p>Game jam submissions</p>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Game Jam Projects</h3>
-                            <div class="project-status idea">Future Plans</div>
-                        </div>
-                        <p class="project-description">Collection of game jam submissions and weekend projects. Quick iterations, creative constraints, and collaborative development.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Game Jams</span>
-                            <span class="tech-tag">Time Constraints</span>
-                            <span class="tech-tag">Creative Challenges</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link showcase">Jam Gallery</a>
-                            <a href="#" class="project-link devlog">Jam Stories</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Development Logs Cross-Section -->
-        <section id="devlogs" class="devlogs-section">
-            <h2>Development Logs</h2>
-            <p class="section-subtitle">Follow the journey, learn from the process</p>
-            
-            <div class="devlog-filter">
-                <button class="filter-btn active" data-filter="all">All Posts</button>
-                <button class="filter-btn" data-filter="website">Website</button>
-                <button class="filter-btn" data-filter="engine">Engine</button>
-                <button class="filter-btn" data-filter="game">Games</button>
-            </div>
-
-            <div class="devlog-grid">
-                <article class="devlog-post" data-category="game">
-                    <div class="devlog-image">
-                        <div class="image-placeholder">
-                            <span class="image-icon">🏢</span>
-                            <p>Concept art placeholder</p>
-                        </div>
-                    </div>
-                    <div class="devlog-content">
-                        <div class="devlog-meta">
-                            <span class="devlog-date">Dec 2024</span>
-                            <span class="devlog-category game">Game Dev</span>
-                        </div>
-                        <h3>Starting The Facility - Concept & Vision</h3>
-                        <p>Beginning work on a new atmospheric game. Early exploration of themes, mechanics, and the overall vision for what this experience should be...</p>
-                        <a href="#" class="read-more">Read Full Post →</a>
-                    </div>
-                </article>
-
-                <article class="devlog-post" data-category="website">
-                    <div class="devlog-image">
-                        <div class="image-placeholder">
-                            <span class="image-icon">🎨</span>
-                            <p>Site design mockups</p>
-                        </div>
-                    </div>
-                    <div class="devlog-content">
-                        <div class="devlog-meta">
-                            <span class="devlog-date">Dec 2024</span>
-                            <span class="devlog-category website">Web Dev</span>
-                        </div>
-                        <h3>Redesigning My Portfolio with Astro</h3>
-                        <p>Migrating from a static site to Astro, implementing dynamic themes, and creating engaging animations that tell a story...</p>
-                        <a href="#" class="read-more">Read Full Post →</a>
-                    </div>
-                </article>
-
-                <article class="devlog-post" data-category="engine">
-                    <div class="devlog-image">
-                        <div class="image-placeholder">
-                            <span class="image-icon">⚙️</span>
-                            <p>Engine architecture diagrams</p>
-                        </div>
-                    </div>
-                    <div class="devlog-content">
-                        <div class="devlog-meta">
-                            <span class="devlog-date">Nov 2024</span>
-                            <span class="devlog-category engine">Engine Dev</span>
-                        </div>
-                        <h3>Building a Renderer from Scratch</h3>
-                        <p>Deep dive into modern OpenGL techniques, implementing PBR shading, and the challenges of building a flexible rendering pipeline...</p>
-                        <a href="#" class="read-more">Read Full Post →</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Connect Section -->
-        <section id="contact" class="connect-section">
-            <div class="connect-content">
-                <h2>Let's Connect</h2>
-                <p class="connect-subtitle">Follow the development journey, collaborate on projects, or just chat about game development and web tech</p>
-                
-                <div class="contact-grid">
-                    <a href="#" class="contact-card">
-                        <div class="contact-icon">🐙</div>
-                        <div class="contact-info">
-                            <h4>GitHub</h4>
-                            <p>Code repositories and contributions</p>
-                        </div>
-                    </a>
-                    <a href="#" class="contact-card">
-                        <div class="contact-icon">💼</div>
-                        <div class="contact-info">
-                            <h4>LinkedIn</h4>
-                            <p>Professional updates and connections</p>
-                        </div>
-                    </a>
-                    <a href="#" class="contact-card">
-                        <div class="contact-icon">🦋</div>
-                        <div class="contact-info">
-                            <h4>Bluesky</h4>
-                            <p>Development updates and thoughts</p>
-                        </div>
-                    </a>
-                    <a href="#" class="contact-card">
-                        <div class="contact-icon">💬</div>
-                        <div class="contact-info">
-                            <h4>Discord</h4>
-                            <p>Real-time chat and community</p>
-                        </div>
-                    </a>
-                    <a href="mailto:your.email@example.com" class="contact-card">
-                        <div class="contact-icon">📧</div>
-                        <div class="contact-info">
-                            <h4>Email</h4>
-                            <p>Direct line for collaboration ideas</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <footer>
-        <div class="social-links">
-            <a href="#" aria-label="GitHub">GitHub</a>
-            <a href="#" aria-label="LinkedIn">LinkedIn</a>
-            <a href="#" aria-label="Bluesky">Bluesky</a>
-            <a href="#" aria-label="Discord">Discord</a>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-content">
+            <img src="/img/logo_alt.png" alt="magnefu" class="nav-logo">
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#work" class="nav-link">Work</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="/devblog" class="nav-link nav-link-special">Devblog</a></li>
+            </ul>
+            <div class="nav-spacer"></div>
         </div>
-        <p>&copy; 2025 magnefu. All rights reserved.</p>
+    </nav>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="section-title">About</h2>
+            <p class="about-text">
+                I'm passionate about creating digital experiences that push boundaries and solve real problems. 
+                From web development to game engines, I explore the intersection of technology and creativity.
+            </p>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🌐</div>
+                    <h3 class="skill-title">Web Development</h3>
+                    <p class="skill-desc">Modern web applications with cutting-edge technologies and responsive design</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚙️</div>
+                    <h3 class="skill-title">Game Engine</h3>
+                    <p class="skill-desc">Building a custom game engine from scratch with Vulkan and modern C++</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎮</div>
+                    <h3 class="skill-title">Interactive Media</h3>
+                    <p class="skill-desc">Creating engaging interactive experiences and experimental game prototypes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section class="work" id="work">
+        <div class="work-content">
+            <h2 class="section-title">Selected Work</h2>
+            
+            <div class="work-grid">
+                <div class="work-card">
+                    <div class="work-image">
+                        <div class="work-icon">🤝</div>
+                    </div>
+                    <div class="work-info">
+                        <h3 class="work-title">Twin Cities Innovation Alliance</h3>
+                        <p class="work-desc">Professional website connecting innovators in the Minneapolis-St. Paul area</p>
+                        <a href="https://tciamn.org" target="_blank" class="work-link">
+                            <span>Visit Site</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-image">
+                        <div class="work-icon">⚙️</div>
+                    </div>
+                    <div class="work-info">
+                        <h3 class="work-title">Magnefu Engine</h3>
+                        <p class="work-desc">Custom game engine built with Vulkan, featuring modern rendering and ECS architecture</p>
+                        <a href="#" class="work-link">
+                            <span>Learn More</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-image">
+                        <div class="work-icon">🎨</div>
+                    </div>
+                    <div class="work-info">
+                        <h3 class="work-title">WebGPU Experiments</h3>
+                        <p class="work-desc">Interactive visual effects and compute shader experiments using WebGPU</p>
+                        <a href="#" class="work-link">
+                            <span>View Demos</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="contact-subtitle">
+                Interested in collaborating or just want to chat about technology and creative projects?
+            </p>
+            
+                         <div class="contact-links">
+                 <a href="mailto:hello@magnefu.com" class="contact-link email">
+                     <span class="contact-icon icon-email"></span>
+                     <span>Email</span>
+                 </a>
+                 <a href="https://github.com/magnefu" target="_blank" class="contact-link github">
+                     <span class="contact-icon icon-github"></span>
+                     <span>GitHub</span>
+                 </a>
+                 <a href="https://linkedin.com/in/magnefu" target="_blank" class="contact-link linkedin">
+                     <span class="contact-icon icon-linkedin"></span>
+                     <span>LinkedIn</span>
+                 </a>
+                 <a href="https://bsky.app/profile/magnefu.bsky.social" target="_blank" class="contact-link bluesky">
+                     <span class="contact-icon icon-bluesky"></span>
+                     <span>Bluesky</span>
+                 </a>
+             </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 magnefu. Built with curiosity and caffeine.</p>
+        </div>
     </footer>
 
     <script>
-        // Devlog filter functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const devlogPosts = document.querySelectorAll('.devlog-post');
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const filter = (btn as HTMLElement).dataset.filter;
-                    
-                    // Update active button
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    
-                    // Filter posts
-                    devlogPosts.forEach(post => {
-                        const htmlPost = post as HTMLElement;
-                        if (filter === 'all' || htmlPost.dataset.category === filter) {
-                            (htmlPost as HTMLElement).style.display = 'block';
-                            (htmlPost as HTMLElement).style.animation = 'fadeIn 0.5s';
-                        } else {
-                            (htmlPost as HTMLElement).style.display = 'none';
-                        }
-                    });
-                });
-            });
-        });
-
-        // Smooth scrolling for navigation
+        // Ultra-smooth scroll with easing for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    const targetPosition = target.offsetTop - 80; // Account for navbar
+                    const startPosition = window.pageYOffset;
+                    const distance = targetPosition - startPosition;
+                    const duration = Math.abs(distance) * 0.5; // Adaptive duration
+                    let start = null;
+
+                    function smoothScroll(currentTime) {
+                        if (start === null) start = currentTime;
+                        const timeElapsed = currentTime - (start || 0);
+                        const progress = Math.min(timeElapsed / duration, 1);
+                        
+                        // Cubic bezier easing for imperceptible smoothness
+                        const easeProgress = progress < 0.5 
+                            ? 4 * progress * progress * progress 
+                            : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+                        
+                        window.scrollTo(0, startPosition + distance * easeProgress);
+                        
+                        if (timeElapsed < duration) {
+                            requestAnimationFrame(smoothScroll);
+                        }
+                    }
+                    
+                    requestAnimationFrame(smoothScroll);
                 }
             });
         });
-    </script>
 
-    <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        // Enhanced intersection observer for imperceptible animations
+        const observerOptions = {
+            threshold: [0, 0.1, 0.2, 0.3],
+            rootMargin: '0px 0px -20px 0px'
+        };
+
+        const smoothObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const element = entry.target as HTMLElement;
+                const intersectionRatio = entry.intersectionRatio;
+                
+                if (entry.isIntersecting) {
+                    // Gentle fade-in based on intersection ratio
+                    element.style.opacity = Math.min(intersectionRatio * 2, 1).toString();
+                    element.style.transform = `translateY(${(1 - intersectionRatio) * 10}px)`;
+                    
+                    if (intersectionRatio > 0.2) {
+                        element.classList.add('fade-in');
+                    }
+                } else {
+                    // Subtle fade-out for elements leaving viewport
+                    element.style.opacity = Math.max(intersectionRatio, 0.3).toString();
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for ultra-smooth transitions
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('section-enter');
+            smoothObserver.observe(section);
+        });
+
+        // Observe individual elements for gentle animations
+        const elementObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('fade-in');
+                    }, Math.random() * 200); // Staggered animation
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+
+        // Observe cards and elements with delayed loading
+        document.querySelectorAll('.skill-card, .work-card, .contact-link').forEach((el, index) => {
+            (el as HTMLElement).style.animationDelay = `${index * 0.1}s`;
+            elementObserver.observe(el);
+        });
+
+        // Smooth background color transitions on scroll
+        let ticking = false;
+        function updateBackgroundOnScroll() {
+            const scrollPercent = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
+            const hue = 220 + (scrollPercent * 20); // Subtle hue shift
+            
+            document.documentElement.style.setProperty(
+                '--dynamic-bg', 
+                `hsl(${hue}, 15%, ${95 + scrollPercent * 2}%)`
+            );
+            
+            ticking = false;
         }
-    </style>
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateBackgroundOnScroll);
+                ticking = true;
+            }
+        });
+
+        // Preload animations
+        window.addEventListener('load', () => {
+            if (document.body) {
+                document.body.style.opacity = '1';
+                document.body.style.transition = 'opacity 0.5s ease';
+            }
+        });
+    </script>
 </body>
 </html>
