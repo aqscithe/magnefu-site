@@ -1,0 +1,329 @@
+---
+import HeroVideoSection from '../components/HeroVideoSection.astro';
+import VideoBackground from '../components/VideoBackground.astro';
+import VideoOverlay from '../components/VideoOverlay.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Background Examples</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .example-section {
+            margin-bottom: 2rem;
+        }
+        
+        .example-title {
+            background: #f8f9fa;
+            padding: 1rem 2rem;
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            border-left: 4px solid #F76902;
+        }
+        
+        .content-section {
+            padding: 4rem 2rem;
+            background: #fff;
+            text-align: center;
+        }
+        
+        .content-section h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .control-panel {
+            background: #f8f9fa;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .control-panel button {
+            background: #F76902;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            margin: 0.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .control-panel button:hover {
+            background: #e55a00;
+            transform: translateY(-2px);
+        }
+        
+        .control-panel button.secondary {
+            background: #6c757d;
+        }
+        
+        .control-panel button.secondary:hover {
+            background: #5a6268;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Example 1: Full Hero Section -->
+    <div class="example-section">
+        <h3 class="example-title">Example 1: Complete Hero Section with CTA</h3>
+        <HeroVideoSection
+            videoId="DQzuqZDV2A8"
+            title="Revolutionary Drone Technology"
+            description="Experience the future of aerial solutions with cutting-edge innovation"
+            primaryCta="Get Started"
+            primaryCtaHref="#contact"
+            secondaryCta="Watch Demo"
+            secondaryCtaHref="#demo"
+            overlayType="cta"
+            height="70vh"
+            minHeight="500px"
+        />
+    </div>
+
+    <!-- Example 2: Text Overlay Hero -->
+    <div class="example-section">
+        <h3 class="example-title">Example 2: Text-Only Hero with Toggle</h3>
+        <HeroVideoSection
+            videoId="DQzuqZDV2A8"
+            title="Welcome to the Future"
+            subtitle="Innovation in Motion"
+            description="Discover how our advanced technology is reshaping industries and creating new possibilities for tomorrow's challenges."
+            overlayType="text"
+            overlayPosition="center"
+            overlayToggleable={true}
+            overlayBackgroundColor="rgba(31, 78, 121, 0.8)"
+            height="60vh"
+            minHeight="400px"
+        />
+    </div>
+
+    <!-- Example 3: Custom Content with Video Background -->
+    <div class="example-section">
+        <h3 class="example-title">Example 3: Custom Content Overlay</h3>
+        <VideoBackground
+            videoId="DQzuqZDV2A8"
+            aspectRatio="21:9"
+            overlayColor="rgba(0, 0, 0, 0.5)"
+            overlayOpacity={0.5}
+        >
+            <VideoOverlay
+                type="custom"
+                position="bottom-left"
+                toggleable={true}
+                backgroundColor="rgba(247, 105, 2, 0.9)"
+                padding="2rem"
+                borderRadius="16px"
+            >
+                <div style="max-width: 300px;">
+                    <h4 style="margin: 0 0 1rem 0; color: white; font-size: 1.3rem;">Custom Overlay</h4>
+                    <p style="margin: 0 0 1.5rem 0; color: rgba(255,255,255,0.9); line-height: 1.5;">
+                        This is a completely custom overlay with your own content and styling.
+                    </p>
+                    <button style="background: white; color: #F76902; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 600; cursor: pointer;">
+                        Learn More
+                    </button>
+                </div>
+            </VideoOverlay>
+        </VideoBackground>
+    </div>
+
+    <!-- Example 4: Multiple Overlays -->
+    <div class="example-section">
+        <h3 class="example-title">Example 4: Multiple Overlays</h3>
+        <VideoBackground
+            videoId="DQzuqZDV2A8"
+            aspectRatio="16:9"
+            overlayColor="rgba(0, 0, 0, 0.3)"
+        >
+            <!-- Top-right overlay -->
+            <VideoOverlay
+                type="text"
+                position="top-right"
+                title="Stats"
+                description="1000+ Projects Completed"
+                toggleable={true}
+                backgroundColor="rgba(0, 0, 0, 0.8)"
+                padding="1.5rem"
+                togglePosition="top-left"
+            />
+            
+            <!-- Center overlay -->
+            <VideoOverlay
+                type="cta"
+                position="center"
+                title="Ready to Get Started?"
+                description="Join thousands of satisfied customers"
+                primaryCta="Start Now"
+                secondaryCta="Learn More"
+                toggleable={true}
+                backgroundColor="rgba(31, 78, 121, 0.9)"
+                padding="3rem"
+            />
+            
+            <!-- Bottom-left overlay -->
+            <VideoOverlay
+                type="custom"
+                position="bottom-left"
+                toggleable={true}
+                backgroundColor="rgba(247, 105, 2, 0.9)"
+                padding="1.5rem"
+            >
+                <div>
+                    <strong style="color: white;">🎯 Pro Tip:</strong>
+                    <p style="margin: 0.5rem 0 0 0; color: rgba(255,255,255,0.9); font-size: 0.9rem;">
+                        Click the eye icons to toggle overlays
+                    </p>
+                </div>
+            </VideoOverlay>
+        </VideoBackground>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content-section">
+        <h2>Video Background Component System</h2>
+        <p>This page demonstrates the flexibility and power of the video background component system. Each example shows different configurations and use cases.</p>
+        
+        <h3>Key Features:</h3>
+        <ul style="text-align: left; max-width: 600px; margin: 2rem auto;">
+            <li>✅ YouTube video integration with autoplay and looping</li>
+            <li>✅ Multiple overlay types: text, CTA, and custom content</li>
+            <li>✅ Flexible positioning and styling options</li>
+            <li>✅ Toggle functionality for user control</li>
+            <li>✅ Responsive design for all screen sizes</li>
+            <li>✅ Accessibility features including reduced motion support</li>
+            <li>✅ Performance optimized with intersection observers</li>
+            <li>✅ Full JavaScript API for programmatic control</li>
+        </ul>
+    </div>
+
+    <!-- Control Panel -->
+    <div class="control-panel">
+        <h3>Global Controls</h3>
+        <p>Use these buttons to control all video backgrounds on this page:</p>
+        
+        <button onclick="VideoBackgroundAPI.playAll()">▶ Play All Videos</button>
+        <button onclick="VideoBackgroundAPI.pauseAll()">⏸ Pause All Videos</button>
+        <button onclick="VideoBackgroundAPI.muteAll()">🔇 Mute All Videos</button>
+        
+        <br>
+        
+        <button onclick="VideoOverlayAPI.showAll()">👁 Show All Overlays</button>
+        <button onclick="VideoOverlayAPI.hideAll()">🙈 Hide All Overlays</button>
+        
+        <br>
+        
+        <button class="secondary" onclick="toggleAdvancedControls()">🎛 Advanced Controls</button>
+        
+        <div id="advanced-controls" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #dee2e6;">
+            <h4>Advanced Video Control</h4>
+            <label for="opacity-slider">Video Opacity: </label>
+            <input type="range" id="opacity-slider" min="0" max="1" step="0.1" value="1" 
+                   onchange="setAllVideoOpacity(this.value)">
+            <span id="opacity-value">100%</span>
+            
+            <br><br>
+            
+            <label for="overlay-opacity-slider">Overlay Opacity: </label>
+            <input type="range" id="overlay-opacity-slider" min="0" max="1" step="0.1" value="0.3" 
+                   onchange="setAllOverlayOpacity(this.value)">
+            <span id="overlay-opacity-value">30%</span>
+        </div>
+    </div>
+
+    <script>
+        // Type declarations for global APIs
+        declare global {
+            interface Window {
+                VideoBackgroundAPI: any;
+                VideoOverlayAPI: any;
+                HeroVideoAPI: any;
+            }
+        }
+        
+        function toggleAdvancedControls() {
+            const controls = document.getElementById('advanced-controls');
+            if (controls) {
+                controls.style.display = controls.style.display === 'none' ? 'block' : 'none';
+            }
+        }
+        
+        function setAllVideoOpacity(value: string) {
+            const controllers = window.VideoBackgroundAPI?.getAllControllers() || [];
+            controllers.forEach((controller: any) => controller.setOpacity(value));
+            const opacityElement = document.getElementById('opacity-value');
+            if (opacityElement) {
+                opacityElement.textContent = Math.round(parseFloat(value) * 100) + '%';
+            }
+        }
+        
+        function setAllOverlayOpacity(value: string) {
+            const controllers = window.VideoBackgroundAPI?.getAllControllers() || [];
+            controllers.forEach((controller: any) => controller.setOverlayOpacity(value));
+            const overlayElement = document.getElementById('overlay-opacity-value');
+            if (overlayElement) {
+                overlayElement.textContent = Math.round(parseFloat(value) * 100) + '%';
+            }
+        }
+        
+        // Add some demo functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            // Log events for demonstration
+            document.addEventListener('video-videoloaded', (e) => {
+                console.log('Video loaded:', e.target);
+            });
+            
+            document.addEventListener('overlay-shown', (e) => {
+                console.log('Overlay shown:', e.target);
+            });
+            
+            document.addEventListener('overlay-hidden', (e) => {
+                console.log('Overlay hidden:', e.target);
+            });
+            
+            // Add keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                if (e.ctrlKey || e.metaKey) {
+                    switch(e.key) {
+                        case 'p':
+                            e.preventDefault();
+                            window.VideoBackgroundAPI?.pauseAll();
+                            break;
+                        case 'r':
+                            e.preventDefault();
+                            window.VideoBackgroundAPI?.playAll();
+                            break;
+                        case 'h':
+                            e.preventDefault();
+                            window.VideoOverlayAPI?.hideAll();
+                            break;
+                        case 's':
+                            e.preventDefault();
+                            window.VideoOverlayAPI?.showAll();
+                            break;
+                    }
+                }
+            });
+            
+            console.log('Video Background Examples loaded! Try these keyboard shortcuts:');
+            console.log('Ctrl/Cmd + P: Pause all videos');
+            console.log('Ctrl/Cmd + R: Play all videos');
+            console.log('Ctrl/Cmd + H: Hide all overlays');
+            console.log('Ctrl/Cmd + S: Show all overlays');
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,328 @@
+---
+export interface Props {
+  videoId: string;
+  aspectRatio?: '16:9' | '21:9' | '4:3' | 'full';
+  autoplay?: boolean;
+  muted?: boolean;
+  loop?: boolean;
+  controls?: boolean;
+  startTime?: number;
+  endTime?: number;
+  opacity?: number;
+  overlayColor?: string;
+  overlayOpacity?: number;
+  zIndex?: number;
+  className?: string;
+}
+
+const {
+  videoId,
+  aspectRatio = '16:9',
+  autoplay = true,
+  muted = true,
+  loop = true,
+  controls = false,
+  startTime = 0,
+  endTime,
+  opacity = 1,
+  overlayColor = 'rgba(0, 0, 0, 0.3)',
+  overlayOpacity = 0.3,
+  zIndex = -1,
+  className = ''
+} = Astro.props;
+
+// Build YouTube URL with parameters
+const buildYouTubeUrl = () => {
+  const baseUrl = `https://www.youtube.com/embed/${videoId}`;
+  const params = new URLSearchParams({
+    autoplay: autoplay ? '1' : '0',
+    mute: muted ? '1' : '0',
+    loop: loop ? '1' : '0',
+    controls: controls ? '1' : '0',
+    showinfo: '0',
+    modestbranding: '1',
+    rel: '0',
+    iv_load_policy: '3',
+    fs: '0',
+    disablekb: '1',
+    playsinline: '1'
+  });
+  
+  if (startTime > 0) params.set('start', startTime.toString());
+  if (endTime) params.set('end', endTime.toString());
+  if (loop && videoId) params.set('playlist', videoId);
+  
+  return `${baseUrl}?${params.toString()}`;
+};
+
+const videoUrl = buildYouTubeUrl();
+const componentId = `video-bg-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div 
+  class={`video-background ${aspectRatio} ${className}`}
+  id={componentId}
+  data-video-id={videoId}
+  style={`--video-opacity: ${opacity}; --overlay-color: ${overlayColor}; --overlay-opacity: ${overlayOpacity}; --z-index: ${zIndex};`}
+>
+  <div class="video-container">
+    <iframe
+      src={videoUrl}
+      title="Background Video"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      class="video-iframe"
+    ></iframe>
+  </div>
+  <div class="video-overlay"></div>
+  <slot />
+</div>
+
+<style>
+  .video-background {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    z-index: var(--z-index, -1);
+  }
+
+  /* Aspect Ratio Classes */
+  .video-background.16\:9 {
+    aspect-ratio: 16 / 9;
+  }
+
+  .video-background.21\:9 {
+    aspect-ratio: 21 / 9;
+  }
+
+  .video-background.4\:3 {
+    aspect-ratio: 4 / 3;
+  }
+
+  .video-background.full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+  .video-iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(100% + 200px); /* Oversized to hide controls */
+    height: calc(100% + 200px);
+    transform: translate(-50%, -50%);
+    opacity: var(--video-opacity, 1);
+    pointer-events: none;
+    border: none;
+  }
+
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-color, rgba(0, 0, 0, 0.3));
+    opacity: var(--overlay-opacity, 0.3);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Content slot positioning */
+  .video-background > :global(*:not(.video-container):not(.video-overlay)) {
+    position: relative;
+    z-index: 2;
+  }
+
+  @media (max-width: 768px) {
+    .video-iframe {
+      width: calc(100% + 100px);
+      height: calc(100% + 100px);
+    }
+  }
+</style>
+
+<script>
+  // Type declarations
+  interface CustomElement extends Element {
+    videoController?: VideoBackgroundController;
+  }
+  
+  interface CustomWindow {
+    VideoBackgroundAPI: any;
+  }
+
+  // Enhanced video control functionality
+  class VideoBackgroundController {
+    element: Element;
+    iframe: HTMLIFrameElement | null;
+    overlay: HTMLElement | null;
+    videoId: string | undefined;
+    isPlaying: boolean;
+    isLoaded: boolean;
+    
+    constructor(element: Element) {
+      this.element = element;
+      this.iframe = element.querySelector('.video-iframe');
+      this.overlay = element.querySelector('.video-overlay');
+      this.videoId = (element as HTMLElement).dataset.videoId;
+      this.isPlaying = true;
+      this.isLoaded = false;
+      
+      this.init();
+    }
+
+    init() {
+      // Listen for iframe load
+      this.iframe?.addEventListener('load', () => {
+        this.isLoaded = true;
+        this.dispatchEvent('videoloaded');
+      });
+
+      // Add intersection observer for performance
+      this.setupIntersectionObserver();
+    }
+
+    setupIntersectionObserver() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.play();
+          } else {
+            // Optionally pause when out of view for performance
+            // this.pause();
+          }
+        });
+      });
+
+      observer.observe(this.element);
+    }
+
+    play() {
+      if (this.isLoaded && this.iframe) {
+        try {
+          this.iframe.contentWindow?.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+          this.isPlaying = true;
+          this.dispatchEvent('videoplay');
+        } catch (e) {
+          // Fallback: reload iframe with autoplay
+          const currentSrc = this.iframe.src;
+          this.iframe.src = currentSrc.replace('autoplay=0', 'autoplay=1');
+        }
+      }
+    }
+
+    pause() {
+      if (this.isLoaded && this.iframe) {
+        try {
+          this.iframe.contentWindow?.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+          this.isPlaying = false;
+          this.dispatchEvent('videopause');
+        } catch (e) {
+          console.warn('Could not pause video');
+        }
+      }
+    }
+
+    mute() {
+      if (this.isLoaded && this.iframe) {
+        try {
+          this.iframe.contentWindow?.postMessage('{"event":"command","func":"mute","args":""}', '*');
+          this.dispatchEvent('videomute');
+        } catch (e) {
+          console.warn('Could not mute video');
+        }
+      }
+    }
+
+    unmute() {
+      if (this.isLoaded && this.iframe) {
+        try {
+          this.iframe.contentWindow?.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+          this.dispatchEvent('videounmute');
+        } catch (e) {
+          console.warn('Could not unmute video');
+        }
+      }
+    }
+
+    setOpacity(opacity: number) {
+      if (this.iframe) {
+        this.iframe.style.opacity = opacity.toString();
+        this.dispatchEvent('opacitychange', { opacity });
+      }
+    }
+
+    setOverlayOpacity(opacity: number) {
+      if (this.overlay) {
+        this.overlay.style.opacity = opacity.toString();
+        this.dispatchEvent('overlaychange', { opacity });
+      }
+    }
+
+    toggleOverlay() {
+      if (!this.overlay) return false;
+      const currentOpacity = parseFloat(getComputedStyle(this.overlay).opacity);
+      const newOpacity = currentOpacity > 0 ? 0 : 0.3;
+      this.setOverlayOpacity(newOpacity);
+      return newOpacity > 0;
+    }
+
+    dispatchEvent(eventName, detail = {}) {
+      this.element.dispatchEvent(new CustomEvent(`video-${eventName}`, {
+        detail: { controller: this, ...detail },
+        bubbles: true
+      }));
+    }
+  }
+
+  // Initialize all video backgrounds on the page
+  document.addEventListener('DOMContentLoaded', () => {
+    const videoBackgrounds = document.querySelectorAll('.video-background');
+    
+    videoBackgrounds.forEach(element => {
+      (element as CustomElement).videoController = new VideoBackgroundController(element);
+    });
+
+    // Global helper functions
+    (window as CustomWindow).VideoBackgroundAPI = {
+      getController(selector: string) {
+        const element = document.querySelector(selector) as CustomElement;
+        return element?.videoController;
+      },
+      
+      getAllControllers() {
+        return Array.from(document.querySelectorAll('.video-background'))
+          .map(el => (el as CustomElement).videoController)
+          .filter(Boolean);
+      },
+
+      pauseAll() {
+        this.getAllControllers().forEach((controller: VideoBackgroundController) => controller.pause());
+      },
+
+      playAll() {
+        this.getAllControllers().forEach((controller: VideoBackgroundController) => controller.play());
+      },
+
+      muteAll() {
+        this.getAllControllers().forEach((controller: VideoBackgroundController) => controller.mute());
+      }
+    };
+  });
+</script>

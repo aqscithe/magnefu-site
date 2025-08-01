@@ -1,0 +1,478 @@
+---
+export interface Props {
+  type?: 'text' | 'cta' | 'custom';
+  position?: 'center' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
+  toggleable?: boolean;
+  initialVisible?: boolean;
+  toggleButton?: boolean;
+  togglePosition?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+  animation?: 'fade' | 'slide-up' | 'slide-down' | 'slide-left' | 'slide-right' | 'scale' | 'none';
+  backgroundColor?: string;
+  textColor?: string;
+  padding?: string;
+  borderRadius?: string;
+  className?: string;
+  // Text overlay specific
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  // CTA overlay specific
+  primaryCta?: string;
+  primaryCtaHref?: string;
+  secondaryCta?: string;
+  secondaryCtaHref?: string;
+}
+
+const {
+  type = 'custom',
+  position = 'center',
+  toggleable = true,
+  initialVisible = true,
+  toggleButton = true,
+  togglePosition = 'top-right',
+  animation = 'fade',
+  backgroundColor = 'rgba(0, 0, 0, 0.7)',
+  textColor = 'white',
+  padding = '2rem',
+  borderRadius = '12px',
+  className = '',
+  title,
+  subtitle,
+  description,
+  primaryCta,
+  primaryCtaHref = '#',
+  secondaryCta,
+  secondaryCtaHref = '#'
+} = Astro.props;
+
+const overlayId = `video-overlay-${Math.random().toString(36).substr(2, 9)}`;
+const isVisible = initialVisible ? 'visible' : 'hidden';
+---
+
+<div 
+  class={`video-overlay-container ${position} ${animation} ${isVisible} ${className}`}
+  id={overlayId}
+  data-toggleable={toggleable}
+  style={`--bg-color: ${backgroundColor}; --text-color: ${textColor}; --padding: ${padding}; --border-radius: ${borderRadius};`}
+>
+  <!-- Toggle Button -->
+  {toggleButton && toggleable && (
+    <button 
+      class={`overlay-toggle ${togglePosition}`}
+      aria-label="Toggle overlay"
+      data-overlay-target={overlayId}
+    >
+      <svg class="toggle-icon show-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="currentColor" stroke-width="2"/>
+        <path d="M2.458 12C3.732 7.943 7.523 5 12 5C16.478 5 20.268 7.943 21.542 12C20.268 16.057 16.478 19 12 19C7.523 19 3.732 16.057 2.458 12Z" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <svg class="toggle-icon hide-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20C7.523 20 3.732 16.057 2.458 12A13.588 13.588 0 0 1 5.68 7.344" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4C16.478 4 20.268 7.943 21.542 12A13.591 13.591 0 0 1 18.192 16.657" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M14.12 14.12A3 3 0 1 1 9.88 9.88" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M1 1L23 23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  )}
+
+  <!-- Overlay Content -->
+  <div class="overlay-content">
+    {type === 'text' && (
+      <div class="text-overlay">
+        {title && <h1 class="overlay-title">{title}</h1>}
+        {subtitle && <h2 class="overlay-subtitle">{subtitle}</h2>}
+        {description && <p class="overlay-description">{description}</p>}
+      </div>
+    )}
+
+    {type === 'cta' && (
+      <div class="cta-overlay">
+        {title && <h2 class="overlay-title">{title}</h2>}
+        {description && <p class="overlay-description">{description}</p>}
+        <div class="cta-buttons">
+          {primaryCta && (
+            <a href={primaryCtaHref} class="cta-primary">{primaryCta}</a>
+          )}
+          {secondaryCta && (
+            <a href={secondaryCtaHref} class="cta-secondary">{secondaryCta}</a>
+          )}
+        </div>
+      </div>
+    )}
+
+    {type === 'custom' && (
+      <div class="custom-overlay">
+        <slot />
+      </div>
+    )}
+  </div>
+</div>
+
+<style>
+  .video-overlay-container {
+    position: absolute;
+    z-index: 10;
+    background: var(--bg-color);
+    color: var(--text-color);
+    padding: var(--padding);
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Position Classes */
+  .center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .top-left {
+    top: 2rem;
+    left: 2rem;
+  }
+
+  .top-right {
+    top: 2rem;
+    right: 2rem;
+  }
+
+  .bottom-left {
+    bottom: 2rem;
+    left: 2rem;
+  }
+
+  .bottom-right {
+    bottom: 2rem;
+    right: 2rem;
+  }
+
+  .top-center {
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .bottom-center {
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Animation Classes */
+  .fade.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .slide-up.hidden {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 20px));
+    pointer-events: none;
+  }
+
+  .slide-down.hidden {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% - 20px));
+    pointer-events: none;
+  }
+
+  .slide-left.hidden {
+    opacity: 0;
+    transform: translate(calc(-50% - 20px), -50%);
+    pointer-events: none;
+  }
+
+  .slide-right.hidden {
+    opacity: 0;
+    transform: translate(calc(-50% + 20px), -50%);
+    pointer-events: none;
+  }
+
+  .scale.hidden {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+    pointer-events: none;
+  }
+
+  /* Toggle Button */
+  .overlay-toggle {
+    position: absolute;
+    z-index: 11;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .overlay-toggle:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+  }
+
+  .overlay-toggle.top-right {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .overlay-toggle.top-left {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .overlay-toggle.bottom-right {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .overlay-toggle.bottom-left {
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  .toggle-icon {
+    transition: opacity 0.2s ease;
+  }
+
+  .hidden .show-icon {
+    opacity: 0;
+  }
+
+  .visible .hide-icon {
+    opacity: 0;
+  }
+
+  .hidden .hide-icon {
+    opacity: 1;
+  }
+
+  .visible .show-icon {
+    opacity: 1;
+  }
+
+  /* Content Styles */
+  .overlay-content {
+    text-align: center;
+  }
+
+  .overlay-title {
+    margin: 0 0 1rem 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .overlay-subtitle {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    opacity: 0.9;
+  }
+
+  .overlay-description {
+    margin: 0 0 2rem 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    max-width: 600px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .cta-primary {
+    background: #F76902;
+    color: white;
+  }
+
+  .cta-primary:hover {
+    background: #e55a00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(247, 105, 2, 0.3);
+  }
+
+  .cta-secondary {
+    background: transparent;
+    color: var(--text-color);
+    border-color: currentColor;
+  }
+
+  .cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .video-overlay-container {
+      padding: 1.5rem;
+      margin: 1rem;
+    }
+
+    .overlay-title {
+      font-size: 2rem;
+    }
+
+    .overlay-subtitle {
+      font-size: 1.25rem;
+    }
+
+    .top-left,
+    .top-right,
+    .bottom-left,
+    .bottom-right {
+      top: 1rem;
+      left: 1rem;
+      right: 1rem;
+      bottom: auto;
+    }
+
+    .bottom-left,
+    .bottom-right {
+      top: auto;
+      bottom: 1rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-primary,
+    .cta-secondary {
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+</style>
+
+<script>
+  // Type declarations
+  interface CustomOverlayElement extends Element {
+    overlayController?: VideoOverlayController;
+  }
+  
+  interface CustomOverlayWindow {
+    VideoOverlayAPI: any;
+  }
+
+  // Video Overlay Controller
+  class VideoOverlayController {
+    container: Element;
+    toggleButton: HTMLButtonElement | null;
+    isVisible: boolean;
+    isToggleable: boolean;
+    
+    constructor(container: Element) {
+      this.container = container;
+      this.toggleButton = container.querySelector('.overlay-toggle');
+      this.isVisible = container.classList.contains('visible');
+      this.isToggleable = (container as HTMLElement).dataset.toggleable === 'true';
+      
+      this.init();
+    }
+
+    init() {
+      if (this.toggleButton && this.isToggleable) {
+        this.toggleButton.addEventListener('click', () => this.toggle());
+      }
+
+      // Keyboard accessibility
+      if (this.isToggleable) {
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && this.isVisible) {
+            this.hide();
+          }
+        });
+      }
+    }
+
+    show() {
+      this.container.classList.remove('hidden');
+      this.container.classList.add('visible');
+      this.isVisible = true;
+      this.dispatchEvent('shown');
+    }
+
+    hide() {
+      this.container.classList.remove('visible');
+      this.container.classList.add('hidden');
+      this.isVisible = false;
+      this.dispatchEvent('hidden');
+    }
+
+    toggle() {
+      if (this.isVisible) {
+        this.hide();
+      } else {
+        this.show();
+      }
+      return this.isVisible;
+    }
+
+    dispatchEvent(eventName: string) {
+      this.container.dispatchEvent(new CustomEvent(`overlay-${eventName}`, {
+        detail: { controller: this },
+        bubbles: true
+      }));
+    }
+  }
+
+  // Initialize all video overlays
+  document.addEventListener('DOMContentLoaded', () => {
+    const overlays = document.querySelectorAll('.video-overlay-container');
+    
+    overlays.forEach(container => {
+      (container as CustomOverlayElement).overlayController = new VideoOverlayController(container);
+    });
+
+    // Global overlay API
+    (window as CustomOverlayWindow).VideoOverlayAPI = {
+      getController(selector: string) {
+        const element = document.querySelector(selector) as CustomOverlayElement;
+        return element?.overlayController;
+      },
+
+      hideAll() {
+        const controllers = Array.from(document.querySelectorAll('.video-overlay-container'))
+          .map(el => (el as CustomOverlayElement).overlayController)
+          .filter((controller): controller is VideoOverlayController => Boolean(controller));
+        
+        controllers.forEach((controller: VideoOverlayController) => controller.hide());
+      },
+
+      showAll() {
+        const controllers = Array.from(document.querySelectorAll('.video-overlay-container'))
+          .map(el => (el as CustomOverlayElement).overlayController)
+          .filter((controller): controller is VideoOverlayController => Boolean(controller));
+        
+        controllers.forEach((controller: VideoOverlayController) => controller.show());
+      }
+    };
+  });
+</script>

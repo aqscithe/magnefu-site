@@ -1,0 +1,423 @@
+---
+import VideoBackground from './VideoBackground.astro';
+import VideoOverlay from './VideoOverlay.astro';
+
+export interface Props {
+  // Video props
+  videoId: string;
+  videoAspectRatio?: '16:9' | '21:9' | '4:3' | 'full';
+  videoAutoplay?: boolean;
+  videoMuted?: boolean;
+  videoLoop?: boolean;
+  videoControls?: boolean;
+  videoStartTime?: number;
+  videoEndTime?: number;
+  videoOpacity?: number;
+  overlayColor?: string;
+  overlayOpacity?: number;
+  
+  // Hero section props
+  height?: string;
+  minHeight?: string;
+  className?: string;
+  
+  // Content overlay props
+  showOverlay?: boolean;
+  overlayType?: 'text' | 'cta' | 'custom';
+  overlayPosition?: 'center' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'top-center' | 'bottom-center';
+  overlayToggleable?: boolean;
+  overlayInitialVisible?: boolean;
+  overlayAnimation?: 'fade' | 'slide-up' | 'slide-down' | 'slide-left' | 'slide-right' | 'scale' | 'none';
+  overlayBackgroundColor?: string;
+  overlayTextColor?: string;
+  overlayPadding?: string;
+  
+  // Text content
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  
+  // CTA content
+  primaryCta?: string;
+  primaryCtaHref?: string;
+  secondaryCta?: string;
+  secondaryCtaHref?: string;
+  
+  // Theme
+  theme?: 'light' | 'dark' | 'auto';
+}
+
+const {
+  videoId,
+  videoAspectRatio = 'full',
+  videoAutoplay = true,
+  videoMuted = true,
+  videoLoop = true,
+  videoControls = false,
+  videoStartTime = 0,
+  videoEndTime,
+  videoOpacity = 1,
+  overlayColor = 'rgba(0, 0, 0, 0.4)',
+  overlayOpacity = 0.4,
+  
+  height = '100vh',
+  minHeight = '600px',
+  className = '',
+  
+  showOverlay = true,
+  overlayType = 'text',
+  overlayPosition = 'center',
+  overlayToggleable = true,
+  overlayInitialVisible = true,
+  overlayAnimation = 'fade',
+  overlayBackgroundColor = 'rgba(0, 0, 0, 0.7)',
+  overlayTextColor = 'white',
+  overlayPadding = '3rem',
+  
+  title,
+  subtitle,
+  description,
+  
+  primaryCta,
+  primaryCtaHref = '#',
+  secondaryCta,
+  secondaryCtaHref = '#',
+  
+  theme = 'dark'
+} = Astro.props;
+
+const heroId = `hero-video-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<section 
+  class={`hero-video-section ${theme} ${className}`}
+  id={heroId}
+  style={`height: ${height}; min-height: ${minHeight};`}
+>
+  <VideoBackground
+    videoId={videoId}
+    aspectRatio={videoAspectRatio}
+    autoplay={videoAutoplay}
+    muted={videoMuted}
+    loop={videoLoop}
+    controls={videoControls}
+    startTime={videoStartTime}
+    endTime={videoEndTime}
+    opacity={videoOpacity}
+    overlayColor={overlayColor}
+    overlayOpacity={overlayOpacity}
+    zIndex={1}
+    className="hero-video-bg"
+  >
+    {showOverlay && (
+      <VideoOverlay
+        type={overlayType}
+        position={overlayPosition}
+        toggleable={overlayToggleable}
+        initialVisible={overlayInitialVisible}
+        animation={overlayAnimation}
+        backgroundColor={overlayBackgroundColor}
+        textColor={overlayTextColor}
+        padding={overlayPadding}
+        title={title}
+        subtitle={subtitle}
+        description={description}
+        primaryCta={primaryCta}
+        primaryCtaHref={primaryCtaHref}
+        secondaryCta={secondaryCta}
+        secondaryCtaHref={secondaryCtaHref}
+        className="hero-overlay"
+      >
+        <slot />
+      </VideoOverlay>
+    )}
+    
+    <!-- Custom content slot outside overlay -->
+    <div class="hero-custom-content">
+      <slot name="custom-content" />
+    </div>
+  </VideoBackground>
+</section>
+
+<style>
+  .hero-video-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-video-section.light {
+    --hero-text-color: #2D3748;
+    --hero-accent-color: #F76902;
+  }
+
+  .hero-video-section.dark {
+    --hero-text-color: #FFFFFF;
+    --hero-accent-color: #F76902;
+  }
+
+  .hero-video-section.auto {
+    --hero-text-color: #FFFFFF;
+    --hero-accent-color: #F76902;
+  }
+
+  /* Full height video background */
+  .hero-video-section :global(.hero-video-bg) {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1 !important;
+  }
+
+  /* Ensure overlay is properly positioned */
+  .hero-video-section :global(.hero-overlay) {
+    z-index: 10;
+  }
+
+  /* Custom content positioning */
+  .hero-custom-content {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .hero-custom-content :global(*) {
+    pointer-events: auto;
+  }
+
+  /* Global hero text styling */
+  .hero-video-section :global(.overlay-title) {
+    color: var(--hero-text-color);
+  }
+
+  .hero-video-section :global(.overlay-subtitle) {
+    color: var(--hero-text-color);
+    opacity: 0.9;
+  }
+
+  .hero-video-section :global(.overlay-description) {
+    color: var(--hero-text-color);
+    opacity: 0.8;
+  }
+
+  .hero-video-section :global(.cta-primary) {
+    background: var(--hero-accent-color);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero-video-section {
+      min-height: 500px;
+    }
+    
+    .hero-video-section :global(.hero-overlay) {
+      padding: 2rem;
+      margin: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-video-section {
+      min-height: 400px;
+    }
+    
+    .hero-video-section :global(.overlay-title) {
+      font-size: 1.8rem;
+    }
+    
+    .hero-video-section :global(.overlay-subtitle) {
+      font-size: 1.1rem;
+    }
+  }
+
+  /* Accessibility improvements */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-video-section :global(.video-iframe) {
+      display: none;
+    }
+    
+    .hero-video-section {
+      background: linear-gradient(135deg, #1F4E79 0%, #2D5A87 100%);
+    }
+    
+    .hero-video-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(247, 105, 2, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(247, 105, 2, 0.1) 0%, transparent 40%),
+        linear-gradient(45deg, rgba(247, 105, 2, 0.05) 0%, transparent 50%);
+      z-index: 1;
+    }
+  }
+</style>
+
+<script>
+  // Type declarations
+  interface CustomHeroElement extends Element {
+    heroController?: HeroVideoSectionController;
+    videoController?: any;
+    overlayController?: any;
+  }
+  
+  interface CustomHeroWindow {
+    HeroVideoAPI: any;
+  }
+
+  // Hero Video Section Controller
+  class HeroVideoSectionController {
+    section: Element;
+    videoBackground: Element | null;
+    overlay: Element | null;
+    
+    constructor(section: Element) {
+      this.section = section;
+      this.videoBackground = section.querySelector('.hero-video-bg');
+      this.overlay = section.querySelector('.hero-overlay');
+      
+      this.init();
+    }
+
+    init() {
+      // Listen for video and overlay events
+      this.section.addEventListener('video-videoloaded', this.onVideoLoaded.bind(this));
+      this.section.addEventListener('overlay-shown', this.onOverlayShown.bind(this));
+      this.section.addEventListener('overlay-hidden', this.onOverlayHidden.bind(this));
+      
+      // Add scroll-based effects
+      this.setupScrollEffects();
+      
+      // Add intersection observer for performance
+      this.setupIntersectionObserver();
+    }
+
+    onVideoLoaded(event) {
+      this.section.classList.add('video-loaded');
+      console.log('Hero video loaded');
+    }
+
+    onOverlayShown(event) {
+      this.section.classList.add('overlay-visible');
+    }
+
+    onOverlayHidden(event) {
+      this.section.classList.remove('overlay-visible');
+    }
+
+    setupScrollEffects() {
+      let ticking = false;
+      
+      const updateParallax = () => {
+        const scrolled = window.pageYOffset;
+        const sectionTop = (this.section as HTMLElement).offsetTop;
+        const sectionHeight = (this.section as HTMLElement).offsetHeight;
+        const windowHeight = window.innerHeight;
+        
+        // Only apply effects when section is in view
+        if (scrolled < sectionTop + sectionHeight && scrolled + windowHeight > sectionTop) {
+          const progress = (scrolled - sectionTop + windowHeight) / (sectionHeight + windowHeight);
+          const clampedProgress = Math.max(0, Math.min(1, progress));
+          
+          // Subtle parallax effect on video
+          if (this.videoBackground) {
+            const translateY = (clampedProgress - 0.5) * 20;
+            (this.videoBackground as HTMLElement).style.transform = `translateY(${translateY}px)`;
+          }
+          
+          // Fade out overlay as user scrolls
+          if (this.overlay && clampedProgress > 0.8) {
+            const fadeProgress = (clampedProgress - 0.8) / 0.2;
+            (this.overlay as HTMLElement).style.opacity = (1 - fadeProgress).toString();
+          } else if (this.overlay) {
+            (this.overlay as HTMLElement).style.opacity = '1';
+          }
+        }
+        
+        ticking = false;
+      };
+
+      const requestTick = () => {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      };
+
+      window.addEventListener('scroll', requestTick, { passive: true });
+    }
+
+    setupIntersectionObserver() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.section.classList.add('in-view');
+          } else {
+            this.section.classList.remove('in-view');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      observer.observe(this.section);
+    }
+
+    // Public API methods
+    getVideoController() {
+      return (this.videoBackground as CustomHeroElement)?.videoController;
+    }
+
+    getOverlayController() {
+      return (this.overlay as CustomHeroElement)?.overlayController;
+    }
+
+    toggleOverlay() {
+      return (this.overlay as CustomHeroElement)?.overlayController?.toggle();
+    }
+
+    hideOverlay() {
+      (this.overlay as CustomHeroElement)?.overlayController?.hide();
+    }
+
+    showOverlay() {
+      (this.overlay as CustomHeroElement)?.overlayController?.show();
+    }
+  }
+
+  // Initialize hero video sections
+  document.addEventListener('DOMContentLoaded', () => {
+    const heroSections = document.querySelectorAll('.hero-video-section');
+    
+    heroSections.forEach(section => {
+      (section as CustomHeroElement).heroController = new HeroVideoSectionController(section);
+    });
+
+    // Global hero API
+    (window as CustomHeroWindow).HeroVideoAPI = {
+      getController(selector: string) {
+        const element = document.querySelector(selector) as CustomHeroElement;
+        return element?.heroController;
+      },
+
+      getAllControllers() {
+        return Array.from(document.querySelectorAll('.hero-video-section'))
+          .map(el => (el as CustomHeroElement).heroController)
+          .filter(Boolean);
+      }
+    };
+  });
+</script>
