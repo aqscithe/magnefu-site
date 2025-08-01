@@ -17,6 +17,143 @@ import '../styles/trimesh.css';
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- New Top Bar -->
+    <nav class="main-topbar">
+      <div class="topbar-left">
+        <button class="hamburger-btn" aria-label="Open services menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+      <div class="topbar-center"></div>
+      <div class="topbar-right">
+        <button class="dba-btn" aria-label="Show DBA entities" tabindex="0">
+          <img src="/drone-site/TriMesh_Logo_alpha.png" alt="Trimesh Logo" class="dba-main-logo" />
+          <span class="dba-arrow" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 8l5 5 5-5" stroke="#1F4E79" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </nav>
+    <!-- Side Drawer for Services -->
+    <aside class="services-drawer">
+      <div class="drawer-header">
+        <span>Services</span>
+        <button class="drawer-close" aria-label="Close services menu">&times;</button>
+      </div>
+      <div class="drawer-content">
+        <div class="drawer-service-group" tabindex="0">
+          <div class="drawer-service-row">
+            <span class="drawer-service-icon"> <!-- Construction Icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="11" width="18" height="7" rx="2" stroke="#1F4E79" stroke-width="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#F76902" stroke-width="2"/></svg>
+            </span>
+            <span class="drawer-service-title">Construction & Development</span>
+          </div>
+          <div class="drawer-service-actions">
+            <a href="#" class="drawer-action">Submit Inquiry</a>
+            <a href="#" class="drawer-action">Get Quote</a>
+          </div>
+        </div>
+        <div class="drawer-divider"></div>
+        <div class="drawer-service-group" tabindex="0">
+          <div class="drawer-service-row">
+            <span class="drawer-service-icon"> <!-- Inspection Icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="16" height="16" rx="4" stroke="#1F4E79" stroke-width="2"/><path d="M12 8v4l3 2" stroke="#F76902" stroke-width="2"/></svg>
+            </span>
+            <span class="drawer-service-title">Infrastructure Inspection</span>
+          </div>
+          <div class="drawer-service-actions">
+            <a href="#" class="drawer-action">Submit Inquiry</a>
+            <a href="#" class="drawer-action">Get Quote</a>
+          </div>
+        </div>
+        <div class="drawer-divider"></div>
+        <div class="drawer-service-group" tabindex="0">
+          <div class="drawer-service-row">
+            <span class="drawer-service-icon"> <!-- Surveying Icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="8" stroke="#1F4E79" stroke-width="2"/><path d="M12 8v4l2 2" stroke="#F76902" stroke-width="2"/></svg>
+            </span>
+            <span class="drawer-service-title">Land Surveying</span>
+          </div>
+          <div class="drawer-service-actions">
+            <a href="#" class="drawer-action">Submit Inquiry</a>
+            <a href="#" class="drawer-action">Get Quote</a>
+          </div>
+        </div>
+        <div class="drawer-divider"></div>
+        <div class="drawer-service-group" tabindex="0">
+          <div class="drawer-service-row">
+            <span class="drawer-service-icon"> <!-- Search & Rescue Icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="#1F4E79" stroke-width="2"/><path d="M12 6v6l4 2" stroke="#F76902" stroke-width="2"/></svg>
+            </span>
+            <span class="drawer-service-title">Search & Rescue</span>
+          </div>
+          <div class="drawer-service-actions">
+            <a href="#" class="drawer-action">Submit Inquiry</a>
+            <a href="#" class="drawer-action">Get Quote</a>
+          </div>
+        </div>
+        <div class="drawer-divider"></div>
+        <div class="drawer-service-group" tabindex="0">
+          <div class="drawer-service-row">
+            <span class="drawer-service-icon"> <!-- Specialized Icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="6" width="12" height="12" rx="3" stroke="#1F4E79" stroke-width="2"/><path d="M12 9v3l2 2" stroke="#F76902" stroke-width="2"/></svg>
+            </span>
+            <span class="drawer-service-title">Specialized Services</span>
+          </div>
+          <div class="drawer-service-actions">
+            <a href="#" class="drawer-action">Submit Inquiry</a>
+            <a href="#" class="drawer-action">Get Quote</a>
+          </div>
+        </div>
+        <div class="drawer-divider"></div>
+        <div class="drawer-service-group" tabindex="0">
+          <div class="drawer-service-row">
+            <span class="drawer-service-icon"> <!-- Data & Analytics Icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="11" width="18" height="7" rx="2" stroke="#1F4E79" stroke-width="2"/><circle cx="12" cy="8" r="3" stroke="#F76902" stroke-width="2"/></svg>
+            </span>
+            <span class="drawer-service-title">Data & Analytics</span>
+          </div>
+          <div class="drawer-service-actions">
+            <a href="#" class="drawer-action">Submit Inquiry</a>
+            <a href="#" class="drawer-action">Get Quote</a>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- DBA Dropdown/Grid -->
+    <div class="dba-dropdown" tabindex="-1">
+      <ul class="dba-entities-list">
+        <li>
+          <a href="#" class="dba-entity-listitem">
+            <img src="/drone-site/skyline_logo_alpha.png" alt="Austin Skyline Media" class="dba-entity-listlogo" />
+            <span class="dba-entity-listname">Austin Skyline Media</span>
+          </a>
+        </li>
+        <!-- Future DBA logos go here -->
+      </ul>
+    </div>
+    <!-- Video Modal (auto-load) -->
+    <div class="cinematic-modal" id="video-modal">
+      <div class="cinematic-backdrop"></div>
+      <div class="cinematic-container">
+        <button class="cinematic-close" aria-label="Close video">&times;</button>
+        <div class="cinematic-video-wrapper">
+          <iframe
+            id="youtube-player"
+            src="https://www.youtube.com/embed/DQzuqZDV2A8?autoplay=1&mute=1&rel=0&showinfo=0&modestbranding=1&controls=1"
+            title="Drone Cinematic Demo"
+            frameborder="0"
+            allowfullscreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/scripts/videoModal.ts"></script>
     <header class="trimesh-hero">
         <div class="hero-background">
             <div class="geometric-pattern"></div>
@@ -31,6 +168,12 @@ import '../styles/trimesh.css';
             <div class="cta-section">
                 <button class="cta-primary">GET QUOTE</button>
                 <button class="cta-secondary">VIEW SERVICES</button>
+                <button class="cta-showcase" id="showcase-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
+                    </svg>
+                    SHOWCASE
+                </button>
             </div>
         </div>
     </header>
@@ -578,6 +721,77 @@ import '../styles/trimesh.css';
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Hamburger/Drawer logic
+            const hamburgerBtn = document.querySelector('.hamburger-btn');
+            const drawer = document.querySelector('.services-drawer');
+            const drawerClose = document.querySelector('.drawer-close');
+            const drawerBackdrop = document.createElement('div');
+            drawerBackdrop.className = 'drawer-backdrop';
+            // Open drawer
+            if (hamburgerBtn && drawer) {
+              hamburgerBtn.addEventListener('click', function() {
+                drawer.classList.add('open');
+                document.body.appendChild(drawerBackdrop);
+              });
+            }
+            // Close drawer
+            if (drawerClose && drawer) {
+              drawerClose.addEventListener('click', function() {
+                drawer.classList.remove('open');
+                if (drawerBackdrop.parentNode) drawerBackdrop.parentNode.removeChild(drawerBackdrop);
+              });
+            }
+            drawerBackdrop.addEventListener('click', function() {
+              if (drawer) drawer.classList.remove('open');
+              if (drawerBackdrop.parentNode) drawerBackdrop.parentNode.removeChild(drawerBackdrop);
+            });
+            // DBA dropdown logic
+            const dbaBtn = document.querySelector('.dba-btn');
+            const dbaDropdown = document.querySelector('.dba-dropdown');
+            const dbaArrow = document.querySelector('.dba-arrow svg');
+            let dbaOpen = false;
+            if (dbaBtn && dbaDropdown) {
+              let closeTimeout: ReturnType<typeof setTimeout> | null = null;
+              // Open dropdown on hover/focus
+              const openDropdown = () => {
+                if (closeTimeout) { clearTimeout(closeTimeout); closeTimeout = null; }
+                dbaDropdown.classList.add('open');
+                dbaOpen = true;
+                if (dbaArrow) {
+                  const arrowEl = dbaArrow as SVGElement;
+                  arrowEl.style.transform = 'rotate(180deg)';
+                }
+              };
+              const closeDropdown = () => {
+                dbaDropdown.classList.remove('open');
+                dbaOpen = false;
+                if (dbaArrow) {
+                  const arrowEl = dbaArrow as SVGElement;
+                  arrowEl.style.transform = 'rotate(0deg)';
+                }
+              };
+              dbaBtn.addEventListener('mouseenter', openDropdown);
+              dbaBtn.addEventListener('focus', openDropdown);
+              dbaBtn.addEventListener('mouseleave', (e) => {
+                closeTimeout = setTimeout(() => {
+                  if (!dbaDropdown.matches(':hover')) closeDropdown();
+                }, 200);
+              });
+              dbaBtn.addEventListener('blur', () => {
+                closeTimeout = setTimeout(closeDropdown, 200);
+              });
+              dbaDropdown.addEventListener('mouseenter', () => {
+                if (closeTimeout) { clearTimeout(closeTimeout); closeTimeout = null; }
+                openDropdown();
+              });
+              dbaDropdown.addEventListener('mouseleave', () => {
+                closeTimeout = setTimeout(closeDropdown, 200);
+              });
+              dbaDropdown.addEventListener('blur', () => {
+                closeTimeout = setTimeout(closeDropdown, 200);
+              });
+            }
+
             // Mobile menu functionality
             const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
             const mobileNav = document.querySelector('.mobile-nav');
@@ -636,6 +850,32 @@ import '../styles/trimesh.css';
                     }
                 });
             }
+
+            // Service drawer hover/click logic
+            const serviceGroups = document.querySelectorAll('.drawer-service-group');
+            serviceGroups.forEach(group => {
+              group.addEventListener('mouseenter', function() {
+                this.classList.add('expanded');
+              });
+              group.addEventListener('mouseleave', function() {
+                this.classList.remove('expanded');
+              });
+              // For mobile/touch: toggle on click/focus
+              group.addEventListener('click', function(e) {
+                // Only expand if not already expanded
+                if (!this.classList.contains('expanded')) {
+                  serviceGroups.forEach(g => g.classList.remove('expanded'));
+                  this.classList.add('expanded');
+                  e.stopPropagation();
+                }
+              });
+              group.addEventListener('blur', function() {
+                this.classList.remove('expanded');
+              });
+            });
+            document.addEventListener('click', function(e) {
+              serviceGroups.forEach(g => g.classList.remove('expanded'));
+            });
         });
     </script>
 </body>
