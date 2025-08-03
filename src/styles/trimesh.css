@@ -1383,6 +1383,192 @@ body {
   flex-direction: column;
   gap: 2rem;
 }
+
+/* New Services Content Styling */
+.company-section {
+  margin-bottom: 2rem;
+}
+
+.company-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(31, 78, 121, 0.1);
+  border-radius: 12px;
+  border-left: 4px solid var(--technical-blue);
+}
+
+.company-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.company-info h3 {
+  font-family: var(--font-site-headers);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--technical-blue);
+  margin: 0 0 0.5rem 0;
+}
+
+.company-info p {
+  font-size: 0.9rem;
+  color: var(--industrial-steel);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+}
+
+.company-info em {
+  font-size: 0.85rem;
+  color: var(--safety-orange);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.fleet-section {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(247, 105, 2, 0.05);
+  border-radius: 8px;
+  border-left: 3px solid var(--safety-orange);
+}
+
+.fleet-section h4 {
+  font-family: var(--font-site-headers);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--safety-orange);
+  margin: 0 0 0.75rem 0;
+}
+
+.fleet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fleet-list li {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.fleet-list li strong {
+  color: var(--technical-blue);
+  font-weight: 600;
+}
+
+.fleet-list li.coming-soon {
+  color: var(--safety-orange);
+  font-style: italic;
+}
+
+.services-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.service-category {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid rgba(31, 78, 121, 0.1);
+}
+
+.service-category h4 {
+  font-family: var(--font-site-headers);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--technical-blue);
+  margin: 0 0 0.75rem 0;
+  border-bottom: 2px solid var(--safety-orange);
+  padding-bottom: 0.25rem;
+}
+
+.service-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-category li {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-primary);
+}
+
+.service-category li:last-child {
+  margin-bottom: 0;
+}
+
+.price {
+  font-weight: 600;
+  color: var(--safety-orange);
+  white-space: nowrap;
+  margin-left: 0.5rem;
+}
+
+.coming-soon {
+  color: var(--technical-blue);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.drawer-actions {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid rgba(31, 78, 121, 0.1);
+  display: flex;
+  gap: 1rem;
+}
+
+.main-cta-button, .secondary-cta-button {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  font-family: var(--font-site-headers);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.main-cta-button {
+  background: var(--safety-orange);
+  color: white;
+  border: 2px solid var(--safety-orange);
+}
+
+.main-cta-button:hover {
+  background: #e55a02;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(247, 105, 2, 0.3);
+}
+
+.secondary-cta-button {
+  background: transparent;
+  color: var(--technical-blue);
+  border: 2px solid var(--technical-blue);
+}
+
+.secondary-cta-button:hover {
+  background: var(--technical-blue);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(31, 78, 121, 0.3);
+}
 .drawer-service-group {
   display: flex;
   flex-direction: column;
@@ -1507,6 +1693,69 @@ body {
   .dba-main-logo { height: 36px; }
   .dba-entity-logo { height: 32px; }
   .services-drawer { width: 95vw; }
+  
+  /* Mobile styling for new services content */
+  .company-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+  
+  .company-logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .company-info h3 {
+    font-size: 1.1rem;
+  }
+  
+  .company-info p {
+    font-size: 0.8rem;
+  }
+  
+  .fleet-section {
+    padding: 0.75rem;
+  }
+  
+  .fleet-section h4 {
+    font-size: 1rem;
+  }
+  
+  .fleet-list li {
+    font-size: 0.8rem;
+  }
+  
+  .service-category {
+    padding: 0.75rem;
+  }
+  
+  .service-category h4 {
+    font-size: 0.9rem;
+  }
+  
+  .service-category li {
+    font-size: 0.75rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .price {
+    margin-left: 0;
+    font-size: 0.8rem;
+  }
+  
+  .drawer-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .main-cta-button, .secondary-cta-button {
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
 }
 
 /* Responsive Design */
@@ -2007,6 +2256,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .trimesh-video-hero .video-main-logo {
@@ -2015,15 +2265,42 @@ body {
   max-width: 95%;
   filter: drop-shadow(4px 4px 16px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
   transition: all 0.3s ease;
-  /* Additional contrast enhancement */
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  position: relative;
+}
+
+/* Simple glassmorphism background for logo */
+.trimesh-video-hero .brand-logo-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(220px, 26vw, 380px);
+  height: clamp(160px, 18vw, 280px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 20px;
-  padding: 1rem;
+  z-index: -1;
+  
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(255, 255, 255, 0.1),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .trimesh-video-hero .video-main-logo:hover {
   transform: scale(1.05);
   filter: drop-shadow(6px 6px 20px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 30px rgba(0, 0, 0, 0.6));
+}
+
+.trimesh-video-hero .brand-logo-container:hover::before {
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(255, 255, 255, 0.2),
+    inset 0 0 25px rgba(255, 255, 255, 0.15);
 }
 
 /* Fallback Brand Text (when logo fails to load) */
