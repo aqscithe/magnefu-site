@@ -1384,119 +1384,194 @@ body {
   gap: 2rem;
 }
 
-/* New Services Content Styling */
-.company-section {
-  margin-bottom: 2rem;
+/* New Organized Services Drawer Styling */
+
+/* Company Tabs */
+.company-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  background: rgba(31, 78, 121, 0.1);
+  padding: 0.25rem;
 }
 
-.company-header {
+.company-tab {
+  flex: 1;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-site-headers);
+  font-weight: 500;
+  color: var(--industrial-steel);
+}
+
+.company-tab.active {
+  background: white;
+  color: var(--technical-blue);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.company-tab:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--technical-blue);
+}
+
+.tab-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* Company Content */
+.company-content {
+  display: none;
+}
+
+.company-content.active {
+  display: block;
+}
+
+.company-intro {
   margin-bottom: 1.5rem;
   padding: 1rem;
-  background: rgba(31, 78, 121, 0.1);
-  border-radius: 12px;
-  border-left: 4px solid var(--technical-blue);
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  border-left: 4px solid var(--safety-orange);
 }
 
-.company-logo {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-
-.company-info h3 {
+.company-intro h3 {
   font-family: var(--font-site-headers);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--technical-blue);
   margin: 0 0 0.5rem 0;
 }
 
-.company-info p {
+.company-intro p {
   font-size: 0.9rem;
   color: var(--industrial-steel);
   margin: 0 0 0.5rem 0;
   line-height: 1.4;
 }
 
-.company-info em {
+.company-intro em {
   font-size: 0.85rem;
   color: var(--safety-orange);
   font-style: italic;
   font-weight: 500;
 }
 
-.fleet-section {
+/* Service Cards */
+.service-overview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
   margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: rgba(247, 105, 2, 0.05);
+}
+
+.service-card {
+  background: white;
   border-radius: 8px;
-  border-left: 3px solid var(--safety-orange);
-}
-
-.fleet-section h4 {
-  font-family: var(--font-site-headers);
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--safety-orange);
-  margin: 0 0 0.75rem 0;
-}
-
-.fleet-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.fleet-list li {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin-bottom: 0.5rem;
-  color: var(--text-primary);
-}
-
-.fleet-list li strong {
-  color: var(--technical-blue);
-  font-weight: 600;
-}
-
-.fleet-list li.coming-soon {
-  color: var(--safety-orange);
-  font-style: italic;
-}
-
-.services-grid {
-  display: grid;
-  gap: 1rem;
-}
-
-.service-category {
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 8px;
-  padding: 1rem;
   border: 1px solid rgba(31, 78, 121, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.service-category h4 {
+.service-card:hover {
+  border-color: var(--safety-orange);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.service-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.service-card-header:hover {
+  background: rgba(247, 105, 2, 0.05);
+}
+
+.service-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(31, 78, 121, 0.1);
+  border-radius: 8px;
+  color: var(--technical-blue);
+  flex-shrink: 0;
+}
+
+.service-info {
+  flex: 1;
+}
+
+.service-info h4 {
   font-family: var(--font-site-headers);
   font-size: 1rem;
   font-weight: 600;
   color: var(--technical-blue);
-  margin: 0 0 0.75rem 0;
-  border-bottom: 2px solid var(--safety-orange);
-  padding-bottom: 0.25rem;
+  margin: 0 0 0.25rem 0;
 }
 
-.service-category ul {
+.service-info p {
+  font-size: 0.85rem;
+  color: var(--industrial-steel);
+  margin: 0 0 0.25rem 0;
+  line-height: 1.3;
+}
+
+.price-range {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--safety-orange);
+  background: rgba(247, 105, 2, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.expand-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--industrial-steel);
+  transition: transform 0.3s ease;
+}
+
+.service-card.expanded .expand-icon {
+  transform: rotate(180deg);
+}
+
+.service-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: rgba(248, 249, 250, 0.8);
+}
+
+.service-card.expanded .service-details {
+  max-height: 300px;
+}
+
+.service-details ul {
   list-style: none;
-  padding: 0;
+  padding: 1rem;
   margin: 0;
 }
 
-.service-category li {
+.service-details li {
   font-size: 0.85rem;
   line-height: 1.4;
   margin-bottom: 0.5rem;
@@ -1506,11 +1581,11 @@ body {
   color: var(--text-primary);
 }
 
-.service-category li:last-child {
+.service-details li:last-child {
   margin-bottom: 0;
 }
 
-.price {
+.service-details span {
   font-weight: 600;
   color: var(--safety-orange);
   white-space: nowrap;
@@ -1518,13 +1593,37 @@ body {
 }
 
 .coming-soon {
-  color: var(--technical-blue);
+  color: var(--technical-blue) !important;
   font-style: italic;
   font-weight: 500;
 }
 
+/* Quick Info */
+.quick-info {
+  background: rgba(31, 78, 121, 0.05);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-item {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-item strong {
+  color: var(--technical-blue);
+}
+
+/* Actions */
 .drawer-actions {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   padding-top: 1.5rem;
   border-top: 2px solid rgba(31, 78, 121, 0.1);
   display: flex;
@@ -1694,57 +1793,77 @@ body {
   .dba-entity-logo { height: 32px; }
   .services-drawer { width: 95vw; }
   
-  /* Mobile styling for new services content */
-  .company-header {
+  /* Mobile styling for new services drawer */
+  .company-tabs {
     flex-direction: column;
-    text-align: center;
-    gap: 0.75rem;
+    gap: 0.25rem;
+  }
+  
+  .company-tab {
+    justify-content: center;
     padding: 0.75rem;
+    text-align: center;
   }
   
-  .company-logo {
-    width: 40px;
-    height: 40px;
+  .tab-logo {
+    width: 20px;
+    height: 20px;
   }
   
-  .company-info h3 {
+  .company-intro {
+    padding: 0.75rem;
+    text-align: center;
+  }
+  
+  .company-intro h3 {
     font-size: 1.1rem;
   }
   
-  .company-info p {
+  .company-intro p {
     font-size: 0.8rem;
   }
   
-  .fleet-section {
+  .service-card-header {
     padding: 0.75rem;
+    gap: 0.75rem;
   }
   
-  .fleet-section h4 {
-    font-size: 1rem;
+  .service-icon {
+    width: 32px;
+    height: 32px;
   }
   
-  .fleet-list li {
-    font-size: 0.8rem;
-  }
-  
-  .service-category {
-    padding: 0.75rem;
-  }
-  
-  .service-category h4 {
+  .service-info h4 {
     font-size: 0.9rem;
   }
   
-  .service-category li {
+  .service-info p {
+    font-size: 0.75rem;
+  }
+  
+  .price-range {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.4rem;
+  }
+  
+  .service-details li {
     font-size: 0.75rem;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
   }
   
-  .price {
+  .service-details span {
     margin-left: 0;
     font-size: 0.8rem;
+  }
+  
+  .quick-info {
+    padding: 0.75rem;
+  }
+  
+  .info-item {
+    font-size: 0.75rem;
   }
   
   .drawer-actions {
