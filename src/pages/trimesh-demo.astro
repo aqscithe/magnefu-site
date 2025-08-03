@@ -136,6 +136,32 @@ import VideoBackgroundSection from '../components/VideoBackgroundSection.astro';
     </div>
     <script type="module" src="/src/scripts/videoModal.ts"></script>
     
+    <!-- Global Floating Widgets -->
+    <div class="global-widgets">
+      <!-- Services Widget - Top Left -->
+      <button class="widget services-widget" aria-label="Open services menu">
+        <div class="widget-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 12L21 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M3 6L21 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M3 18L21 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="widget-label">Services</span>
+      </button>
+
+      <!-- DBA Widget - Top Right -->
+      <button class="widget dba-widget" aria-label="Show DBA entities" tabindex="0">
+        <div class="widget-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <span class="widget-label">DBA</span>
+      </button>
+    </div>
+    
     <!-- Enhanced Video Background Section with Integrated Navigation and Hero Content -->
     <VideoBackgroundSection
       videoId="DQzuqZDV2A8"
@@ -149,36 +175,20 @@ import VideoBackgroundSection from '../components/VideoBackgroundSection.astro';
       overlayOpacity={0.3}
       className="trimesh-video-hero"
     >
-      <!-- Floating Top Navigation -->
-      <nav class="video-topbar">
-        <div class="topbar-left">
-          <button class="hamburger-btn" aria-label="Open services menu">
-            <span class="hamburger-bar"></span>
-            <span class="hamburger-bar"></span>
-            <span class="hamburger-bar"></span>
-          </button>
-        </div>
-        <div class="topbar-center">
-          <img src="/drone-site/TriMesh_Logo_alpha.png" alt="Trimesh Logo" class="video-nav-logo" />
-        </div>
-        <div class="topbar-right">
-          <button class="dba-btn" aria-label="Show DBA entities" tabindex="0">
-            <span class="dba-text">Services</span>
-            <span class="dba-arrow" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-          </button>
-        </div>
-      </nav>
+
 
       <!-- Main Hero Content Integrated with Video -->
       <div class="video-hero-content">
-        <!-- Main Brand Section -->
+        <!-- Main Brand Section with Large Logo -->
         <div class="brand-section">
-          <h1 class="video-main-title">TRIMESH</h1>
-          <p class="video-subtitle">DRONE SOLUTIONS</p>
+          <div class="brand-logo-container">
+            <img src="/drone-site/TriMesh_Logo_alpha.png" alt="Trimesh Drone Solutions LLC" class="video-main-logo" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="brand-fallback" style="display: none;">
+              <h1 class="video-main-title">TRIMESH</h1>
+              <p class="video-subtitle">DRONE SOLUTIONS</p>
+            </div>
+          </div>
           <div class="tagline-container">
             <h2 class="video-tagline">Professional UAV Services</h2>
             <span class="accent-text">& Advanced Aerial Solutions</span>
@@ -950,6 +960,23 @@ import VideoBackgroundSection from '../components/VideoBackgroundSection.astro';
             document.addEventListener('click', function(e) {
               serviceGroups.forEach(g => g.classList.remove('expanded'));
             });
+
+            // Global Widgets Fade Behavior
+            const globalWidgets = document.querySelector('.global-widgets');
+            const trimeshNav = document.querySelector('.trimesh-nav') as HTMLElement;
+            
+            if (globalWidgets && trimeshNav) {
+                window.addEventListener('scroll', function() {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const navOffset = trimeshNav.offsetTop - 100; // Start fading 100px before nav
+                    
+                    if (scrollTop >= navOffset) {
+                        globalWidgets.classList.add('fading');
+                    } else {
+                        globalWidgets.classList.remove('fading');
+                    }
+                });
+            }
         });
     </script>
 </body>
