@@ -1,0 +1,234 @@
+---
+export interface Props {
+  videoId: string;
+  height?: string;
+  minHeight?: string;
+  aspectRatio?: '16:9' | '21:9' | '4:3' | 'full';
+  autoplay?: boolean;
+  muted?: boolean;
+  loop?: boolean;
+  controls?: boolean;
+  startTime?: number;
+  endTime?: number;
+  opacity?: number;
+  overlayColor?: string;
+  overlayOpacity?: number;
+  className?: string;
+}
+
+const {
+  videoId,
+  height = '100vh',
+  minHeight = '600px',
+  aspectRatio = 'full',
+  autoplay = true,
+  muted = true,
+  loop = true,
+  controls = false,
+  startTime = 0,
+  endTime,
+  opacity = 1,
+  overlayColor = 'rgba(0, 0, 0, 0.3)',
+  overlayOpacity = 0.3,
+  className = ''
+} = Astro.props;
+
+// Build YouTube URL with parameters
+const buildYouTubeUrl = () => {
+  const baseUrl = `https://www.youtube.com/embed/${videoId}`;
+  const params = new URLSearchParams({
+    autoplay: autoplay ? '1' : '0',
+    mute: muted ? '1' : '0',
+    loop: loop ? '1' : '0',
+    controls: controls ? '1' : '0',
+    showinfo: '0',
+    modestbranding: '1',
+    rel: '0',
+    iv_load_policy: '3',
+    fs: '0',
+    disablekb: '1',
+    playsinline: '1'
+  });
+  
+  if (startTime > 0) params.set('start', startTime.toString());
+  if (endTime) params.set('end', endTime.toString());
+  if (loop && videoId) params.set('playlist', videoId);
+  
+  return `${baseUrl}?${params.toString()}`;
+};
+
+const videoUrl = buildYouTubeUrl();
+const sectionId = `video-bg-section-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<section 
+  class={`video-background-section ${className}`}
+  id={sectionId}
+  style={`height: ${height}; min-height: ${minHeight}; --video-opacity: ${opacity}; --overlay-color: ${overlayColor}; --overlay-opacity: ${overlayOpacity};`}
+>
+  <div class="video-container">
+    <iframe
+      src={videoUrl}
+      title="Background Video"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      class="video-iframe"
+    ></iframe>
+  </div>
+  <div class="video-overlay"></div>
+  
+  <!-- Optional content slot for minimal text overlay -->
+  <div class="content-overlay">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .video-background-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .video-iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(100% + 200px); /* Oversized to hide controls */
+    height: calc(100% + 200px);
+    transform: translate(-50%, -50%);
+    opacity: var(--video-opacity, 1);
+    pointer-events: none;
+    border: none;
+  }
+
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-color, rgba(0, 0, 0, 0.3));
+    opacity: var(--overlay-opacity, 0.3);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .content-overlay {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: 2rem;
+  }
+
+  .content-overlay :global(*) {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  @media (max-width: 768px) {
+    .video-iframe {
+      width: calc(100% + 100px);
+      height: calc(100% + 100px);
+    }
+    
+    .content-overlay {
+      padding: 1rem;
+    }
+  }
+
+  /* Accessibility improvements */
+  @media (prefers-reduced-motion: reduce) {
+    .video-iframe {
+      display: none;
+    }
+    
+    .video-background-section {
+      background: linear-gradient(135deg, #1F4E79 0%, #2D5A87 100%);
+    }
+    
+    .video-background-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(247, 105, 2, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(247, 105, 2, 0.1) 0%, transparent 40%),
+        linear-gradient(45deg, rgba(247, 105, 2, 0.05) 0%, transparent 50%);
+      z-index: 1;
+    }
+  }
+</style>
+
+<script>
+  // Type declarations
+  interface CustomVideoElement extends Element {
+    videoBackgroundController?: VideoBackgroundSectionController;
+  }
+
+  // Simple video background controller
+  class VideoBackgroundSectionController {
+    section: Element;
+    iframe: HTMLIFrameElement | null;
+    isLoaded: boolean;
+    
+    constructor(section: Element) {
+      this.section = section;
+      this.iframe = section.querySelector('.video-iframe');
+      this.isLoaded = false;
+      this.init();
+    }
+
+    init() {
+      // Listen for iframe load
+      if (this.iframe) {
+        this.iframe.addEventListener('load', () => {
+          this.isLoaded = true;
+        });
+      }
+
+      // Add intersection observer for performance
+      this.setupIntersectionObserver();
+    }
+
+    setupIntersectionObserver() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.section.classList.add('in-view');
+          } else {
+            this.section.classList.remove('in-view');
+          }
+        });
+      });
+
+      observer.observe(this.section);
+    }
+  }
+
+  // Initialize video background sections
+  document.addEventListener('DOMContentLoaded', () => {
+    const videoSections = document.querySelectorAll('.video-background-section');
+    
+    videoSections.forEach(section => {
+      (section as CustomVideoElement).videoBackgroundController = new VideoBackgroundSectionController(section);
+    });
+  });
+</script>

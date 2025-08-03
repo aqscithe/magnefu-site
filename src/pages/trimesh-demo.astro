@@ -1,8 +1,7 @@
 ---
 // Trimesh-specific page - no shared theme needed
 import '../styles/trimesh.css';
-import HeroVideoSection from '../components/HeroVideoSection.astro';
-import VideoOverlay from '../components/VideoOverlay.astro';
+import VideoBackgroundSection from '../components/VideoBackgroundSection.astro';
 ---
 
 <!DOCTYPE html>
@@ -157,49 +156,54 @@ import VideoOverlay from '../components/VideoOverlay.astro';
     </div>
     <script type="module" src="/src/scripts/videoModal.ts"></script>
     
-    <!-- New Video Hero Section -->
-    <HeroVideoSection
+    <!-- Video Background Section -->
+    <VideoBackgroundSection
       videoId="DQzuqZDV2A8"
       height="100vh"
-      minHeight="700px"
-      showOverlay={true}
-      overlayType="custom"
-      overlayPosition="center"
-      overlayToggleable={true}
-      overlayInitialVisible={true}
-      overlayAnimation="fade"
-      overlayBackgroundColor="rgba(0, 0, 0, 0.6)"
-      overlayTextColor="white"
-      overlayPadding="3rem"
-      theme="dark"
-      videoAutoplay={true}
-      videoMuted={true}
-      videoLoop={true}
-      videoOpacity={1}
-      overlayColor="rgba(0, 0, 0, 0.3)"
-      overlayOpacity={0.3}
-      className="trimesh-hero-video"
+      minHeight="600px"
+      autoplay={true}
+      muted={true}
+      loop={true}
+      opacity={0.8}
+      overlayColor="rgba(0, 0, 0, 0.4)"
+      overlayOpacity={0.4}
+      className="trimesh-video-bg"
     >
-      <!-- Custom hero content -->
-      <div class="hero-content">
-          <img src="/drone-site/TriMesh_Logo_alpha.png" alt="Trimesh Drone Solutions LLC" class="trimesh-logo">
-          <h1 class="main-title">TRIMESH</h1>
-          <p class="subtitle">DRONE SOLUTIONS</p>
-          <h2 class="hero-tagline">Professional UAV Services & Advanced Aerial Solutions</h2>
-          <p class="hero-description">Precision, reliability, and innovation in every flight. From surveying to inspection, we deliver cutting-edge drone technology for your business needs.</p>
-          
-          <div class="cta-section">
-              <button class="cta-primary">GET QUOTE</button>
-              <button class="cta-secondary">VIEW SERVICES</button>
-              <button class="cta-showcase" id="showcase-btn">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
-                  </svg>
-                  SHOWCASE
-              </button>
-          </div>
+      <!-- Simple centered text for video section -->
+      <div style="text-align: center;">
+        <h1 style="font-size: 3rem; font-weight: 700; margin-bottom: 1rem; font-family: 'Oswald', sans-serif;">
+          EXPERIENCE FLIGHT
+        </h1>
+        <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">
+          Watch our drones in action delivering precision and innovation from above
+        </p>
       </div>
-    </HeroVideoSection>
+    </VideoBackgroundSection>
+
+    <!-- Original Hero Section -->
+    <header class="trimesh-hero">
+        <div class="hero-background">
+            <div class="geometric-pattern"></div>
+        </div>
+        <div class="hero-content">
+            <img src="/drone-site/TriMesh_Logo_alpha.png" alt="Trimesh Drone Solutions LLC" class="trimesh-logo">
+            <h1 class="main-title">TRIMESH</h1>
+            <p class="subtitle">DRONE SOLUTIONS</p>
+            <h2 class="hero-tagline">Professional UAV Services & Advanced Aerial Solutions</h2>
+            <p class="hero-description">Precision, reliability, and innovation in every flight. From surveying to inspection, we deliver cutting-edge drone technology for your business needs.</p>
+            
+            <div class="cta-section">
+                <button class="cta-primary">GET QUOTE</button>
+                <button class="cta-secondary">VIEW SERVICES</button>
+                <button class="cta-showcase" id="showcase-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
+                    </svg>
+                    SHOWCASE
+                </button>
+            </div>
+        </div>
+    </header>
 
     <nav class="trimesh-nav">
         <div class="nav-container">

@@ -182,7 +182,7 @@ const heroId = `hero-video-${Math.random().toString(36).substr(2, 9)}`;
   /* Custom content positioning */
   .hero-custom-content {
     position: relative;
-    z-index: 5;
+    z-index: 50;
     width: 100%;
     height: 100%;
     display: flex;
@@ -193,6 +193,18 @@ const heroId = `hero-video-${Math.random().toString(36).substr(2, 9)}`;
 
   .hero-custom-content :global(*) {
     pointer-events: auto;
+    position: relative;
+    z-index: 51;
+  }
+
+  .hero-custom-content :global(button),
+  .hero-custom-content :global(a),
+  .hero-custom-content :global(input),
+  .hero-custom-content :global([role="button"]) {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    z-index: 52 !important;
+    position: relative !important;
   }
 
   /* Global hero text styling */
