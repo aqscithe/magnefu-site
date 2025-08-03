@@ -1885,31 +1885,376 @@ body {
   }
 }
 
-/* Video Background Section Styling */
-.trimesh-video-bg {
+/* Enhanced Video Hero Section - Inspired by Premium Examples */
+.trimesh-video-hero {
   position: relative;
 }
 
-.trimesh-video-bg .content-overlay h1 {
+/* Floating Navigation Bar */
+.trimesh-video-hero .video-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.trimesh-video-hero .topbar-left,
+.trimesh-video-hero .topbar-center,
+.trimesh-video-hero .topbar-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.trimesh-video-hero .topbar-center {
+  justify-content: center;
+}
+
+.trimesh-video-hero .topbar-right {
+  justify-content: flex-end;
+}
+
+.trimesh-video-hero .video-nav-logo {
+  height: 40px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.trimesh-video-hero .hamburger-btn,
+.trimesh-video-hero .dba-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.trimesh-video-hero .hamburger-btn:hover,
+.trimesh-video-hero .dba-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.trimesh-video-hero .hamburger-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: white;
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 1px;
+}
+
+.trimesh-video-hero .dba-text {
+  font-family: var(--font-site-headers);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.trimesh-video-hero .dba-arrow svg {
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.trimesh-video-hero .dba-btn:hover .dba-arrow svg {
+  transform: rotate(180deg);
+}
+
+/* Main Hero Content */
+.trimesh-video-hero .video-hero-content {
+  position: relative;
+  z-index: 50;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem 2rem;
+  color: white;
+}
+
+/* Brand Section */
+.trimesh-video-hero .brand-section {
+  margin-bottom: 3rem;
+}
+
+.trimesh-video-hero .video-main-title {
   font-family: var(--font-main-header);
-  color: var(--drone-white);
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 700;
   letter-spacing: 0.1em;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.7);
+  line-height: 0.9;
 }
 
-.trimesh-video-bg .content-overlay p {
+.trimesh-video-hero .video-subtitle {
+  font-family: var(--font-main-header);
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  color: var(--safety-orange);
+  margin: 0 0 2rem 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.trimesh-video-hero .tagline-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.trimesh-video-hero .video-tagline {
+  font-family: var(--font-site-headers);
+  font-size: clamp(1.5rem, 3.5vw, 3rem);
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  line-height: 1.2;
+}
+
+.trimesh-video-hero .accent-text {
+  font-family: 'Georgia', serif;
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  font-style: italic;
+  opacity: 0.95;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  line-height: 1.3;
+}
+
+/* CTA Section */
+.trimesh-video-hero .video-cta-section {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.trimesh-video-hero .video-cta-primary,
+.trimesh-video-hero .video-cta-secondary,
+.trimesh-video-hero .video-cta-showcase {
+  font-family: var(--font-cta);
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.trimesh-video-hero .video-cta-primary {
+  background: var(--safety-orange);
+  color: white;
+  box-shadow: 0 6px 20px rgba(247, 105, 2, 0.4);
+}
+
+.trimesh-video-hero .video-cta-primary:hover {
+  background: #e55a02;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(247, 105, 2, 0.5);
+}
+
+.trimesh-video-hero .video-cta-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.trimesh-video-hero .video-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+.trimesh-video-hero .video-cta-showcase {
+  background: rgba(31, 78, 121, 0.9);
+  color: white;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.trimesh-video-hero .video-cta-showcase:hover {
+  background: var(--technical-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(31, 78, 121, 0.4);
+}
+
+.trimesh-video-hero .video-cta-showcase svg {
+  transition: transform 0.3s ease;
+}
+
+.trimesh-video-hero .video-cta-showcase:hover svg {
+  transform: scale(1.1);
+}
+
+/* Bottom Elegant Text - Inspired by Wheat Field Example */
+.trimesh-video-hero .video-bottom-text {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.trimesh-video-hero .elegant-tagline {
+  font-family: 'Georgia', serif;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  margin: 0;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+/* Capabilities Section - Complementary to Video Hero */
+.trimesh-capabilities {
+  min-height: 70vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--technical-blue) 0%, var(--industrial-steel) 100%);
+  color: var(--drone-white);
+  overflow: hidden;
+  padding: 4rem 0;
+}
+
+.trimesh-capabilities .hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+}
+
+.trimesh-capabilities .capabilities-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.trimesh-capabilities .capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.trimesh-capabilities .capability-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.trimesh-capabilities .capability-item:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.trimesh-capabilities .capability-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem auto;
+  background: var(--safety-orange);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.trimesh-capabilities .capability-item:hover .capability-icon {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(247, 105, 2, 0.4);
+}
+
+.trimesh-capabilities .capability-icon svg {
+  color: white;
+}
+
+.trimesh-capabilities .capability-item h3 {
+  font-family: var(--font-site-headers);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: var(--drone-white);
+}
+
+.trimesh-capabilities .capability-item p {
   font-family: var(--font-paragraph);
-  color: rgba(255, 255, 255, 0.95);
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  font-size: 1rem;
   line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
 }
 
-/* Add a subtle transition between video and hero sections */
-.trimesh-video-bg + .trimesh-hero {
+.trimesh-capabilities .capabilities-summary {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.trimesh-capabilities .capabilities-summary h2 {
+  font-family: var(--font-site-headers);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+  color: var(--drone-white);
+  line-height: 1.2;
+}
+
+.trimesh-capabilities .capabilities-summary p {
+  font-family: var(--font-paragraph);
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* Add a subtle transition between video hero and capabilities */
+.trimesh-video-hero + .trimesh-capabilities {
   position: relative;
 }
 
-.trimesh-video-bg + .trimesh-hero::before {
+.trimesh-video-hero + .trimesh-capabilities::before {
   content: '';
   position: absolute;
   top: -50px;
@@ -1921,32 +2266,217 @@ body {
   pointer-events: none;
 }
 
-/* Video Background Section Responsive Design */
+/* Capabilities Section Responsive Design */
+@media (max-width: 1024px) {
+  .trimesh-capabilities .capabilities-grid {
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .trimesh-capabilities .capability-item {
+    padding: 2rem 1.5rem;
+  }
+  
+  .trimesh-capabilities .capabilities-summary {
+    padding: 2rem 0;
+  }
+}
+
 @media (max-width: 768px) {
-  .trimesh-video-bg {
-    min-height: 70vh;
+  .trimesh-capabilities {
+    padding: 3rem 0;
+    min-height: auto;
   }
   
-  .trimesh-video-bg .content-overlay h1 {
-    font-size: 2.5rem;
-  }
-  
-  .trimesh-video-bg .content-overlay p {
-    font-size: 1rem;
+  .trimesh-capabilities .capabilities-content {
     padding: 0 1rem;
+  }
+  
+  .trimesh-capabilities .capabilities-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .trimesh-capabilities .capability-item {
+    padding: 2rem 1.5rem;
+  }
+  
+  .trimesh-capabilities .capability-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .trimesh-capabilities .capability-item h3 {
+    font-size: 1.3rem;
+  }
+  
+  .trimesh-capabilities .capabilities-summary {
+    padding: 2rem 0;
+  }
+  
+  .trimesh-capabilities .capabilities-summary p {
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .trimesh-video-bg {
-    min-height: 60vh;
+  .trimesh-capabilities {
+    padding: 2rem 0;
   }
   
-  .trimesh-video-bg .content-overlay h1 {
-    font-size: 2rem;
+  .trimesh-capabilities .capabilities-content {
+    padding: 0 0.75rem;
   }
   
-  .trimesh-video-bg .content-overlay p {
+  .trimesh-capabilities .capabilities-grid {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .trimesh-capabilities .capability-item {
+    padding: 1.5rem 1rem;
+  }
+  
+  .trimesh-capabilities .capability-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+  }
+  
+  .trimesh-capabilities .capability-item h3 {
+    font-size: 1.2rem;
+  }
+  
+  .trimesh-capabilities .capability-item p {
+    font-size: 0.95rem;
+  }
+  
+  .trimesh-capabilities .capabilities-summary {
+    padding: 1.5rem 0;
+  }
+  
+  .trimesh-capabilities .capabilities-summary p {
+    font-size: 1rem;
+  }
+}
+
+/* Enhanced Video Hero Responsive Design */
+@media (max-width: 1024px) {
+  .trimesh-video-hero .video-topbar {
+    padding: 1rem 1.5rem;
+  }
+  
+  .trimesh-video-hero .video-nav-logo {
+    height: 35px;
+  }
+  
+  .trimesh-video-hero .video-hero-content {
+    padding: 5rem 1.5rem 3rem 1.5rem;
+  }
+  
+  .trimesh-video-hero .brand-section {
+    margin-bottom: 2.5rem;
+  }
+  
+  .trimesh-video-hero .video-cta-section {
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .trimesh-video-hero .video-topbar {
+    padding: 1rem;
+  }
+  
+  .trimesh-video-hero .video-nav-logo {
+    height: 30px;
+  }
+  
+  .trimesh-video-hero .dba-text {
+    display: none; /* Hide text, show only icon on mobile */
+  }
+  
+  .trimesh-video-hero .video-hero-content {
+    padding: 4rem 1rem 3rem 1rem;
+  }
+  
+  .trimesh-video-hero .brand-section {
+    margin-bottom: 2rem;
+  }
+  
+  .trimesh-video-hero .tagline-container {
+    max-width: 90%;
+  }
+  
+  .trimesh-video-hero .video-cta-section {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .trimesh-video-hero .video-cta-primary,
+  .trimesh-video-hero .video-cta-secondary,
+  .trimesh-video-hero .video-cta-showcase {
+    width: 100%;
+    max-width: 280px;
+    padding: 1.2rem 2rem;
+  }
+  
+  .trimesh-video-hero .video-bottom-text {
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .trimesh-video-hero .video-topbar {
+    padding: 0.75rem;
+  }
+  
+  .trimesh-video-hero .hamburger-btn,
+  .trimesh-video-hero .dba-btn {
+    padding: 0.5rem;
+  }
+  
+  .trimesh-video-hero .video-hero-content {
+    padding: 3rem 0.75rem 2.5rem 0.75rem;
+  }
+  
+  .trimesh-video-hero .brand-section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .trimesh-video-hero .video-cta-section {
+    margin-bottom: 2rem;
+  }
+  
+  .trimesh-video-hero .video-cta-primary,
+  .trimesh-video-hero .video-cta-secondary,
+  .trimesh-video-hero .video-cta-showcase {
+    padding: 1rem 1.5rem;
     font-size: 0.9rem;
+  }
+}
+
+/* Accessibility and Performance */
+@media (prefers-reduced-motion: reduce) {
+  .trimesh-video-hero .hamburger-btn,
+  .trimesh-video-hero .dba-btn,
+  .trimesh-video-hero .video-cta-primary,
+  .trimesh-video-hero .video-cta-secondary,
+  .trimesh-video-hero .video-cta-showcase {
+    transition: none;
+  }
+  
+  .trimesh-video-hero .hamburger-btn:hover,
+  .trimesh-video-hero .dba-btn:hover,
+  .trimesh-video-hero .video-cta-primary:hover,
+  .trimesh-video-hero .video-cta-secondary:hover,
+  .trimesh-video-hero .video-cta-showcase:hover {
+    transform: none;
   }
 } 
