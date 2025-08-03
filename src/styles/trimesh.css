@@ -1355,6 +1355,7 @@ body {
   transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
   display: flex;
   flex-direction: column;
+  overflow: hidden; /* Prevent overall drawer scroll */
 }
 .services-drawer.open {
   transform: translateX(0);
@@ -1382,6 +1383,29 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Custom scrollbar for webkit browsers */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(31, 78, 121, 0.3) transparent;
+}
+
+.drawer-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.drawer-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.drawer-content::-webkit-scrollbar-thumb {
+  background: rgba(31, 78, 121, 0.3);
+  border-radius: 3px;
+}
+
+.drawer-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(31, 78, 121, 0.5);
 }
 
 /* New Organized Services Drawer Styling */
@@ -1561,8 +1585,9 @@ body {
   background: rgba(248, 249, 250, 0.8);
 }
 
+/* Ensure expanded cards don't break scrolling */
 .service-card.expanded .service-details {
-  max-height: 300px;
+  max-height: 400px; /* Increased for better content accommodation */
 }
 
 .service-details ul {
